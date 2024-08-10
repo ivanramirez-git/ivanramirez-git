@@ -9,7 +9,7 @@
 
 #### Educación 🎓
 
-🏫 Ingeniero de Sistemas, Pontificia Universidad Javeriana (Ene 2017 - Ago 2023)
+🏫 Ingeniero de Sistemas, Pontificia Universidad Javeriana (Ene 2017 - Dic 2022)
   - Cursos destacados: Sistemas operativos, Análisis de algoritmos, Desarrollo web y móvil, Estructuras de datos, Bases de datos, Computación en la nube.
 
 ### Proyectos 💼
