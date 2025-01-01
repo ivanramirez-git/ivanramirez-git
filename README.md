@@ -1,4 +1,3 @@
-```bash
 # Hola, soy Ivan Ramirez! 👨‍💻
 
 Soy un Desarrollador Full Stack Senior con una trayectoria demostrada en la entrega de soluciones escalables e innovadoras. Mi enfoque está en la excelencia técnica, liderando el desarrollo de proyectos robustos y adaptativos que generan impacto.
@@ -53,5 +52,6 @@ Aplicación de escritorio que permite a los estudiantes consultar y opinar sobre
 
 ---
 
+```bash
 > "El código es como un lienzo: cada línea es un trazo hacia una solución elegante y funcional."
 ```
