@@ -1,47 +1,57 @@
-## ¡Hola, soy Ivan Ramirez! 👋
+```bash
+# Hola, soy Ivan Ramirez! 👨‍💻
 
-🚀 Soy un desarrollador Full Stack apasionado por crear soluciones innovadoras y de alta calidad. Me encanta explorar tecnologías modernas y contribuir a proyectos significativos que generen impacto.
-
-### Habilidades y Tecnologías 💪
-
-🌐 **Lenguajes y Frameworks**: Java, C++, Python, C, SQL, Dart, Node.js, Angular, Vue.js, Next.js, Flutter  
-🛠️ **Herramientas**: Git, Docker, Firebase, AWS, Terraform, CapRover  
-💾 **Bases de datos**: MongoDB, MySQL, SQLite  
-🤖 **Inteligencia Artificial**: OpenAI, Anthropic, Amazon Bedrock  
-🔍 **Otros**: ElasticSearch, Swagger, MinIO, Ackee  
+Soy un Desarrollador Full Stack Senior con una trayectoria demostrada en la entrega de soluciones escalables e innovadoras. Mi enfoque está en la excelencia técnica, liderando el desarrollo de proyectos robustos y adaptativos que generan impacto.
 
 ---
 
-### Proyectos Destacados 💼
+## Habilidades y Tecnologías 💻
 
-#### **Micro - Campeonato Regional** 🏆  
-🔗 [Demo del proyecto](https://micro.freeloz.com)  
-Aplicación web para la gestión de torneos deportivos. Incluye una landing con torneos y un panel para administrar equipos, fases, y partidos hasta los penaltis, registrando estadísticas como goles y tarjetas.  
-- **Frontend**: Vue.js  
-- **Backend**: LoopBack 4  
-- **Infraestructura**: Terraform, CapRover, AWS (EC2, Route 53), MinIO  
-- **Analíticas**: [Ackee](https://analiticas.freeloz.com)  
-- **Documentación API**: [Swagger](https://api-micro.freeloz.com)  
+- **Lenguajes y Frameworks:** Java ☕, C++ 🛠️, Python 🐍, SQL, Dart 🎯, Node.js, Angular, Vue.js, Next.js, Flutter 💨
+- **Bases de datos:** MongoDB 🍃, MySQL, SQLite 📜
+- **Herramientas:** Docker 🐳, Git, Firebase, AWS ☁️, Terraform, CapRover 🚀
+- **Inteligencia Artificial:** OpenAI 🤖, Anthropic 🧠, Amazon Bedrock 🛠️
+- **Otros:** ElasticSearch 🔍, MinIO 🗂️, Swagger 📄, Ackee 📊
 
-#### **AucolApp** 🏢  
-Aplicación móvil y web desarrollada para gestionar servicios de alojamiento estudiantil.  
-- Tecnologías utilizadas: Flutter, Angular, MongoDB.  
+---
 
-#### **La Villa Agropecuaria** 🌳  
-Aplicación móvil en Flutter que permite a los clientes consultar y actualizar sus datos personales. Incluye un dashboard web para administradores.  
-- Tecnologías utilizadas: Flutter, MongoDB, AWS EC2.  
+## Proyectos 🎨
 
-#### **Tienda de Ropa Infantil en Línea** 👕  
-Sitio web diseñado e implementado para una empresa de venta de ropa infantil.  
-- Tecnologías utilizadas: HTML, CSS, JavaScript, MySQL.  
+### Micro - Campeonato Regional 🏆
+📍 [Demo del Proyecto](https://micro.freeloz.com)  
+Aplicación web para la gestión de torneos deportivos. Incluye una landing para torneos y un panel de administración que permite gestionar equipos, fases y partidos.  
+- **Frontend:** Vue.js 🌐
+- **Backend:** LoopBack 4 🔧
+- **Infraestructura:** Terraform 🛠️, CapRover 🚀, AWS (EC2, Route 53), MinIO
+- **API Documentada:** [Swagger](https://api-micro.freeloz.com)
+- **Analíticas:** [Ackee](https://analiticas.freeloz.com) 📊
 
-#### **ProfesCheck** 📕  
+### AucolApp 🏢
+Aplicación móvil y web para la gestión de servicios de alojamiento estudiantil.  
+- **Tecnologías:** Flutter 📱, Angular, MongoDB 🍃
+
+### La Villa Agropecuaria 🌳
+Aplicación móvil en Flutter que permite a los clientes consultar y actualizar sus datos personales. Incluye un dashboard para administradores.  
+- **Tecnologías:** Flutter 📱, MongoDB 🍃, AWS EC2 ☁️
+
+### Tienda de Ropa Infantil en Línea 👕
+Sitio web para una tienda de ropa infantil. Diseñado con un enfoque en la navegación intuitiva y tolerancia a fallos.  
+- **Tecnologías:** HTML, CSS 🎨, JavaScript, MySQL
+
+### ProfesCheck 📕
 Aplicación de escritorio que permite a los estudiantes consultar y opinar sobre servicios universitarios.  
-- Tecnologías utilizadas: Firebase.
+- **Tecnologías:** Firebase 🔥
 
 ---
 
-¡No dudes en contactarme para colaborar o saber más sobre mis proyectos!  
-🔗 [LinkedIn](https://www.linkedin.com/in/ivanramirez-in/)  
-🔗 [GitHub](https://github.com/ivanramirez-git)  
-📧 [ivanrene10@gmail.com](mailto:ivanrene10@gmail.com)
+# ¡Contáctame! 🌐
+
+**LinkedIn:** [ivanramirez-in](https://www.linkedin.com/in/ivanramirez-in/) 👔  
+**GitHub:** [ivanramirez-git](https://github.com/ivanramirez-git) 🐙  
+**Email:** [ivanrene10@gmail.com](mailto:ivanrene10@gmail.com) 📧  
+**WhatsApp:** [Escríbeme](https://wa.me/573122760392?text=Hola%20Ivan,%20he%20visto%20tu%20perfil%20y%20me%20gustar%C3%ADa%20hablar%20contigo%20sobre%20una%20oportunidad%20que%20podr%C3%ADa%20interesarte) 📱
+
+---
+
+> "El código es como un lienzo: cada línea es un trazo hacia una solución elegante y funcional."
+```
