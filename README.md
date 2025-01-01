@@ -1,38 +1,47 @@
 ## ¡Hola, soy Ivan Ramirez! 👋
 
-🚀 Soy un apasionado joven de la tecnología con experiencia en el desarrollo de software y un enfoque en soluciones creativas y de alta calidad. Me encanta trabajar en equipo y ver cómo los objetivos se hacen realidad. Conozco una variedad de lenguajes de programación y herramientas, y he trabajado en proyectos tanto individuales como en equipo.
+🚀 Soy un desarrollador Full Stack apasionado por crear soluciones innovadoras y de alta calidad. Me encanta explorar tecnologías modernas y contribuir a proyectos significativos que generen impacto.
 
-### Habilidades 💪
+### Habilidades y Tecnologías 💪
 
-🌐 Lenguajes: Java, C++, Python, C, SQL, Dart, Node.js, Go
-🛠️ Herramientas: Docker, Git, Flutter, Angular, MySQL, MongoDB, AWS, Scrum, DevOps, Flask
+🌐 **Lenguajes y Frameworks**: Java, C++, Python, C, SQL, Dart, Node.js, Angular, Vue.js, Next.js, Flutter  
+🛠️ **Herramientas**: Git, Docker, Firebase, AWS, Terraform, CapRover  
+💾 **Bases de datos**: MongoDB, MySQL, SQLite  
+🤖 **Inteligencia Artificial**: OpenAI, Anthropic, Amazon Bedrock  
+🔍 **Otros**: ElasticSearch, Swagger, MinIO, Ackee  
 
-#### Educación 🎓
+---
 
-🏫 Ingeniero de Sistemas, Pontificia Universidad Javeriana (Ene 2017 - Dic 2021)
-  - Cursos destacados: Sistemas operativos, Análisis de algoritmos, Desarrollo web y móvil, Estructuras de datos, Bases de datos, Computación en la nube.
+### Proyectos Destacados 💼
 
-### Proyectos 💼
+#### **Micro - Campeonato Regional** 🏆  
+🔗 [Demo del proyecto](https://micro.freeloz.com)  
+Aplicación web para la gestión de torneos deportivos. Incluye una landing con torneos y un panel para administrar equipos, fases, y partidos hasta los penaltis, registrando estadísticas como goles y tarjetas.  
+- **Frontend**: Vue.js  
+- **Backend**: LoopBack 4  
+- **Infraestructura**: Terraform, CapRover, AWS (EC2, Route 53), MinIO  
+- **Analíticas**: [Ackee](https://analiticas.freeloz.com)  
+- **Documentación API**: [Swagger](https://api-micro.freeloz.com)  
 
-#### Tours 🏖️
-Aplicación web para la gestión de tours, en la cual se pueden crear tours, consultar los tours y conectarse a servicios externos para la reserva de tours. Utilizamos arquitectura horizontal, DDD y TDD.
+#### **AucolApp** 🏢  
+Aplicación móvil y web desarrollada para gestionar servicios de alojamiento estudiantil.  
+- Tecnologías utilizadas: Flutter, Angular, MongoDB.  
 
-#### Oportunidades de trabajo 💼
-Aplicación de consola distribuida, en la cual se pueden buscar trabajos y los empleadores pueden registrar sus ofertas. Utilizamos Python y ZMQ, además de un DHT.
+#### **La Villa Agropecuaria** 🌳  
+Aplicación móvil en Flutter que permite a los clientes consultar y actualizar sus datos personales. Incluye un dashboard web para administradores.  
+- Tecnologías utilizadas: Flutter, MongoDB, AWS EC2.  
 
-#### Conferencias 🎙️
-Aplicación móvil para Android que permite a los usuarios registrarse y crear eventos, grabar el audio y transcribirlo a un archivo PDF en formato de artículo. También hace uso de la ubicación del usuario para mostrar el mapa de la ubicación del evento. Utilizamos las APIs de Google Cloud, Maps, Speech-to-Text y Firebase.
+#### **Tienda de Ropa Infantil en Línea** 👕  
+Sitio web diseñado e implementado para una empresa de venta de ropa infantil.  
+- Tecnologías utilizadas: HTML, CSS, JavaScript, MySQL.  
 
-#### ProfesCheck 📕
-Aplicación de escritorio en la cual los estudiantes pueden acceder a información y dar opiniones sobre los servicios ofrecidos por la universidad. Permite encontrar opiniones sobre grupos estudiantiles, materias de diferentes carreras y conocer la metodología utilizada por los profesores. Utilizamos la API de Google Cloud Firebase y seguimos la metodología Scrum.
+#### **ProfesCheck** 📕  
+Aplicación de escritorio que permite a los estudiantes consultar y opinar sobre servicios universitarios.  
+- Tecnologías utilizadas: Firebase.
 
-#### Tienda de Ropa Infantil en Línea 👕
-Diseñé e implementé un sitio web para una empresa de venta de ropa infantil. El sitio web permite a los clientes navegar y realizar pedidos de diversas prendas en diferentes tallas. Utilizamos HTML, CSS, JavaScript y MySQL. El sitio se encuentra alojado en la nube utilizando IaaS (EC2) e incluye varios mecanismos de seguridad y tolerancia a fallos.
+---
 
-#### La Villa Agropecuaria 🌳
-Desarrollé una aplicación móvil en Flutter llamada "La Villa Agropecuaria" para una empresa local. La aplicación permite a los clientes de la empresa consultar y actualizar sus datos personales, así como contactar al equipo de soporte o ventas directamente desde la aplicación. Además, desarrollé un dashboard web para que los administradores de la empresa puedan gestionar los datos de sus clientes. Utilizamos MongoDB como base de datos y el servidor se implementó en una instancia EC2. La aplicación está disponible en Android a través de Google Play Store y próximamente estará disponible en iOS.
-
-#### AucolApp 🏢
-Desarrollé una aplicación móvil y web llamada "AucolApp" desde cero para la organización Aucol, que ofrece servicios de alojamiento a estudiantes universitarios. El proyecto duró un año, abarcando desde la planificación hasta la entrega final. Como líder de un equipo de 4 personas, fui responsable de guiar y proponer soluciones arquitectónicas acertadas durante todas las etapas del proyecto.
-
-¡No dudes en contactarme a través de [LinkedIn](https://www.linkedin.com/in/ivanramirez-in/) o Github para saber más sobre mi trabajo y proyectos! 🚀
+¡No dudes en contactarme para colaborar o saber más sobre mis proyectos!  
+🔗 [LinkedIn](https://www.linkedin.com/in/ivanramirez-in/)  
+🔗 [GitHub](https://github.com/ivanramirez-git)  
+📧 [ivanrene10@gmail.com](mailto:ivanrene10@gmail.com)
