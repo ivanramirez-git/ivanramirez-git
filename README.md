@@ -7,9 +7,9 @@ Soy un Desarrollador Full Stack Senior con una trayectoria demostrada en la entr
 ## Habilidades y Tecnologías 💻
 
 - **Lenguajes y Frameworks:** Java ☕, C++ 🛠️, Python 🐍, SQL, Dart 🎯, Node.js, Angular, Vue.js, Next.js, Flutter 💨
-- **Bases de datos:** MongoDB 🍃, MySQL, SQLite 📜
-- **Herramientas:** Docker 🐳, Git, Firebase, AWS ☁️, Terraform, CapRover 🚀
-- **Inteligencia Artificial:** OpenAI 🤖, Anthropic 🧠, Amazon Bedrock 🛠️
+- **Bases de datos:** MongoDB 🍃, MySQL, SQLite 📜, PostgreSQL 🐘
+- **Herramientas:** Docker 🐳, Git, Firebase, AWS ☁️, Terraform, CapRover 🚀, Supabase
+- **Inteligencia Artificial:** OpenAI 🤖, Anthropic 🧠, Amazon Bedrock 🛠️, DeepSeek 🐋
 - **Otros:** ElasticSearch 🔍, MinIO 🗂️, Swagger 📄, Ackee 📊
 
 ---
