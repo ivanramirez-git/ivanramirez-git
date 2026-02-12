@@ -532,8 +532,8 @@ const Layout = ({ lang, setLang, t, children }) => (
     <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-[#020617]/80 backdrop-blur-md px-6 py-4" aria-label="Primary">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="text-xl font-bold tracking-tighter flex items-center gap-2">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <span className="text-white text-sm">IR</span>
+          <div className="w-8 h-8 rounded-lg overflow-hidden border border-blue-500/40">
+            <img src="/favicon.svg" alt="IR logo" className="w-full h-full" />
           </div>
           <span className="hidden sm:inline">ivanrene.com</span>
         </Link>

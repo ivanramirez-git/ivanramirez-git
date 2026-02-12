@@ -1,5 +1,5 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="IR logo">
-  <rect width="512" height="512" rx="96" fill="#0f172a" />
-  <rect x="64" y="64" width="384" height="384" rx="72" fill="#111827" stroke="#1d4ed8" stroke-width="8" />
-  <text x="50%" y="56%" text-anchor="middle" font-size="200" font-family="Space Grotesk, ui-sans-serif, system-ui" font-weight="700" fill="#e2e8f0" letter-spacing="-10">IR</text>
+  <rect width="512" height="512" rx="96" fill="#020617" />
+  <rect x="64" y="64" width="384" height="384" rx="72" fill="#0f172a" stroke="#1d4ed8" stroke-width="8" />
+  <text x="50%" y="56%" text-anchor="middle" font-size="200" font-family="Space Grotesk, ui-sans-serif, system-ui" font-weight="700" fill="#ffffff" letter-spacing="-10">IR</text>
 </svg>
