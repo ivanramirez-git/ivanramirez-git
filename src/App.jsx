@@ -113,35 +113,35 @@ const content = {
         {
           name: "Micro Freeloz",
           desc: "Tournament platform with full stack delivery and scalable infrastructure.",
-          image: "/images/projects/micro-freeloz-home.png",
+          image: "/images/projects/micro-freeloz-home.webp",
           alt: "Micro Freeloz home page screenshot",
           link: "https://micro.freeloz.com"
         },
         {
           name: "Micro Freeloz Tournament",
           desc: "Live tournament analytics and standings experience.",
-          image: "/images/projects/micro-freeloz-tournament.png",
+          image: "/images/projects/micro-freeloz-tournament.webp",
           alt: "Micro Freeloz tournament page screenshot",
           link: "https://micro.freeloz.com/torneo/68f68c3a33878c42aafe471d"
         },
         {
           name: "Focus Timer",
           desc: "Minimal productivity timer with strong UX and performance.",
-          image: "/images/projects/timer-freeloz.png",
+          image: "/images/projects/timer-freeloz.webp",
           alt: "Timer Freeloz app screenshot",
           link: "https://timer.freeloz.com"
         },
         {
           name: "El Impostor",
           desc: "Realtime party game interface for sessions and joins.",
-          image: "/images/projects/impostor-freeloz.png",
+          image: "/images/projects/impostor-freeloz.webp",
           alt: "Impostor Freeloz app screenshot",
           link: "https://impostor.freeloz.com"
         },
         {
           name: "Freeloz",
           desc: "Corporate client site delivering software services and growth.",
-          image: "/images/projects/freeloz-home.png",
+          image: "/images/projects/freeloz-home.webp",
           alt: "Freeloz corporate site screenshot",
           link: "https://freeloz.com"
         }
@@ -244,35 +244,35 @@ const content = {
         {
           name: "Micro Freeloz",
           desc: "Plataforma de torneos con full stack e infraestructura escalable.",
-          image: "/images/projects/micro-freeloz-home.png",
+          image: "/images/projects/micro-freeloz-home.webp",
           alt: "Captura del home de Micro Freeloz",
           link: "https://micro.freeloz.com"
         },
         {
           name: "Micro Freeloz Torneo",
           desc: "Experiencia de tablas y estadisticas en vivo.",
-          image: "/images/projects/micro-freeloz-tournament.png",
+          image: "/images/projects/micro-freeloz-tournament.webp",
           alt: "Captura de torneo Micro Freeloz",
           link: "https://micro.freeloz.com/torneo/68f68c3a33878c42aafe471d"
         },
         {
           name: "Focus Timer",
           desc: "Timer de productividad con UI limpia y performance.",
-          image: "/images/projects/timer-freeloz.png",
+          image: "/images/projects/timer-freeloz.webp",
           alt: "Captura de Timer Freeloz",
           link: "https://timer.freeloz.com"
         },
         {
           name: "El Impostor",
           desc: "Juego realtime para crear y unirse a sesiones.",
-          image: "/images/projects/impostor-freeloz.png",
+          image: "/images/projects/impostor-freeloz.webp",
           alt: "Captura de Impostor Freeloz",
           link: "https://impostor.freeloz.com"
         },
         {
           name: "Freeloz",
           desc: "Sitio corporativo de cliente con servicios y crecimiento.",
-          image: "/images/projects/freeloz-home.png",
+          image: "/images/projects/freeloz-home.webp",
           alt: "Captura de sitio Freeloz",
           link: "https://freeloz.com"
         }
@@ -494,10 +494,16 @@ const HomePage = ({ t }) => (
 
             <div className="lg:w-1/2 bg-slate-800/50 p-4 w-full h-full min-h-[300px] flex items-center justify-center border-l border-white/5">
               <div className="relative w-full aspect-video rounded-xl bg-slate-950 overflow-hidden border border-white/10 shadow-2xl">
-                 <div className="absolute inset-0 bg-blue-600/10" />
-                 <div className="flex items-center justify-center h-full">
-                    <span className="text-slate-500 font-mono text-sm tracking-tighter uppercase opacity-50">{t.ui.previewLabel}</span>
-                 </div>
+                <img
+                  src="/images/projects/micro-freeloz-home.webp"
+                  alt="Micro Freeloz preview screenshot"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-blue-600/10" />
+                <div className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-slate-900/70 border border-white/10 text-slate-300 text-xs font-mono tracking-widest uppercase">
+                  {t.ui.previewLabel}
+                </div>
               </div>
             </div>
           </div>
@@ -569,7 +575,7 @@ const ServicesPage = ({ t }) => (
       </span>
       <h1 className="mt-6 text-4xl md:text-6xl font-bold tracking-tighter">{t.services.title}</h1>
       <p className="mt-4 text-slate-400 max-w-3xl mx-auto">{t.services.subtitle}</p>
-      <img className="content-image" src="/images/hero-services.png" alt="Professional services overview" loading="lazy" />
+          <img className="content-image" src="/images/hero-services.png" alt="Professional services overview" loading="lazy" style={{ maxHeight: '360px', objectFit: 'cover' }} />
     </section>
 
     <section className="section split">
@@ -609,7 +615,7 @@ const ResourcesPage = ({ t }) => (
       </span>
       <h1 className="mt-6 text-4xl md:text-6xl font-bold tracking-tighter">{t.resources.title}</h1>
       <p className="mt-4 text-slate-400 max-w-3xl mx-auto">{t.resources.subtitle}</p>
-      <img className="content-image" src="/images/hero-resources.png" alt="Resources library visual" loading="lazy" />
+      <img className="content-image" src="/images/hero-resources.png" alt="Resources library visual" loading="lazy" style={{ maxHeight: '360px', objectFit: 'cover' }} />
     </section>
 
     <section className="section grid">
@@ -635,7 +641,7 @@ const HirePage = ({ t }) => (
       </span>
       <h1 className="mt-6 text-4xl md:text-6xl font-bold tracking-tighter">{t.hire.title}</h1>
       <p className="mt-4 text-slate-400 max-w-3xl mx-auto">{t.hire.subtitle}</p>
-      <img className="content-image" src="/images/hero-hire.png" alt="Leadership and hiring visual" loading="lazy" />
+      <img className="content-image" src="/images/hero-hire.png" alt="Leadership and hiring visual" loading="lazy" style={{ maxHeight: '360px', objectFit: 'cover' }} />
     </section>
 
     <section className="section split">
@@ -675,13 +681,13 @@ const CaseStudiesPage = ({ t }) => (
       </span>
       <h1 className="mt-6 text-4xl md:text-6xl font-bold tracking-tighter">{t.caseStudies.title}</h1>
       <p className="mt-4 text-slate-400 max-w-3xl mx-auto">{t.caseStudies.subtitle}</p>
-      <img className="content-image" src="/images/hero-cases.png" alt="Case studies overview visual" loading="lazy" />
+      <img className="content-image" src="/images/hero-cases.png" alt="Case studies overview visual" loading="lazy" style={{ maxHeight: '360px', objectFit: 'cover' }} />
     </section>
 
     <section className="section grid">
       {t.caseStudies.items.map((item) => (
         <article key={item.name} className="card">
-          <img className="content-image" src={item.image} alt={item.alt} loading="lazy" />
+          <img className="content-image" src={item.image} alt={item.alt} loading="lazy" style={{ maxHeight: '280px', objectFit: 'cover' }} />
           <h3 className="text-lg font-bold mt-4">{item.name}</h3>
           <p className="text-slate-400 text-sm mt-2">{item.desc}</p>
           <a href={item.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-400 mt-3">
