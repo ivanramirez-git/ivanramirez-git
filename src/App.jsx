@@ -120,6 +120,7 @@ const App = () => {
 
   useEffect(() => {
     localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
   }, [lang]);
 
   return (
