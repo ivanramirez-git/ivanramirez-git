@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Ivan Rene Ramirez Castro | Resources</title>
+    <link>https://ivanrene.com/</link>
+    <description>Resources on cloud, Node.js, DevOps, AI, and engineering leadership.</description>
+    <language>en</language>
+    <lastBuildDate>Thu, 12 Feb 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Resources Library</title>
+      <link>https://ivanrene.com/resources</link>
+      <description>Collection of guides on cloud architecture, enterprise Node.js, DevOps, AI, and leadership.</description>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
+      <guid>https://ivanrene.com/resources</guid>
+    </item>
+    <item>
+      <title>Cloud Architecture Playbook</title>
+      <link>https://ivanrene.com/cloud-architecture</link>
+      <description>Design cloud platforms that scale, stay secure, and control cost.</description>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
+      <guid>https://ivanrene.com/cloud-architecture</guid>
+    </item>
+    <item>
+      <title>Enterprise Node.js</title>
+      <link>https://ivanrene.com/node-enterprise</link>
+      <description>High throughput Node.js systems with reliability and observability.</description>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
+      <guid>https://ivanrene.com/node-enterprise</guid>
+    </item>
+    <item>
+      <title>DevOps Automation</title>
+      <link>https://ivanrene.com/devops-automation</link>
+      <description>Automate delivery pipelines, infrastructure, and incident response.</description>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
+      <guid>https://ivanrene.com/devops-automation</guid>
+    </item>
+    <item>
+      <title>AI Integrations</title>
+      <link>https://ivanrene.com/ai-integrations</link>
+      <description>Production ready AI integrations with governance and cost control.</description>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
+      <guid>https://ivanrene.com/ai-integrations</guid>
+    </item>
+  </channel>
+</rss>

@@ -338,6 +338,13 @@ const App = () => {
             <span className="text-blue-300">Tailwind</span>
             <span className="text-blue-300">Framer Motion</span>
           </div>
+          <a
+            href="/rss.xml"
+            className="text-xs text-slate-400 hover:text-slate-200 transition-colors"
+            aria-label="RSS feed"
+          >
+            RSS
+          </a>
         </footer>
 
       </main>
