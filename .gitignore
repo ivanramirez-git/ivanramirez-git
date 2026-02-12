@@ -15,3 +15,14 @@ pnpm-debug.log*
 *.log
 
 coverage/
+
+.unlighthouse/
+.agent/
+.agents/
+.claude/
+.commandcode/
+.cursor/
+.kiro/
+.trae/
+.windsurf/
+skills/

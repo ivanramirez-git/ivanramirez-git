@@ -96,7 +96,7 @@ const App = () => {
       </div>
 
       {/* --- NAVIGATION --- */}
-      <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-[#020617]/80 backdrop-blur-md px-6 py-4">
+      <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-[#020617]/80 backdrop-blur-md px-6 py-4" aria-label="Primary">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="text-xl font-bold tracking-tighter flex items-center gap-2">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -112,6 +112,7 @@ const App = () => {
             <button
               onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
               className="flex items-center gap-1 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 hover:border-slate-600 transition-all text-blue-400"
+              aria-label="Toggle language"
             >
               <Languages size={14} />
               {lang.toUpperCase()}
@@ -138,6 +139,10 @@ const App = () => {
               <img
                 src="https://avatars.githubusercontent.com/u/6560951?v=4"
                 alt="Ivan Ramirez"
+                width="128"
+                height="128"
+                loading="eager"
+                fetchpriority="high"
                 className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-slate-900 shadow-2xl ring-2 ring-blue-500/20"
               />
             </div>
