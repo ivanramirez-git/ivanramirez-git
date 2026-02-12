@@ -45,6 +45,20 @@ const content = {
       name: "Micro Campeonato Regional",
       desc: "A full ecosystem showing architectural mastery: Vue 3, LoopBack API, Terraform AWS Infra, and Dockerized deployment.",
       tech: ["Vue 3", "Terraform", "AWS", "MongoDB", "MinIO"]
+    },
+    ui: {
+      techTitle: "Technology Stack",
+      techSections: [
+        { title: "Frontend & Mobile", items: ["Angular", "Vue 3", "NextJS", "Flutter (Bloc/GetX)"] },
+        { title: "Backend & Systems", items: ["NestJS", ".NET Core", "NodeJS", "LoopBack"] },
+        { title: "DevOps & Cloud", items: ["Terraform", "Docker", "AWS", "Azure", "CI/CD Pipelines"] }
+      ],
+      projectLabel: "WEB APPLICATION",
+      liveDemo: "Live Demo",
+      previewLabel: "Preview: Micro Freeloz",
+      contactTitle: "Let's build something truly scalable.",
+      contactCta: "Contact Me",
+      footerLine: "Engineered for performance."
     }
   },
   es: {
@@ -76,6 +90,20 @@ const content = {
       name: "Micro Campeonato Regional",
       desc: "Un ecosistema completo que demuestra maestría arquitectónica: Vue 3, LoopBack API, Terraform AWS Infra y despliegue con Docker.",
       tech: ["Vue 3", "Terraform", "AWS", "MongoDB", "MinIO"]
+    },
+    ui: {
+      techTitle: "Tecnologías",
+      techSections: [
+        { title: "Frontend y Mobile", items: ["Angular", "Vue 3", "NextJS", "Flutter (Bloc/GetX)"] },
+        { title: "Backend y Sistemas", items: ["NestJS", ".NET Core", "NodeJS", "LoopBack"] },
+        { title: "DevOps y Cloud", items: ["Terraform", "Docker", "AWS", "Azure", "CI/CD Pipelines"] }
+      ],
+      projectLabel: "APLICACION WEB",
+      liveDemo: "Demo en vivo",
+      previewLabel: "Vista previa: Micro Freeloz",
+      contactTitle: "Construyamos algo realmente escalable.",
+      contactCta: "Contactame",
+      footerLine: "Ingenieria orientada al rendimiento."
     }
   }
 };
@@ -145,7 +173,7 @@ const App = () => {
             <div className="mt-8 flex justify-center">
               <img
                 src="https://avatars.githubusercontent.com/u/6560951?v=4&s=256"
-                alt="Ivan Ramirez"
+                alt="Ivan Rene Ramirez Castro"
                 width="128"
                 height="128"
                 loading="eager"
@@ -214,19 +242,15 @@ const App = () => {
         {/* --- TECH GRID --- */}
         <section className="bg-slate-950/50 py-32 border-y border-white/5">
           <div className="max-w-7xl mx-auto px-6 text-center">
-            <h2 className="text-sm font-mono text-blue-500 uppercase tracking-widest mb-16">Technology Stack</h2>
+            <h2 className="text-sm font-mono text-blue-500 uppercase tracking-widest mb-16">{t.ui.techTitle}</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                { title: "Frontend & Mobile", items: ["Angular", "Vue 3", "NextJS", "Flutter (Bloc/GetX)"], icon: <Smartphone size={24}/> },
-                { title: "Backend & Systems", items: ["NestJS", ".NET Core", "NodeJS", "LoopBack"], icon: <Server size={24}/> },
-                { title: "DevOps & Cloud", items: ["Terraform", "Docker", "AWS", "Azure", "CI/CD Pipelines"], icon: <Cloud size={24}/> }
-              ].map((category, idx) => (
+              {[<Smartphone size={24} />, <Server size={24} />, <Cloud size={24} />].map((icon, idx) => (
                 <div key={idx} className="p-8 rounded-2xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 transition-all text-left">
-                  <div className="text-blue-500 mb-4">{category.icon}</div>
-                  <h3 className="text-lg font-bold mb-4">{category.title}</h3>
+                  <div className="text-blue-500 mb-4">{icon}</div>
+                  <h3 className="text-lg font-bold mb-4">{t.ui.techSections[idx].title}</h3>
                   <ul className="space-y-2">
-                    {category.items.map(item => (
+                    {t.ui.techSections[idx].items.map(item => (
                       <li key={item} className="text-slate-400 text-sm flex items-center gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-500/50" /> {item}
                       </li>
@@ -265,7 +289,7 @@ const App = () => {
           <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-3xl overflow-hidden flex flex-col lg:flex-row items-center transition-transform hover:-translate-y-1">
             <div className="lg:w-1/2 p-8 lg:p-16">
               <div className="flex items-center gap-2 text-blue-500 mb-4 font-mono text-xs">
-                <Globe size={14} /> WEB APPLICATION
+                <Globe size={14} /> {t.ui.projectLabel}
               </div>
               <h3 className="text-3xl font-bold mb-6">{t.projects.name}</h3>
               <p className="text-slate-400 text-lg mb-8 leading-relaxed">
@@ -286,7 +310,7 @@ const App = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-white font-medium hover:text-blue-400 transition-colors group"
               >
-                Live Demo <ExternalLink size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                {t.ui.liveDemo} <ExternalLink size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
             </div>
 
@@ -294,7 +318,7 @@ const App = () => {
               <div className="relative w-full aspect-video rounded-xl bg-slate-950 overflow-hidden border border-white/10 shadow-2xl">
                  <div className="absolute inset-0 bg-blue-600/10" />
                  <div className="flex items-center justify-center h-full">
-                    <span className="text-slate-500 font-mono text-sm tracking-tighter uppercase opacity-50">Preview: Micro Freeloz</span>
+                    <span className="text-slate-500 font-mono text-sm tracking-tighter uppercase opacity-50">{t.ui.previewLabel}</span>
                  </div>
               </div>
             </div>
@@ -307,12 +331,12 @@ const App = () => {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff10_0%,transparent_70%)]" />
 
             <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-8 relative z-10">
-              Let's build something <br className="hidden md:block" /> truly scalable.
+              {t.ui.contactTitle}
             </h2>
 
             <div className="flex flex-wrap justify-center gap-6 relative z-10">
               <a href="mailto:ivanrene10@gmail.com" className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-slate-100 transition-colors shadow-xl">
-                <Mail size={20} /> Contact Me
+                <Mail size={20} /> {t.ui.contactCta}
               </a>
               <div className="flex items-center gap-4">
                 <a
@@ -341,7 +365,7 @@ const App = () => {
         {/* --- FOOTER --- */}
         <footer className="max-w-7xl mx-auto px-6 py-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-slate-400 text-sm">
-            © {new Date().getFullYear()} Ivan Rene Ramirez Castro. Engineered for performance.
+            © {new Date().getFullYear()} Ivan Rene Ramirez Castro. {t.ui.footerLine}
           </div>
           <div className="flex gap-8 text-slate-400 text-sm font-mono uppercase tracking-widest">
             <span className="text-blue-300">Next.js</span>
