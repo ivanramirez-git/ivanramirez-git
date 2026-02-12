@@ -2,7 +2,7 @@ export default {
   async fetch(request, env) {
     const response = await env.ASSETS.fetch(request);
 
-    if (response.status !== 404) {
+    if (response.status !== 404 && (response.status < 300 || response.status >= 400)) {
       return response;
     }
 
