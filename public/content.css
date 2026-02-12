@@ -1,6 +1,6 @@
 :root {
   color-scheme: dark;
-  font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
   background-color: #0f172a;
   color: #e2e8f0;
 }
@@ -11,7 +11,32 @@
 
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #0b1224 0%, #0f172a 40%, #020617 100%);
+  background: #020617;
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, rgba(128, 128, 128, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+}
+
+.page-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 0%, rgba(37, 99, 235, 0.12), transparent 55%),
+    radial-gradient(circle at 90% 100%, rgba(99, 102, 241, 0.12), transparent 50%);
 }
 
 a {
