@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Ivan Rene Ramirez Castro | Resources</title>
+    <title>Ivan Rene Ramirez Castro | Engineering and Outsourcing</title>
     <link>https://ivanrene.com/</link>
-    <description>Resources on cloud, Node.js, DevOps, AI, and engineering leadership.</description>
+    <description>Senior engineering, managed outsourcing, cloud architecture, DevOps, and AI integration services.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Feb 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Feb 2026 15:00:00 GMT</lastBuildDate>
     <item>
-      <title>Resources</title>
-      <link>https://ivanrene.com/resources</link>
-      <description>Practical guidance on architecture, delivery, and leadership.</description>
-      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
-      <guid>https://ivanrene.com/resources</guid>
+      <title>Managed Outsourcing Model</title>
+      <link>https://ivanrene.com/#outsourcing</link>
+      <description>Managed outsourcing through Colombia legal entity contracts or international contractor model.</description>
+      <pubDate>Thu, 12 Feb 2026 15:00:00 GMT</pubDate>
+      <guid>https://ivanrene.com/#outsourcing</guid>
     </item>
     <item>
-      <title>Services</title>
-      <link>https://ivanrene.com/services</link>
-      <description>Cloud, DevOps, Node.js, and CTO advisory services.</description>
-      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
-      <guid>https://ivanrene.com/services</guid>
+      <title>Core Services and Infrastructure Depth</title>
+      <link>https://ivanrene.com/#services</link>
+      <description>AWS, Azure, Cloudflare, Firebase, Supabase, Docker, Terraform, CapRover, Linux, CI/CD, and AI workflows.</description>
+      <pubDate>Thu, 12 Feb 2026 15:00:00 GMT</pubDate>
+      <guid>https://ivanrene.com/#services</guid>
     </item>
     <item>
-      <title>Case Studies</title>
-      <link>https://ivanrene.com/case-studies</link>
-      <description>Architecture outcomes and delivery impact.</description>
-      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
-      <guid>https://ivanrene.com/case-studies</guid>
+      <title>Proof of Execution and Client Work</title>
+      <link>https://ivanrene.com/#proof</link>
+      <description>Selected projects and measurable impact for production delivery.</description>
+      <pubDate>Thu, 12 Feb 2026 15:00:00 GMT</pubDate>
+      <guid>https://ivanrene.com/#proof</guid>
     </item>
     <item>
-      <title>Hire Ivan</title>
-      <link>https://ivanrene.com/hire-ivan</link>
-      <description>Available for full time roles, fractional CTO, or consulting.</description>
-      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
-      <guid>https://ivanrene.com/hire-ivan</guid>
+      <title>Book a Technical Call</title>
+      <link>https://ivanrene.com/#contact</link>
+      <description>Hire Ivan directly or request a managed outsourcing proposal.</description>
+      <pubDate>Thu, 12 Feb 2026 15:00:00 GMT</pubDate>
+      <guid>https://ivanrene.com/#contact</guid>
     </item>
   </channel>
 </rss>
