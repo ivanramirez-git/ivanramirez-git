@@ -20,7 +20,7 @@ const content = {
     nav: { about: "About", tech: "Stack", exp: "Experience", projects: "Projects", contact: "Contact", services: "Services", resources: "Resources", hire: "Hire Ivan" },
     hero: {
       badge: "AVAILABLE FOR ARCHITECTURE & DEV",
-      title: "Ivan Ramírez",
+      title: "Ivan Rene Ramirez Castro",
       subtitle: "Full Stack Engineer | DevOps | AI Integrations",
       description: "Building resilient software ecosystems. I design, build, and deploy complete architectures across cloud providers.",
       cta_primary: "View Projects",
@@ -51,7 +51,7 @@ const content = {
     nav: { about: "Sobre mí", tech: "Tecnologías", exp: "Experiencia", projects: "Proyectos", contact: "Contacto", services: "Servicios", resources: "Recursos", hire: "Contratar" },
     hero: {
       badge: "DISPONIBLE PARA ARQUITECTURA Y DESARROLLO",
-      title: "Ivan Ramírez",
+      title: "Ivan Rene Ramirez Castro",
       subtitle: "Ingeniero Full Stack | DevOps | Integración de IA",
       description: "Construyendo ecosistemas de software resilientes. Diseño, construyo y despliego arquitecturas completas en múltiples nubes.",
       cta_primary: "Ver Proyectos",
