@@ -7,39 +7,32 @@
     <language>en</language>
     <lastBuildDate>Thu, 12 Feb 2026 00:00:00 GMT</lastBuildDate>
     <item>
-      <title>Resources Library</title>
+      <title>Resources</title>
       <link>https://ivanrene.com/resources</link>
-      <description>Collection of guides on cloud architecture, enterprise Node.js, DevOps, AI, and leadership.</description>
+      <description>Practical guidance on architecture, delivery, and leadership.</description>
       <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
       <guid>https://ivanrene.com/resources</guid>
     </item>
     <item>
-      <title>Cloud Architecture Playbook</title>
-      <link>https://ivanrene.com/cloud-architecture</link>
-      <description>Design cloud platforms that scale, stay secure, and control cost.</description>
+      <title>Services</title>
+      <link>https://ivanrene.com/services</link>
+      <description>Cloud, DevOps, Node.js, and CTO advisory services.</description>
       <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
-      <guid>https://ivanrene.com/cloud-architecture</guid>
+      <guid>https://ivanrene.com/services</guid>
     </item>
     <item>
-      <title>Enterprise Node.js</title>
-      <link>https://ivanrene.com/node-enterprise</link>
-      <description>High throughput Node.js systems with reliability and observability.</description>
+      <title>Case Studies</title>
+      <link>https://ivanrene.com/case-studies</link>
+      <description>Architecture outcomes and delivery impact.</description>
       <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
-      <guid>https://ivanrene.com/node-enterprise</guid>
+      <guid>https://ivanrene.com/case-studies</guid>
     </item>
     <item>
-      <title>DevOps Automation</title>
-      <link>https://ivanrene.com/devops-automation</link>
-      <description>Automate delivery pipelines, infrastructure, and incident response.</description>
+      <title>Hire Ivan</title>
+      <link>https://ivanrene.com/hire-ivan</link>
+      <description>Available for full time roles, fractional CTO, or consulting.</description>
       <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
-      <guid>https://ivanrene.com/devops-automation</guid>
-    </item>
-    <item>
-      <title>AI Integrations</title>
-      <link>https://ivanrene.com/ai-integrations</link>
-      <description>Production ready AI integrations with governance and cost control.</description>
-      <pubDate>Thu, 12 Feb 2026 00:00:00 GMT</pubDate>
-      <guid>https://ivanrene.com/ai-integrations</guid>
+      <guid>https://ivanrene.com/hire-ivan</guid>
     </item>
   </channel>
 </rss>
