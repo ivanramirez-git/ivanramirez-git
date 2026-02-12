@@ -9,10 +9,92 @@
     <link rel="stylesheet" href="/content.css" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Services | Ivan Rene Ramirez Castro" />
-    <meta property="og:description" content="Cloud, Node.js, DevOps, AI, and CTO advisory services. Available for full time, fractional CTO, and consulting." />
+    <meta property="og:description" content="Cloud, Node.js, DevOps, AI, and CTO advisory services." />
     <meta property="og:url" content="https://ivanrene.com/services" />
     <meta property="og:image" content="https://ivanrene.com/og-image.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      window.I18N = {
+        en: {
+          navHome: 'Home',
+          navServices: 'Services',
+          navResources: 'Resources',
+          navCase: 'Case Studies',
+          navHire: 'Hire Ivan',
+          badge: 'Services',
+          title: 'Engineering services that scale with your business.',
+          subtitle: 'Available for full time roles, fractional CTO, and consulting engagements.',
+          ctaPrimary: 'Book a discovery call',
+          ctaSecondary: 'See hiring options',
+          sectionValueTitle: 'How I deliver value',
+          sectionValueBody: 'I focus on measurable outcomes: faster delivery, lower cloud costs, improved reliability, and clear technical direction.',
+          sectionValueList1: 'Architecture blueprints with risk analysis and scale plans.',
+          sectionValueList2: 'Production-ready delivery with CI/CD and observability.',
+          sectionValueList3: 'Documentation and handover so your team owns the system.',
+          sectionEngagementTitle: 'Engagement options',
+          sectionEngagementList1: 'Full time engineer or tech lead roles.',
+          sectionEngagementList2: 'Fractional CTO (strategy, hiring, execution).',
+          sectionEngagementList3: 'Project delivery with milestones and reporting.',
+          sectionCapabilitiesTitle: 'Core capabilities',
+          cap1Title: 'Cloud Architecture',
+          cap1Body: 'Design secure, scalable cloud platforms across AWS and Azure.',
+          cap2Title: 'Enterprise Node.js',
+          cap2Body: 'High throughput APIs and microservices with observability.',
+          cap3Title: 'DevOps Automation',
+          cap3Body: 'CI/CD, infrastructure as code, and reliability workflows.',
+          cap4Title: 'AI Integrations',
+          cap4Body: 'Production AI with governance, safety, and cost controls.',
+          cap5Title: 'CTO Advisory',
+          cap5Body: 'Roadmaps, architecture decisions, and leadership support.',
+          cap6Title: 'Customer Success',
+          cap6Body: 'Support models, SLA design, and incident response.',
+          availabilityTitle: 'Availability',
+          availabilityBody: 'Open to remote roles, consulting, or fractional leadership. Response within 24 hours.',
+          contactEmailLabel: 'Email',
+          contactLinkedInLabel: 'LinkedIn',
+          footer: 'Ivan Rene Ramirez Castro. Full Stack Engineer | DevOps | AI Integrations.'
+        },
+        es: {
+          navHome: 'Inicio',
+          navServices: 'Servicios',
+          navResources: 'Recursos',
+          navCase: 'Casos',
+          navHire: 'Contratar',
+          badge: 'Servicios',
+          title: 'Servicios de ingenieria que escalan con tu negocio.',
+          subtitle: 'Disponible para roles full time, CTO fraccional y consultoria.',
+          ctaPrimary: 'Agendar llamada',
+          ctaSecondary: 'Opciones de contratacion',
+          sectionValueTitle: 'Como entrego valor',
+          sectionValueBody: 'Me enfoco en resultados medibles: entrega mas rapida, menor costo cloud, mayor confiabilidad y direccion tecnica clara.',
+          sectionValueList1: 'Planos de arquitectura con analisis de riesgo y escalabilidad.',
+          sectionValueList2: 'Implementacion productiva con CI/CD y observabilidad.',
+          sectionValueList3: 'Documentacion y handover para que tu equipo sea dueño.',
+          sectionEngagementTitle: 'Modalidades de trabajo',
+          sectionEngagementList1: 'Roles full time como engineer o tech lead.',
+          sectionEngagementList2: 'CTO fraccional (estrategia, hiring, ejecucion).',
+          sectionEngagementList3: 'Proyectos con hitos y reporting.',
+          sectionCapabilitiesTitle: 'Capacidades centrales',
+          cap1Title: 'Arquitectura Cloud',
+          cap1Body: 'Plataformas seguras y escalables en AWS y Azure.',
+          cap2Title: 'Node.js Empresarial',
+          cap2Body: 'APIs de alto trafico y microservicios observables.',
+          cap3Title: 'DevOps Automation',
+          cap3Body: 'CI/CD, infraestructura como codigo y confiabilidad.',
+          cap4Title: 'Integraciones de IA',
+          cap4Body: 'IA en produccion con gobierno y control de costos.',
+          cap5Title: 'CTO Advisory',
+          cap5Body: 'Roadmaps, decisiones de arquitectura y liderazgo.',
+          cap6Title: 'Customer Success',
+          cap6Body: 'Modelos de soporte, SLAs y respuesta a incidentes.',
+          availabilityTitle: 'Disponibilidad',
+          availabilityBody: 'Abierto a roles remotos, consultoria o liderazgo fraccional. Respuesta en 24 horas.',
+          contactEmailLabel: 'Email',
+          contactLinkedInLabel: 'LinkedIn',
+          footer: 'Ivan Rene Ramirez Castro. Full Stack Engineer | DevOps | AI Integrations.'
+        }
+      };
+    </script>
+    <script src="/i18n.js" defer></script>
   </head>
   <body>
     <header class="nav">
@@ -22,127 +104,90 @@
           <span>ivanrene.com</span>
         </div>
         <nav class="nav-links">
-          <a href="/">Home</a>
-          <a href="/services">Services</a>
-          <a href="/resources">Resources</a>
-          <a href="/case-studies">Case Studies</a>
-          <a href="/hire-ivan">Hire Ivan</a>
+          <a href="/" data-i18n="navHome">Home</a>
+          <a href="/services" data-i18n="navServices">Services</a>
+          <a href="/resources" data-i18n="navResources">Resources</a>
+          <a href="/case-studies" data-i18n="navCase">Case Studies</a>
+          <a href="/hire-ivan" data-i18n="navHire">Hire Ivan</a>
+          <button class="lang-toggle" data-lang-toggle type="button">ES</button>
         </nav>
       </div>
     </header>
 
     <main class="container">
       <section class="hero">
-        <span class="pill">Services & Availability</span>
-        <h1>Engineering services that scale with your business.</h1>
-        <p>I help teams design, build, and operate resilient software systems. I am available for full time roles, fractional CTO engagements, and high impact consulting projects.</p>
-        <div class="meta">
-          <span>Cloud Architecture</span>
-          <span>Node.js at Scale</span>
-          <span>DevOps Automation</span>
-          <span>AI Integrations</span>
-          <span>CTO Advisory</span>
-        </div>
+        <span class="pill" data-i18n="badge">Services</span>
+        <h1 data-i18n="title">Engineering services that scale with your business.</h1>
+        <p data-i18n="subtitle">Available for full time roles, fractional CTO, and consulting engagements.</p>
         <div class="spacer"></div>
-        <a class="cta" href="mailto:ivanrene10@gmail.com">Book a discovery call</a>
-        <a class="cta secondary" href="/customer-success">Customer success model</a>
+        <a class="cta" href="mailto:ivanrene10@gmail.com" data-i18n="ctaPrimary">Book a discovery call</a>
+        <a class="cta secondary" href="/hire-ivan" data-i18n="ctaSecondary">See hiring options</a>
       </section>
 
       <section class="section split">
         <div>
-          <h2>How I deliver value</h2>
-          <p class="tagline">I focus on measurable outcomes: faster delivery, lower cloud costs, improved reliability, and clear technical direction.</p>
+          <h2 data-i18n="sectionValueTitle">How I deliver value</h2>
+          <p class="tagline" data-i18n="sectionValueBody">I focus on measurable outcomes.</p>
           <ul class="list">
-            <li>Architecture blueprints with risk analysis, cost models, and scale plans.</li>
-            <li>Production ready implementations with CI/CD, monitoring, and security controls.</li>
-            <li>Clear documentation and handover so your team can own the system.</li>
+            <li data-i18n="sectionValueList1">Architecture blueprints with risk analysis and scale plans.</li>
+            <li data-i18n="sectionValueList2">Production-ready delivery with CI/CD and observability.</li>
+            <li data-i18n="sectionValueList3">Documentation and handover so your team owns the system.</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Engagement options</h3>
+          <h3 data-i18n="sectionEngagementTitle">Engagement options</h3>
           <ul class="list">
-            <li>Full time engineering leadership or senior IC role.</li>
-            <li>Fractional CTO (strategy, architecture, hiring, execution).</li>
-            <li>Short term advisory for migrations, audits, or rescue missions.</li>
-            <li>Project delivery with clear milestones and weekly reporting.</li>
+            <li data-i18n="sectionEngagementList1">Full time engineer or tech lead roles.</li>
+            <li data-i18n="sectionEngagementList2">Fractional CTO (strategy, hiring, execution).</li>
+            <li data-i18n="sectionEngagementList3">Project delivery with milestones and reporting.</li>
           </ul>
         </div>
       </section>
 
-      <section class="section grid">
-        <article class="card">
-          <h3>Cloud Architecture</h3>
-          <p>Design cloud platforms that are secure, cost efficient, and ready for scale. Multi cloud strategies across AWS and Azure.</p>
-          <a class="accent" href="/cloud-architecture">Explore cloud architecture</a>
-        </article>
-        <article class="card">
-          <h3>Enterprise Node.js</h3>
-          <p>Build high throughput APIs, microservices, and event driven platforms with strong observability and reliability.</p>
-          <a class="accent" href="/node-enterprise">Enterprise Node.js</a>
-        </article>
-        <article class="card">
-          <h3>DevOps Automation</h3>
-          <p>Automate delivery pipelines, infrastructure provisioning, and incident response to reduce downtime.</p>
-          <a class="accent" href="/devops-automation">DevOps automation</a>
-        </article>
-        <article class="card">
-          <h3>AI Integrations</h3>
-          <p>Bring AI into your workflows with safe, cost controlled, and reliable production integrations.</p>
-          <a class="accent" href="/ai-integrations">AI integrations</a>
-        </article>
-        <article class="card">
-          <h3>CTO Advisory</h3>
-          <p>Define your technical roadmap, build the right team, and align product strategy with engineering execution.</p>
-          <a class="accent" href="/cto-advisory">CTO advisory</a>
-        </article>
-        <article class="card">
-          <h3>Customer Success</h3>
-          <p>Operational playbooks, incident response, and continuous improvement so customers are always supported.</p>
-          <a class="accent" href="/customer-success">Customer success</a>
-        </article>
-      </section>
-
       <section class="section">
-        <h2>What teams gain</h2>
+        <h2 data-i18n="sectionCapabilitiesTitle">Core capabilities</h2>
         <div class="grid">
-          <div class="card">
-            <h3>Reliability</h3>
-            <p>Stable platforms with alerts, runbooks, and recovery plans that reduce operational stress.</p>
-          </div>
-          <div class="card">
-            <h3>Velocity</h3>
-            <p>Faster deployments and reduced lead time through automation and clean architecture.</p>
-          </div>
-          <div class="card">
-            <h3>Efficiency</h3>
-            <p>Lower cloud spend, predictable budgets, and optimized infrastructure usage.</p>
-          </div>
+          <article class="card">
+            <h3 data-i18n="cap1Title">Cloud Architecture</h3>
+            <p data-i18n="cap1Body">Design secure, scalable cloud platforms across AWS and Azure.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="cap2Title">Enterprise Node.js</h3>
+            <p data-i18n="cap2Body">High throughput APIs and microservices with observability.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="cap3Title">DevOps Automation</h3>
+            <p data-i18n="cap3Body">CI/CD, infrastructure as code, and reliability workflows.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="cap4Title">AI Integrations</h3>
+            <p data-i18n="cap4Body">Production AI with governance, safety, and cost controls.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="cap5Title">CTO Advisory</h3>
+            <p data-i18n="cap5Body">Roadmaps, architecture decisions, and leadership support.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="cap6Title">Customer Success</h3>
+            <p data-i18n="cap6Body">Support models, SLA design, and incident response.</p>
+          </article>
         </div>
       </section>
 
-      <section class="section">
-        <h2>Availability</h2>
-        <p class="tagline">Open to full time roles, project based consulting, or fractional leadership. Response within 24 hours.</p>
-        <div class="split">
-          <div class="card">
-            <h3>Contact</h3>
-            <p>Email: ivanrene10@gmail.com</p>
-            <p>LinkedIn: <a class="accent" href="https://www.linkedin.com/in/ivanramirez-in" target="_blank" rel="noreferrer">ivanramirez-in</a></p>
-          </div>
-          <div class="card">
-            <h3>Ideal engagements</h3>
-            <ul class="list">
-              <li>Startups preparing for scale or fundraising.</li>
-              <li>Enterprises modernizing legacy systems.</li>
-              <li>Teams needing a clear architecture and delivery roadmap.</li>
-            </ul>
-          </div>
+      <section class="section split">
+        <div>
+          <h2 data-i18n="availabilityTitle">Availability</h2>
+          <p class="tagline" data-i18n="availabilityBody">Open to remote roles, consulting, or fractional leadership.</p>
+        </div>
+        <div class="card">
+          <p><strong data-i18n="contactEmailLabel">Email</strong>: ivanrene10@gmail.com</p>
+          <p><strong data-i18n="contactLinkedInLabel">LinkedIn</strong>: <a class="accent" href="https://www.linkedin.com/in/ivanramirez-in" target="_blank" rel="noreferrer">ivanramirez-in</a></p>
         </div>
       </section>
     </main>
 
     <footer class="footer container">
-      <p>Ivan Rene Ramirez Castro. Full Stack Engineer | DevOps | AI Integrations.</p>
+      <p data-i18n="footer">Ivan Rene Ramirez Castro. Full Stack Engineer | DevOps | AI Integrations.</p>
     </footer>
   </body>
 </html>
