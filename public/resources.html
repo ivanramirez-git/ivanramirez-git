@@ -4,15 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Resources | Ivan Rene Ramirez Castro</title>
-    <meta name="description" content="Articles and guides by Ivan Rene Ramirez Castro on cloud architecture, enterprise Node.js, DevOps automation, and engineering leadership." />
+    <meta name="description" content="Resources by Ivan Rene Ramirez Castro on cloud, Node.js, DevOps, AI, and engineering leadership." />
     <link rel="canonical" href="https://ivanrene.com/resources" />
     <link rel="stylesheet" href="/content.css" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Resources | Ivan Rene Ramirez Castro" />
-    <meta property="og:description" content="Deep dive guides on cloud, Node.js, DevOps, AI, and software leadership." />
+    <meta property="og:description" content="Practical guidance for engineering leaders and teams." />
     <meta property="og:url" content="https://ivanrene.com/resources" />
     <meta property="og:image" content="https://ivanrene.com/og-image.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      window.I18N = {
+        en: {
+          navHome: 'Home',
+          navServices: 'Services',
+          navResources: 'Resources',
+          navCase: 'Case Studies',
+          navHire: 'Hire Ivan',
+          badge: 'Resources',
+          title: 'Practical guidance for modern engineering teams.',
+          subtitle: 'Bilingual resources focused on cloud, Node.js, DevOps, AI, and leadership.',
+          section1Title: 'Architecture & Platforms',
+          section1Body: 'Blueprints and patterns for scalable systems and clear operational ownership.',
+          section1Item1: 'Cloud architecture and multi-cloud strategy.',
+          section1Item2: 'Platform engineering and developer experience.',
+          section1Item3: 'Data platforms for analytics and AI readiness.',
+          section2Title: 'Delivery & Reliability',
+          section2Body: 'Build faster with safety, quality, and consistent delivery.',
+          section2Item1: 'CI/CD automation and release governance.',
+          section2Item2: 'Observability, SLOs, and incident response.',
+          section2Item3: 'Product delivery frameworks and execution cadence.',
+          section3Title: 'Leadership & Growth',
+          section3Body: 'People, process, and strategy to scale teams and outcomes.',
+          section3Item1: 'Hiring playbooks and onboarding systems.',
+          section3Item2: 'Engineering leadership rituals and metrics.',
+          section3Item3: 'CTO advisory for roadmap alignment.',
+          ctaTitle: 'Want tailored guidance?',
+          ctaBody: 'I can build a custom architecture or delivery plan for your team.',
+          ctaPrimary: 'Request a strategy session',
+          footer: 'Ivan Rene Ramirez Castro. Resources for scalable engineering.'
+        },
+        es: {
+          navHome: 'Inicio',
+          navServices: 'Servicios',
+          navResources: 'Recursos',
+          navCase: 'Casos',
+          navHire: 'Contratar',
+          badge: 'Recursos',
+          title: 'Guia practica para equipos de ingenieria modernos.',
+          subtitle: 'Recursos bilingues sobre cloud, Node.js, DevOps, IA y liderazgo.',
+          section1Title: 'Arquitectura y Plataformas',
+          section1Body: 'Patrones para sistemas escalables y responsabilidad operativa clara.',
+          section1Item1: 'Arquitectura cloud y estrategia multi-cloud.',
+          section1Item2: 'Platform engineering y developer experience.',
+          section1Item3: 'Plataformas de datos para analytics y IA.',
+          section2Title: 'Entrega y Confiabilidad',
+          section2Body: 'Entrega mas rapido con seguridad, calidad y consistencia.',
+          section2Item1: 'Automatizacion CI/CD y gobierno de releases.',
+          section2Item2: 'Observabilidad, SLOs y respuesta a incidentes.',
+          section2Item3: 'Frameworks de delivery y cadencia de ejecucion.',
+          section3Title: 'Liderazgo y Crecimiento',
+          section3Body: 'Personas, procesos y estrategia para escalar equipos.',
+          section3Item1: 'Hiring playbooks y onboarding.',
+          section3Item2: 'Rituales de liderazgo y metricas.',
+          section3Item3: 'CTO advisory para alinear roadmap.',
+          ctaTitle: 'Quieres guia personalizada?',
+          ctaBody: 'Puedo crear un plan de arquitectura o delivery para tu equipo.',
+          ctaPrimary: 'Solicitar sesion estrategica',
+          footer: 'Ivan Rene Ramirez Castro. Recursos para ingenieria escalable.'
+        }
+      };
+    </script>
+    <script src="/i18n.js" defer></script>
   </head>
   <body>
     <header class="nav">
@@ -22,123 +84,63 @@
           <span>ivanrene.com</span>
         </div>
         <nav class="nav-links">
-          <a href="/">Home</a>
-          <a href="/services">Services</a>
-          <a href="/resources">Resources</a>
-          <a href="/case-studies">Case Studies</a>
-          <a href="/hire-ivan">Hire Ivan</a>
+          <a href="/" data-i18n="navHome">Home</a>
+          <a href="/services" data-i18n="navServices">Services</a>
+          <a href="/resources" data-i18n="navResources">Resources</a>
+          <a href="/case-studies" data-i18n="navCase">Case Studies</a>
+          <a href="/hire-ivan" data-i18n="navHire">Hire Ivan</a>
+          <button class="lang-toggle" data-lang-toggle type="button">ES</button>
         </nav>
       </div>
     </header>
 
     <main class="container">
       <section class="hero">
-        <span class="pill">Knowledge Base</span>
-        <h1>Practical engineering resources for modern teams.</h1>
-        <p>Articles created for CTOs, tech leads, and engineers who want to scale architecture, improve delivery, and build reliable systems.</p>
+        <span class="pill" data-i18n="badge">Resources</span>
+        <h1 data-i18n="title">Practical guidance for modern engineering teams.</h1>
+        <p data-i18n="subtitle">Bilingual resources focused on cloud, Node.js, DevOps, AI, and leadership.</p>
       </section>
 
-      <section class="section grid">
-        <article class="card">
-          <h3>Cloud Architecture Playbook</h3>
-          <p>Reference designs, migration paths, and cost controls for AWS and Azure.</p>
-          <a class="accent" href="/cloud-architecture">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>Enterprise Node.js</h3>
-          <p>Patterns for high throughput APIs, microservices, and platform engineering.</p>
-          <a class="accent" href="/node-enterprise">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>DevOps Automation</h3>
-          <p>CI/CD, infrastructure as code, and incident response for high velocity teams.</p>
-          <a class="accent" href="/devops-automation">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>AI Integrations</h3>
-          <p>Practical AI adoption, governance, and cost control for production systems.</p>
-          <a class="accent" href="/ai-integrations">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>CTO Advisory</h3>
-          <p>Strategic guidance for roadmap, hiring, and technical decision making.</p>
-          <a class="accent" href="/cto-advisory">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>Customer Success Engineering</h3>
-          <p>Support models, SLA design, and incident management best practices.</p>
-          <a class="accent" href="/customer-success">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>Engineering Leadership</h3>
-          <p>Leadership frameworks for scaling teams, quality, and delivery.</p>
-          <a class="accent" href="/engineering-leadership">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>Cost Optimization</h3>
-          <p>Reduce cloud spend with rightsizing, observability, and governance.</p>
-          <a class="accent" href="/cost-optimization">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>Security and Compliance</h3>
-          <p>Security controls, governance, and audit readiness for modern platforms.</p>
-          <a class="accent" href="/security-compliance">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>Data Platforms</h3>
-          <p>Build pipelines and analytics platforms for AI ready data.</p>
-          <a class="accent" href="/data-platforms">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>Platform Engineering</h3>
-          <p>Internal platforms that accelerate delivery and reduce risk.</p>
-          <a class="accent" href="/platform-engineering">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>Product Delivery</h3>
-          <p>Execution frameworks for predictable delivery and quality.</p>
-          <a class="accent" href="/product-delivery">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>Hiring Playbook</h3>
-          <p>Build engineering teams with structured hiring and onboarding.</p>
-          <a class="accent" href="/hiring-playbook">Read the guide</a>
-        </article>
-        <article class="card">
-          <h3>Case Studies</h3>
-          <p>Real projects with architecture decisions and delivery outcomes.</p>
-          <a class="accent" href="/case-studies">View case studies</a>
-        </article>
-        <article class="card">
-          <h3>Fintech Engineering</h3>
-          <p>Secure, compliant, and scalable fintech systems.</p>
-          <a class="accent" href="/industry-fintech">View industry guide</a>
-        </article>
-        <article class="card">
-          <h3>SaaS Engineering</h3>
-          <p>Multi tenant architecture, retention, and growth systems.</p>
-          <a class="accent" href="/industry-saas">View industry guide</a>
-        </article>
-        <article class="card">
-          <h3>E-commerce Engineering</h3>
-          <p>Checkout performance, inventory reliability, and peak scaling.</p>
-          <a class="accent" href="/industry-ecommerce">View industry guide</a>
-        </article>
-        <article class="card">
-          <h3>HealthTech Engineering</h3>
-          <p>Secure data handling and compliance ready workflows.</p>
-          <a class="accent" href="/industry-health">View industry guide</a>
-        </article>
-        <article class="card">
-          <h3>Hire Ivan</h3>
-          <p>Available for full time roles, fractional CTO, or consulting.</p>
-          <a class="accent" href="/hire-ivan">Start hiring</a>
-        </article>
+      <section class="section split">
+        <div>
+          <h2 data-i18n="section1Title">Architecture & Platforms</h2>
+          <p class="tagline" data-i18n="section1Body">Blueprints and patterns for scalable systems.</p>
+          <ul class="list">
+            <li data-i18n="section1Item1">Cloud architecture and multi-cloud strategy.</li>
+            <li data-i18n="section1Item2">Platform engineering and developer experience.</li>
+            <li data-i18n="section1Item3">Data platforms for analytics and AI readiness.</li>
+          </ul>
+        </div>
+        <div>
+          <h2 data-i18n="section2Title">Delivery & Reliability</h2>
+          <p class="tagline" data-i18n="section2Body">Build faster with safety, quality, and delivery.</p>
+          <ul class="list">
+            <li data-i18n="section2Item1">CI/CD automation and release governance.</li>
+            <li data-i18n="section2Item2">Observability, SLOs, and incident response.</li>
+            <li data-i18n="section2Item3">Product delivery frameworks and cadence.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="section3Title">Leadership & Growth</h2>
+        <p class="tagline" data-i18n="section3Body">People, process, and strategy to scale teams.</p>
+        <ul class="list">
+          <li data-i18n="section3Item1">Hiring playbooks and onboarding systems.</li>
+          <li data-i18n="section3Item2">Engineering leadership rituals and metrics.</li>
+          <li data-i18n="section3Item3">CTO advisory for roadmap alignment.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="ctaTitle">Want tailored guidance?</h2>
+        <p class="tagline" data-i18n="ctaBody">I can build a custom architecture or delivery plan.</p>
+        <a class="cta" href="mailto:ivanrene10@gmail.com" data-i18n="ctaPrimary">Request a strategy session</a>
       </section>
     </main>
 
     <footer class="footer container">
-      <p>More content added weekly. For consulting or hiring, email ivanrene10@gmail.com.</p>
+      <p data-i18n="footer">Ivan Rene Ramirez Castro. Resources for scalable engineering.</p>
     </footer>
   </body>
 </html>
