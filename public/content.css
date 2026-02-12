@@ -102,8 +102,17 @@ a {
 }
 
 .section {
-  padding: 40px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 32px;
+  margin: 28px 0;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+main > .section:nth-of-type(even) {
+  background: rgba(2, 6, 23, 0.85);
+  border-color: rgba(148, 163, 184, 0.25);
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.15);
 }
 
 .grid {
@@ -117,6 +126,14 @@ a {
   border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 18px;
   padding: 20px;
+}
+
+.content-image {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.6);
+  margin-top: 20px;
 }
 
 .card h3 {
@@ -151,6 +168,7 @@ a {
   padding: 36px 0 60px;
   color: #94a3b8;
   font-size: 14px;
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
 }
 
 .meta {
