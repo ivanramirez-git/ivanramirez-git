@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Globe,
   Cloud,
@@ -17,7 +17,7 @@ import {
 // --- DICTIONARY ---
 const content = {
   en: {
-    nav: { about: "About", tech: "Stack", exp: "Experience", projects: "Projects", contact: "Contact" },
+    nav: { about: "About", tech: "Stack", exp: "Experience", projects: "Projects", contact: "Contact", services: "Services", resources: "Resources", hire: "Hire Ivan" },
     hero: {
       badge: "AVAILABLE FOR ARCHITECTURE & DEV",
       title: "Ivan Ramírez",
@@ -48,7 +48,7 @@ const content = {
     }
   },
   es: {
-    nav: { about: "Sobre mí", tech: "Tecnologías", exp: "Experiencia", projects: "Proyectos", contact: "Contacto" },
+    nav: { about: "Sobre mí", tech: "Tecnologías", exp: "Experiencia", projects: "Proyectos", contact: "Contacto", services: "Servicios", resources: "Recursos", hire: "Contratar" },
     hero: {
       badge: "DISPONIBLE PARA ARQUITECTURA Y DESARROLLO",
       title: "Ivan Ramírez",
@@ -84,6 +84,16 @@ const App = () => {
   const [lang, setLang] = useState('en');
   const t = content[lang];
 
+  useEffect(() => {
+    const stored = localStorage.getItem('lang');
+    const browser = (navigator.language || '').toLowerCase().startsWith('es') ? 'es' : 'en';
+    setLang(stored || browser || 'en');
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('lang', lang);
+  }, [lang]);
+
   return (
     <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-blue-500/30">
 
@@ -108,9 +118,9 @@ const App = () => {
             <a href="#about" className="hover:text-white transition-colors">{t.nav.about}</a>
             <a href="#experience" className="hover:text-white transition-colors">{t.nav.exp}</a>
             <a href="#projects" className="hover:text-white transition-colors">{t.nav.projects}</a>
-            <a href="/services" className="hover:text-white transition-colors">Services</a>
-            <a href="/resources" className="hover:text-white transition-colors">Resources</a>
-            <a href="/hire-ivan" className="hover:text-white transition-colors">Hire Ivan</a>
+            <a href="/services" className="hover:text-white transition-colors">{t.nav.services}</a>
+            <a href="/resources" className="hover:text-white transition-colors">{t.nav.resources}</a>
+            <a href="/hire-ivan" className="hover:text-white transition-colors">{t.nav.hire}</a>
             <button
               onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
               className="flex items-center gap-1 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 hover:border-slate-600 transition-all text-blue-400"
