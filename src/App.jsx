@@ -195,6 +195,12 @@ const content = {
         "Linux servers, networking, and performance tuning",
         "AI integrations, LLM workflows, and guardrails"
       ],
+      engagementTitle: "Engagement models",
+      engagementItems: [
+        "Managed outsourcing via a Colombian legal entity contract (prestacion de servicios).",
+        "International contractor agreements for foreign companies.",
+        "Full-time or fractional CTO options based on scope."
+      ],
       cta: "Book a strategy call"
     },
     resources: {
@@ -439,6 +445,12 @@ const content = {
         "Docker, Terraform, CapRover, CI/CD",
         "Servidores Linux, networking y performance",
         "Integraciones de IA, workflows LLM y guardrails"
+      ],
+      engagementTitle: "Modelos de trabajo",
+      engagementItems: [
+        "Outsourcing gestionado via contrato de prestacion de servicios con persona juridica en Colombia.",
+        "Acuerdos como contractor para empresas extranjeras.",
+        "Opciones full-time o CTO fraccional segun el alcance."
       ],
       cta: "Agendar llamada estrategica"
     },
@@ -1010,6 +1022,16 @@ const ServicesPage = ({ t }) => (
         </ul>
         <img className="content-image" src="/images/section-strategy.png" alt="Technical strategy visual" loading="lazy" />
       </div>
+    </section>
+
+    <section className="section">
+      <h2 className="text-2xl font-bold mb-4">{t.services.engagementTitle}</h2>
+      <ul className="list">
+        {t.services.engagementItems.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <img className="content-image" src="/images/section-success.png" alt="Professional engagement model visual" loading="lazy" />
     </section>
 
     <section className="section text-center">
