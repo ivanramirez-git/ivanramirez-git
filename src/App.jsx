@@ -47,6 +47,120 @@ const content = {
       desc: "A full ecosystem showing architectural mastery: Vue 3, LoopBack API, Terraform AWS Infra, and Dockerized deployment.",
       tech: ["Vue 3", "Terraform", "AWS", "MongoDB", "MinIO"]
     },
+    insights: {
+      architecture: {
+        title: "How I Design Systems",
+        subtitle: "Architecture snapshots that show thinking beyond features.",
+        diagrams: [
+          {
+            title: "Microservices + API Gateway",
+            diagram: "Client → CDN → API Gateway → Services → DB\n                     ↓\n                 Worker → Object Storage → Search",
+            caption: "Scalable request routing, async workloads, and search readiness."
+          },
+          {
+            title: "CI/CD Pipeline",
+            diagram: "Commit → Tests → Build → Scan → Deploy → Monitor\n                          ↘ Rollback ↙",
+            caption: "Automated safety gates with rollback pathways."
+          },
+          {
+            title: "LLM Processing Flow",
+            diagram: "Upload → Extract → Embed → Index → Retrieve → Answer",
+            caption: "AI workflows with auditability and retrieval control."
+          }
+        ]
+      },
+      costStories: {
+        title: "Cost Optimization Stories",
+        items: [
+          "Reduced monthly cloud spend by consolidating containers and rightsizing workloads.",
+          "Cut release time from hours to minutes with automated CI/CD.",
+          "Optimized search queries and caching to reduce latency by double digits."
+        ]
+      },
+      aiDemo: {
+        title: "Ask My AI (Demo)",
+        subtitle: "A mock workflow that shows how AI assistants can extract insights.",
+        placeholder: "Ask about a document or dataset...",
+        exampleQuestion: "Summarize key risks in a 50-page contract",
+        exampleAnswer: "Detected compliance gaps, missing SLA clauses, and renewal risks."
+      },
+      timeline: {
+        title: "Deployment Timeline",
+        steps: [
+          "Day 1 — Architecture & roadmap",
+          "Day 3 — Backend foundation",
+          "Day 5 — Frontend delivery",
+          "Day 7 — Docker + IaC",
+          "Day 10 — Production release"
+        ]
+      },
+      infraStack: {
+        title: "Infra Stack Visualization",
+        layers: [
+          "Frontend: Angular / Vue / React",
+          "API: NestJS / .NET / Node",
+          "Auth: JWT / OAuth",
+          "Data: PostgreSQL / MongoDB",
+          "Infra: Docker / Terraform / CapRover",
+          "Cloud: AWS / Azure / Cloudflare"
+        ]
+      },
+      metrics: {
+        title: "Impact Metrics",
+        items: [
+          { label: "Years of experience", value: "5+" },
+          { label: "Production deployments", value: "20+" },
+          { label: "Multi-cloud environments", value: "AWS + Azure" },
+          { label: "Automated pipelines", value: "CI/CD" }
+        ]
+      },
+      principles: {
+        title: "My Engineering Principles",
+        items: [
+          "Automation over manual work",
+          "Infrastructure as Code by default",
+          "Security-first architecture",
+          "Cost-aware cloud design",
+          "Observability as a product feature"
+        ]
+      },
+      techRadar: {
+        title: "Tech Radar",
+        daily: ["Docker", "Git", "AWS", "Node.js"],
+        architect: ["Terraform", "CQRS", "GraphQL", "Event-driven"],
+        exploring: ["Edge functions", "AI Agents", "Vector databases"]
+      },
+      productionReady: {
+        title: "Production Ready Mindset",
+        items: ["Monitoring", "Logging", "Error tracking", "Backups", "Rollbacks", "CI/CD automation"]
+      },
+      clientFit: {
+        title: "If you need...",
+        items: [
+          "A developer who handles infra + backend + frontend",
+          "Safe cloud migrations and cost optimization",
+          "AI integrations in production",
+          "CI/CD automation and delivery acceleration",
+          "Performance optimization and observability"
+        ]
+      },
+      availability: {
+        title: "Availability & Work Model",
+        items: ["Remote-first", "Timezone overlap", "English / Spanish", "Short or long-term"]
+      },
+      howIThink: {
+        title: "How I Think",
+        items: [
+          { q: "When do you choose microservices?", a: "When scaling teams, domains, or independent release cycles." },
+          { q: "When do you keep a monolith?", a: "Early-stage products that need speed and focus." },
+          { q: "When do you use serverless?", a: "Spiky workloads or event-driven flows with low ops overhead." }
+        ]
+      },
+      behindScenes: {
+        title: "Behind the Scenes",
+        subtitle: "Real product visuals from production systems."
+      }
+    },
     ui: {
       techTitle: "Technology Stack",
       techSections: [
@@ -177,6 +291,120 @@ const content = {
       name: "Micro Campeonato Regional",
       desc: "Un ecosistema completo que demuestra maestría arquitectónica: Vue 3, LoopBack API, Terraform AWS Infra y despliegue con Docker.",
       tech: ["Vue 3", "Terraform", "AWS", "MongoDB", "MinIO"]
+    },
+    insights: {
+      architecture: {
+        title: "Como diseño sistemas",
+        subtitle: "Snapshots de arquitectura que muestran pensamiento sistemico.",
+        diagrams: [
+          {
+            title: "Microservicios + API Gateway",
+            diagram: "Cliente → CDN → API Gateway → Servicios → DB\n                     ↓\n                 Worker → Object Storage → Search",
+            caption: "Enrutamiento escalable, cargas async y busqueda preparada."
+          },
+          {
+            title: "CI/CD Pipeline",
+            diagram: "Commit → Tests → Build → Scan → Deploy → Monitor\n                          ↘ Rollback ↙",
+            caption: "Puertas de seguridad con rollback automatizado."
+          },
+          {
+            title: "Flujo LLM",
+            diagram: "Upload → Extract → Embed → Index → Retrieve → Answer",
+            caption: "Flujos de IA con trazabilidad y control."
+          }
+        ]
+      },
+      costStories: {
+        title: "Historias de optimizacion de costos",
+        items: [
+          "Reduje gasto cloud consolidando contenedores y ajustando recursos.",
+          "Baje tiempos de release de horas a minutos con CI/CD.",
+          "Optimice busquedas y cache para reducir latencia."
+        ]
+      },
+      aiDemo: {
+        title: "Pregunta a mi IA (Demo)",
+        subtitle: "Mock de flujo para mostrar como extraer insights.",
+        placeholder: "Pregunta sobre un documento o dataset...",
+        exampleQuestion: "Resume riesgos clave en un contrato de 50 paginas",
+        exampleAnswer: "Detecto brechas de compliance, SLAs faltantes y riesgos de renovacion."
+      },
+      timeline: {
+        title: "Timeline de despliegue",
+        steps: [
+          "Dia 1 — Arquitectura y roadmap",
+          "Dia 3 — Backend base",
+          "Dia 5 — Frontend",
+          "Dia 7 — Docker + IaC",
+          "Dia 10 — Produccion"
+        ]
+      },
+      infraStack: {
+        title: "Visualizacion de stack",
+        layers: [
+          "Frontend: Angular / Vue / React",
+          "API: NestJS / .NET / Node",
+          "Auth: JWT / OAuth",
+          "Data: PostgreSQL / MongoDB",
+          "Infra: Docker / Terraform / CapRover",
+          "Cloud: AWS / Azure / Cloudflare"
+        ]
+      },
+      metrics: {
+        title: "Impacto",
+        items: [
+          { label: "Años de experiencia", value: "5+" },
+          { label: "Deploys en produccion", value: "20+" },
+          { label: "Multi-cloud", value: "AWS + Azure" },
+          { label: "Pipelines", value: "CI/CD" }
+        ]
+      },
+      principles: {
+        title: "Principios de ingenieria",
+        items: [
+          "Automatizacion sobre trabajo manual",
+          "Infraestructura como codigo",
+          "Seguridad primero",
+          "Costo como parte del diseño",
+          "Observabilidad como producto"
+        ]
+      },
+      techRadar: {
+        title: "Tech Radar",
+        daily: ["Docker", "Git", "AWS", "Node.js"],
+        architect: ["Terraform", "CQRS", "GraphQL", "Event-driven"],
+        exploring: ["Edge functions", "AI Agents", "Vector DB"]
+      },
+      productionReady: {
+        title: "Mentalidad production-ready",
+        items: ["Monitoreo", "Logs", "Error tracking", "Backups", "Rollbacks", "CI/CD"]
+      },
+      clientFit: {
+        title: "Si necesitas...",
+        items: [
+          "Un perfil que maneje infra + backend + frontend",
+          "Migraciones cloud seguras y optimizacion de costos",
+          "IA en produccion",
+          "Automatizacion CI/CD",
+          "Performance y observabilidad"
+        ]
+      },
+      availability: {
+        title: "Disponibilidad y modelo",
+        items: ["Remote-first", "Overlap de zona horaria", "Ingles / Espanol", "Corto o largo plazo"]
+      },
+      howIThink: {
+        title: "Como pienso",
+        items: [
+          { q: "Cuando eliges microservicios?", a: "Cuando hay equipos o dominios que deben desplegar independiente." },
+          { q: "Cuando mantener monolito?", a: "En etapas tempranas donde la velocidad es clave." },
+          { q: "Cuando usar serverless?", a: "Cargas variables o flujos event-driven con baja operacion." }
+        ]
+      },
+      behindScenes: {
+        title: "Detras de escena",
+        subtitle: "Visuales reales de sistemas en produccion."
+      }
     },
     ui: {
       techTitle: "Tecnologías",
@@ -437,6 +665,191 @@ const HomePage = ({ t }) => (
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold">{t.insights.architecture.title}</h2>
+            <p className="text-slate-400 mt-3">{t.insights.architecture.subtitle}</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {t.insights.architecture.diagrams.map((item) => (
+              <div key={item.title} className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <h3 className="text-lg font-bold mb-3">{item.title}</h3>
+                <pre className="text-xs font-mono text-slate-300 bg-slate-950/70 border border-slate-800 rounded-xl p-4 whitespace-pre-wrap">
+                  {item.diagram}
+                </pre>
+                <p className="text-slate-400 text-sm mt-4">{item.caption}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5 grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="section">
+            <h3 className="text-2xl font-bold mb-4">{t.insights.infraStack.title}</h3>
+            <ul className="list">
+              {t.insights.infraStack.layers.map((layer) => (
+                <li key={layer}>{layer}</li>
+              ))}
+            </ul>
+            <img className="content-image" src="/images/section-architecture.png" alt="Infra stack blueprint visual" loading="lazy" />
+          </div>
+          <div className="section">
+            <h3 className="text-2xl font-bold mb-4">{t.insights.timeline.title}</h3>
+            <ul className="list">
+              {t.insights.timeline.steps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ul>
+            <img className="content-image" src="/images/section-delivery.png" alt="Delivery timeline visual" loading="lazy" />
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5 grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="section">
+            <h3 className="text-2xl font-bold mb-4">{t.insights.costStories.title}</h3>
+            <ul className="list">
+              {t.insights.costStories.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <img className="content-image" src="/images/section-outcomes.png" alt="Cost optimization outcomes visual" loading="lazy" />
+          </div>
+          <div className="section">
+            <h3 className="text-2xl font-bold mb-4">{t.insights.metrics.title}</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {t.insights.metrics.items.map((metric) => (
+                <div key={metric.label} className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
+                  <div className="text-2xl font-bold text-blue-300">{metric.value}</div>
+                  <div className="text-xs text-slate-400 mt-1">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5 grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="section">
+            <h3 className="text-2xl font-bold mb-4">{t.insights.principles.title}</h3>
+            <ul className="list">
+              {t.insights.principles.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="section">
+            <h3 className="text-2xl font-bold mb-4">{t.insights.productionReady.title}</h3>
+            <div className="flex flex-wrap gap-3">
+              {t.insights.productionReady.items.map((item) => (
+                <span key={item} className="px-3 py-1 text-xs font-mono bg-slate-900 border border-slate-800 rounded-md text-blue-400">
+                  {item}
+                </span>
+              ))}
+            </div>
+            <img className="content-image" src="/images/section-reliability.png" alt="Production readiness visual" loading="lazy" />
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl font-bold">{t.insights.techRadar.title}</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="section">
+              <h4 className="font-bold mb-3">{lang === 'es' ? 'Uso diario' : 'I Use Daily'}</h4>
+              <ul className="list">
+                {t.insights.techRadar.daily.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="section">
+              <h4 className="font-bold mb-3">{lang === 'es' ? 'Arquitecto con' : 'I Architect With'}</h4>
+              <ul className="list">
+                {t.insights.techRadar.architect.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="section">
+              <h4 className="font-bold mb-3">{lang === 'es' ? 'Explorando' : 'Exploring'}</h4>
+              <ul className="list">
+                {t.insights.techRadar.exploring.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5 grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="section">
+            <h3 className="text-2xl font-bold mb-4">{t.insights.clientFit.title}</h3>
+            <ul className="list">
+              {t.insights.clientFit.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="section">
+            <h3 className="text-2xl font-bold mb-4">{t.insights.availability.title}</h3>
+            <ul className="list">
+              {t.insights.availability.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <img className="content-image" src="/images/section-success.png" alt="Availability and collaboration visual" loading="lazy" />
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
+          <div className="section">
+            <h3 className="text-2xl font-bold mb-4">{t.insights.aiDemo.title}</h3>
+            <p className="text-slate-400 mb-4">{t.insights.aiDemo.subtitle}</p>
+            <div className="flex flex-col gap-3">
+              <input
+                type="text"
+                placeholder={t.insights.aiDemo.placeholder}
+                className="bg-slate-950/70 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200"
+                readOnly
+              />
+              <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-4 text-sm text-slate-300">
+                <div className="text-xs text-blue-400 font-mono mb-2">{t.insights.aiDemo.exampleQuestion}</div>
+                <div>{t.insights.aiDemo.exampleAnswer}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl font-bold">{t.insights.howIThink.title}</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {t.insights.howIThink.items.map((item) => (
+              <div key={item.q} className="section">
+                <h4 className="font-bold mb-2">{item.q}</h4>
+                <p className="text-slate-400 text-sm">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl font-bold">{t.insights.behindScenes.title}</h3>
+            <p className="text-slate-400 mt-2">{t.insights.behindScenes.subtitle}</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {t.caseStudies.items.map((item) => (
+              <article key={item.name} className="section">
+                <img src={item.image} alt={item.alt} className="w-full h-56 object-cover rounded-xl border border-slate-800" loading="lazy" />
+                <h4 className="font-bold mt-4">{item.name}</h4>
+                <p className="text-slate-400 text-sm mt-2">{item.desc}</p>
+              </article>
+            ))}
           </div>
         </section>
 
