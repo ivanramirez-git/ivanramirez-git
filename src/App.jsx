@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import {
   Globe,
   Cloud,
@@ -125,12 +124,7 @@ const App = () => {
 
         {/* --- HERO --- */}
         <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
+          <div className="text-center animate-fade-up">
             <span className="px-3 py-1 text-[10px] font-mono tracking-widest text-blue-400 border border-blue-400/30 rounded-full bg-blue-400/5">
               {t.hero.badge}
             </span>
@@ -167,17 +161,13 @@ const App = () => {
                 {t.hero.cta_secondary}
               </a>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* --- ABOUT & MINDSET --- */}
         <section id="about" className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
+            <div className="animate-fade-left">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
                 {t.about.title}
               </h2>
@@ -192,14 +182,9 @@ const App = () => {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 backdrop-blur-sm relative group overflow-hidden"
-            >
+            <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 backdrop-blur-sm relative group overflow-hidden animate-fade-zoom">
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Workflow size={120} />
               </div>
@@ -209,7 +194,7 @@ const App = () => {
               <p className="text-slate-400 italic">
                 "{t.architecture.text}"
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -246,19 +231,16 @@ const App = () => {
 
           <div className="space-y-12">
             {t.experience.map((exp, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="relative pl-8 border-l border-slate-800 group"
+                className="relative pl-8 border-l border-slate-800 group animate-fade-up"
               >
                 <div className="absolute left-[-5px] top-0 w-[9px] h-[9px] rounded-full bg-slate-800 group-hover:bg-blue-500 transition-colors" />
                 <span className="text-xs font-mono text-blue-500">{exp.date}</span>
                 <h3 className="text-xl font-bold mt-1">{exp.company}</h3>
                 <p className="text-blue-400 font-medium mb-2">{exp.role}</p>
                 <p className="text-slate-400 text-sm leading-relaxed">{exp.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </section>
@@ -267,10 +249,7 @@ const App = () => {
         <section id="projects" className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
           <h2 className="text-sm font-mono text-blue-500 uppercase tracking-widest mb-16 text-center">{t.projects.title}</h2>
 
-          <motion.div
-            whileHover={{ y: -5 }}
-            className="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-3xl overflow-hidden flex flex-col lg:flex-row items-center"
-          >
+          <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-3xl overflow-hidden flex flex-col lg:flex-row items-center transition-transform hover:-translate-y-1">
             <div className="lg:w-1/2 p-8 lg:p-16">
               <div className="flex items-center gap-2 text-blue-500 mb-4 font-mono text-xs">
                 <Globe size={14} /> WEB APPLICATION
@@ -306,17 +285,12 @@ const App = () => {
                  </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* --- CONTACT --- */}
         <section id="contact" className="max-w-7xl mx-auto px-6 py-32 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="bg-blue-600 rounded-[3rem] p-12 md:p-24 relative overflow-hidden"
-          >
+          <div className="bg-blue-600 rounded-[3rem] p-12 md:p-24 relative overflow-hidden animate-fade-zoom">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff10_0%,transparent_70%)]" />
 
             <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-8 relative z-10">
@@ -348,7 +322,7 @@ const App = () => {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* --- FOOTER --- */}
