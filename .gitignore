@@ -15,6 +15,7 @@ pnpm-debug.log*
 *.log
 
 coverage/
+lighthouse.json
 
 .unlighthouse/
 .agent/

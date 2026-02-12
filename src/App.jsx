@@ -108,6 +108,8 @@ const App = () => {
             <a href="#about" className="hover:text-white transition-colors">{t.nav.about}</a>
             <a href="#experience" className="hover:text-white transition-colors">{t.nav.exp}</a>
             <a href="#projects" className="hover:text-white transition-colors">{t.nav.projects}</a>
+            <a href="/services.html" className="hover:text-white transition-colors">Services</a>
+            <a href="/resources.html" className="hover:text-white transition-colors">Resources</a>
             <button
               onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
               className="flex items-center gap-1 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 hover:border-slate-600 transition-all text-blue-400"
