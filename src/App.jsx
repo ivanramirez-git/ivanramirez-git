@@ -105,14 +105,14 @@ const App = () => {
             <span className="hidden sm:inline">ivanrene.com</span>
           </div>
 
-          <div className="flex items-center gap-8 text-sm font-medium text-slate-400">
+          <div className="flex items-center gap-8 text-sm font-medium text-slate-300">
             <a href="#about" className="hover:text-white transition-colors">{t.nav.about}</a>
             <a href="#experience" className="hover:text-white transition-colors">{t.nav.exp}</a>
             <a href="#projects" className="hover:text-white transition-colors">{t.nav.projects}</a>
             <button
               onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
               className="flex items-center gap-1 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 hover:border-slate-600 transition-all text-blue-400"
-              aria-label="Toggle language"
+              aria-label={`Language ${lang.toUpperCase()}`}
             >
               <Languages size={14} />
               {lang.toUpperCase()}
@@ -137,7 +137,7 @@ const App = () => {
 
             <div className="mt-8 flex justify-center">
               <img
-                src="https://avatars.githubusercontent.com/u/6560951?v=4"
+                src="https://avatars.githubusercontent.com/u/6560951?v=4&s=256"
                 alt="Ivan Ramirez"
                 width="128"
                 height="128"
@@ -332,6 +332,7 @@ const App = () => {
                   href="https://github.com/ivanramirez-git"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Ivan Ramirez on GitHub"
                   className="w-12 h-12 rounded-xl bg-blue-700/50 flex items-center justify-center hover:bg-blue-700 transition-colors text-white"
                 >
                   <Github />
@@ -340,6 +341,7 @@ const App = () => {
                   href="https://www.linkedin.com/in/ivanramirez-in"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Ivan Ramirez on LinkedIn"
                   className="w-12 h-12 rounded-xl bg-blue-700/50 flex items-center justify-center hover:bg-blue-700 transition-colors text-white"
                 >
                   <Linkedin />
@@ -354,10 +356,10 @@ const App = () => {
           <div className="text-slate-500 text-sm">
             © {new Date().getFullYear()} Ivan Ramírez. Engineered for performance.
           </div>
-          <div className="flex gap-8 text-slate-500 text-sm font-mono uppercase tracking-widest">
-            <span className="text-blue-500/50">Next.js</span>
-            <span className="text-blue-500/50">Tailwind</span>
-            <span className="text-blue-500/50">Framer Motion</span>
+          <div className="flex gap-8 text-slate-400 text-sm font-mono uppercase tracking-widest">
+            <span className="text-blue-300">Next.js</span>
+            <span className="text-blue-300">Tailwind</span>
+            <span className="text-blue-300">Framer Motion</span>
           </div>
         </footer>
 
