@@ -1,950 +1,409 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react'
 import {
-  Globe,
+  ArrowRight,
+  Briefcase,
+  Building2,
+  CheckCircle2,
   Cloud,
-  Linkedin,
-  Github,
+  Cpu,
+  Globe2,
+  Handshake,
   Mail,
-  ChevronRight,
-  ExternalLink,
-  Smartphone,
-  Server,
-  Workflow,
+  ServerCog,
   ShieldCheck,
-  Languages
-} from 'lucide-react';
+} from 'lucide-react'
 
-// --- DICTIONARY ---
 const content = {
   en: {
-    nav: { about: "About", tech: "Stack", exp: "Experience", projects: "Projects", contact: "Contact", services: "Services", resources: "Resources", hire: "Hire Ivan" },
+    nav: {
+      value: 'Value',
+      services: 'Services',
+      proof: 'Proof',
+      outsourcing: 'Outsourcing',
+      contact: 'Contact',
+    },
     hero: {
-      badge: "AVAILABLE FOR ARCHITECTURE & DEV",
-      title: "Ivan Rene Ramirez Castro",
-      subtitle: "Full Stack Engineer | DevOps | AI Integrations",
-      description: "Building resilient software ecosystems. I design, build, and deploy complete architectures across cloud providers.",
-      cta_primary: "View Projects",
-      cta_secondary: "Architecture Mindset"
+      badge: 'AVAILABLE FOR HIRING AND MANAGED OUTSOURCING',
+      title: 'Ivan Rene Ramirez Castro',
+      subtitle: 'Full Stack Engineer | DevOps | AI Integrations',
+      pitch:
+        'I help companies ship production-ready software with architecture discipline, cloud efficiency, and fast execution.',
+      ctaHire: 'Hire Ivan',
+      ctaOutsourcing: 'Request outsourcing proposal',
+      trust: 'Remote-ready · English/Spanish · Enterprise mindset',
     },
-    about: {
-      title: "I design, build and deploy complete software ecosystems.",
-      text: "Systems Engineer with +5 years of experience building scalable web, mobile and cloud architectures. I specialize in Full Stack development, DevOps automation and AI integrations across AWS, Azure and modern cloud platforms."
-    },
-    architecture: {
-      title: "I don't just build features. I design systems.",
-      text: "I approach development from an architectural perspective — thinking about scalability, security, automation and cost optimization from day one."
-    },
-    experience: [
-      { company: "CCSolutions", date: "2024 - Present", role: "Full Stack & DevOps", desc: "Automated CI/CD pipelines, multi-cloud infrastructure, and container orchestration." },
-      { company: "TechD", date: "2024", role: "AI-powered web applications", desc: "NeuralSeek integrations, LLM fine-tuning, and ElasticSearch optimization." },
-      { company: "Double V Partners", date: "2022 - 2024", role: "Full Stack Developer", desc: "Angular + Flutter + .NET + AWS implementations." },
-      { company: "EY", date: "2021", role: "Data Specialist", desc: "Database migrations and Azure pipelines." }
-    ],
-    projects: {
-      title: "Featured Project",
-      name: "Micro Campeonato Regional",
-      desc: "A full ecosystem showing architectural mastery: Vue 3, LoopBack API, Terraform AWS Infra, and Dockerized deployment.",
-      tech: ["Vue 3", "Terraform", "AWS", "MongoDB", "MinIO"]
-    },
-    insights: {
-      architecture: {
-        title: "How I Design Systems",
-        subtitle: "Architecture snapshots that show thinking beyond features.",
-        diagrams: [
-          {
-            title: "Microservices + API Gateway",
-            diagram: "Client → CDN → API Gateway → Services → DB\n                     ↓\n                 Worker → Object Storage → Search",
-            caption: "Scalable request routing, async workloads, and search readiness."
-          },
-          {
-            title: "CI/CD Pipeline",
-            diagram: "Commit → Tests → Build → Scan → Deploy → Monitor\n                          ↘ Rollback ↙",
-            caption: "Automated safety gates with rollback pathways."
-          },
-          {
-            title: "LLM Processing Flow",
-            diagram: "Upload → Extract → Embed → Index → Retrieve → Answer",
-            caption: "AI workflows with auditability and retrieval control."
-          }
-        ]
-      },
-      costStories: {
-        title: "Cost Optimization Stories",
-        items: [
-          "Reduced monthly cloud spend by consolidating containers and rightsizing workloads.",
-          "Cut release time from hours to minutes with automated CI/CD.",
-          "Optimized search queries and caching to reduce latency by double digits."
-        ]
-      },
-      aiDemo: {
-        title: "Ask My AI (Demo)",
-        subtitle: "A mock workflow that shows how AI assistants can extract insights.",
-        placeholder: "Ask about a document or dataset...",
-        exampleQuestion: "Summarize key risks in a 50-page contract",
-        exampleAnswer: "Detected compliance gaps, missing SLA clauses, and renewal risks."
-      },
-      timeline: {
-        title: "Deployment Timeline",
-        steps: [
-          "Day 1 — Architecture & roadmap",
-          "Day 3 — Backend foundation",
-          "Day 5 — Frontend delivery",
-          "Day 7 — Docker + IaC",
-          "Day 10 — Production release"
-        ]
-      },
-      infraStack: {
-        title: "Infra Stack Visualization",
-        layers: [
-          "Frontend: Angular / Vue / React",
-          "API: NestJS / .NET / Node",
-          "Auth: JWT / OAuth",
-          "Data: PostgreSQL / MongoDB",
-          "Infra: Docker / Terraform / CapRover",
-          "Cloud: AWS / Azure / Cloudflare"
-        ]
-      },
-      metrics: {
-        title: "Impact Metrics",
-        items: [
-          { label: "Years of experience", value: "5+" },
-          { label: "Production deployments", value: "20+" },
-          { label: "Multi-cloud environments", value: "AWS + Azure" },
-          { label: "Automated pipelines", value: "CI/CD" }
-        ]
-      },
-      principles: {
-        title: "My Engineering Principles",
-        items: [
-          "Automation over manual work",
-          "Infrastructure as Code by default",
-          "Security-first architecture",
-          "Cost-aware cloud design",
-          "Observability as a product feature"
-        ]
-      },
-      techRadar: {
-        title: "Tech Radar",
-        daily: ["Docker", "Git", "AWS", "Node.js"],
-        architect: ["Terraform", "CQRS", "GraphQL", "Event-driven"],
-        exploring: ["Edge functions", "AI Agents", "Vector databases"]
-      },
-      productionReady: {
-        title: "Production Ready Mindset",
-        items: ["Monitoring", "Logging", "Error tracking", "Backups", "Rollbacks", "CI/CD automation"]
-      },
-      clientFit: {
-        title: "If you need...",
-        items: [
-          "A developer who handles infra + backend + frontend",
-          "Safe cloud migrations and cost optimization",
-          "AI integrations in production",
-          "CI/CD automation and delivery acceleration",
-          "Performance optimization and observability"
-        ]
-      },
-      availability: {
-        title: "Availability & Work Model",
-        items: ["Remote-first", "Timezone overlap", "English / Spanish", "Short or long-term"]
-      },
-      howIThink: {
-        title: "How I Think",
-        items: [
-          { q: "When do you choose microservices?", a: "When scaling teams, domains, or independent release cycles." },
-          { q: "When do you keep a monolith?", a: "Early-stage products that need speed and focus." },
-          { q: "When do you use serverless?", a: "Spiky workloads or event-driven flows with low ops overhead." }
-        ]
-      },
-      behindScenes: {
-        title: "Behind the Scenes",
-        subtitle: "Real product visuals from production systems."
-      }
-    },
-    ui: {
-      techTitle: "Technology Stack",
-      techSections: [
-        { title: "Frontend & Mobile", items: ["Angular", "Vue 3", "NextJS", "Flutter (Bloc/GetX)"] },
-        { title: "Backend & Systems", items: ["NestJS", ".NET Core", "NodeJS", "LoopBack"] },
-        { title: "DevOps & Cloud", items: ["Terraform", "Docker", "AWS", "Azure", "CI/CD Pipelines"] }
+    value: {
+      title: 'Why companies hire me',
+      items: [
+        'I design systems, not only features: architecture, delivery, and operations in one flow.',
+        'I reduce risk with CI/CD automation, observability, rollback strategy, and secure defaults.',
+        'I optimize cloud spend while improving reliability and release speed.',
       ],
-      projectLabel: "WEB APPLICATION",
-      liveDemo: "Live Demo",
-      previewLabel: "Preview: Micro Freeloz",
-      contactTitle: "Let's build something truly scalable.",
-      contactCta: "Contact Me",
-      footerLine: "Engineered for performance.",
-      footerRss: "RSS",
-      moreProjectsTitle: "More Projects"
     },
     services: {
-      badge: "SERVICES",
-      title: "End-to-end engineering leadership.",
-      subtitle: "Cloud architecture, DevOps automation, Node.js at scale, and AI integrations delivered with enterprise rigor.",
-      highlightsTitle: "What you get",
-      highlights: [
-        "Scalable architecture with security and cost controls.",
-        "Delivery pipelines with observability and incident readiness.",
-        "Clear execution plans and leadership alignment."
+      title: 'Core services',
+      cards: [
+        {
+          title: 'Software Engineering Leadership',
+          text: 'Product-oriented execution from architecture to production release.',
+        },
+        {
+          title: 'Cloud and DevOps',
+          text: 'AWS, Azure, Cloudflare, Linux servers, IaC, CI/CD, monitoring, and recovery.',
+        },
+        {
+          title: 'Data and AI Integrations',
+          text: 'LLM workflows, search optimization, and practical AI features in production.',
+        },
       ],
-      expertiseTitle: "Core expertise",
-      expertise: [
-        "AWS, Azure, Cloudflare, DNS management",
-        "Firebase, Supabase, PostgreSQL, MongoDB",
-        "Docker, Terraform, CapRover, CI/CD",
-        "Linux servers, networking, and performance tuning",
-        "AI integrations, LLM workflows, and guardrails"
+      stackTitle: 'Stack and infrastructure depth',
+      stack: [
+        'AWS, Azure, Cloudflare, DNS management',
+        'Firebase, Supabase, PostgreSQL, MongoDB',
+        'Docker, Terraform, CapRover, CI/CD pipelines',
+        'Linux servers, performance tuning, incident response',
       ],
-      engagementTitle: "Engagement models",
-      engagementItems: [
-        "Managed outsourcing via a Colombian legal entity contract (prestacion de servicios).",
-        "International contractor agreements for foreign companies.",
-        "Full-time or fractional CTO options based on scope."
-      ],
-      cta: "Book a strategy call"
     },
-    resources: {
-      badge: "RESOURCES",
-      title: "Playbooks for modern engineering teams.",
-      subtitle: "Practical guidance on architecture, delivery, and leadership in one place.",
-      sections: [
-        { title: "Architecture & Platforms", items: ["Cloud & multi-cloud strategy", "Platform engineering", "Data platforms & analytics"] },
-        { title: "Delivery & Reliability", items: ["CI/CD automation", "Observability & SLOs", "Incident response"] },
-        { title: "Leadership & Growth", items: ["Hiring systems", "Engineering rituals", "CTO advisory"] }
-      ]
-    },
-    hire: {
-      badge: "HIRE IVAN",
-      title: "Senior engineer and CTO partner for ambitious teams.",
-      subtitle: "Available for full-time roles, fractional CTO, or high-impact consulting.",
-      reasonsTitle: "Why teams hire me",
-      reasons: [
-        "Architecture clarity with execution plans.",
-        "Proven delivery across web, mobile, and cloud.",
-        "Operational rigor with DevOps automation."
+    proof: {
+      title: 'Proof of execution',
+      metrics: [
+        { label: 'Years of experience', value: '5+' },
+        { label: 'Production deployments', value: '20+' },
+        { label: 'Cloud environments', value: 'Multi-cloud' },
+        { label: 'Delivery style', value: 'Automation-first' },
       ],
-      availability: "Email me directly"
+      casesTitle: 'Selected products and clients',
+      cases: [
+        {
+          name: 'Micro Freeloz',
+          text: 'Tournament ecosystem with full stack architecture and production deployment.',
+          image: '/images/projects/micro-freeloz-home.webp',
+          alt: 'Micro Freeloz home screenshot',
+          link: 'https://micro.freeloz.com',
+        },
+        {
+          name: 'Timer Freeloz',
+          text: 'Productivity app with clean UX and fast performance.',
+          image: '/images/projects/timer-freeloz.webp',
+          alt: 'Timer Freeloz screenshot',
+          link: 'https://timer.freeloz.com',
+        },
+        {
+          name: 'Freeloz (Client)',
+          text: 'Corporate site and service platform delivered for a technology client.',
+          image: '/images/projects/freeloz-home.webp',
+          alt: 'Freeloz client website screenshot',
+          link: 'https://freeloz.com',
+        },
+      ],
     },
-    caseStudies: {
-      badge: "CASE STUDIES",
-      title: "Architecture outcomes with measurable impact.",
-      subtitle: "Selected work across cloud, product delivery, and platform engineering.",
-      items: [
+    outsourcing: {
+      title: 'Managed outsourcing model',
+      subtitle:
+        'For external companies that need reliable delivery without hiring friction.',
+      cards: [
         {
-          name: "Micro Freeloz",
-          desc: "Tournament platform with full stack delivery and scalable infrastructure.",
-          image: "/images/projects/micro-freeloz-home.webp",
-          alt: "Micro Freeloz home page screenshot",
-          link: "https://micro.freeloz.com"
+          title: 'Colombia legal-entity model',
+          text: 'Managed outsourcing through service agreement (prestacion de servicios) with legal entity in Colombia.',
+          icon: 'building',
         },
         {
-          name: "Micro Freeloz Tournament",
-          desc: "Live tournament analytics and standings experience.",
-          image: "/images/projects/micro-freeloz-tournament.webp",
-          alt: "Micro Freeloz tournament page screenshot",
-          link: "https://micro.freeloz.com/torneo/68f68c3a33878c42aafe471d"
+          title: 'International contractor model',
+          text: 'Direct contractor setup for foreign companies, with clear scope and execution ownership.',
+          icon: 'globe',
         },
-        {
-          name: "Focus Timer",
-          desc: "Minimal productivity timer with strong UX and performance.",
-          image: "/images/projects/timer-freeloz.webp",
-          alt: "Timer Freeloz app screenshot",
-          link: "https://timer.freeloz.com"
-        },
-        {
-          name: "El Impostor",
-          desc: "Realtime party game interface for sessions and joins.",
-          image: "/images/projects/impostor-freeloz.webp",
-          alt: "Impostor Freeloz app screenshot",
-          link: "https://impostor.freeloz.com"
-        },
-        {
-          name: "Freeloz",
-          desc: "Corporate client site delivering software services and growth.",
-          image: "/images/projects/freeloz-home.webp",
-          alt: "Freeloz corporate site screenshot",
-          link: "https://freeloz.com"
-        }
-      ]
-    }
+      ],
+      bullets: [
+        'Weekly reporting and technical visibility',
+        'Architecture guidance + hands-on implementation',
+        'Scalable team collaboration under Ivan leadership',
+      ],
+    },
+    principles: {
+      title: 'Production-ready principles',
+      list: [
+        'Automation over manual work',
+        'Infrastructure as Code by default',
+        'Security-first decisions',
+        'Cost-aware cloud architecture',
+        'Monitoring, logs, backups, and rollback strategy',
+      ],
+    },
+    cta: {
+      title: 'Need a senior engineer or managed outsourcing partner?',
+      subtitle:
+        'If you need faster delivery, safer cloud operations, and architecture ownership, we should talk.',
+      hire: 'Book a technical call',
+      proposal: 'Get outsourcing proposal',
+    },
+    footer: 'Engineered for business outcomes.',
   },
   es: {
-    nav: { about: "Sobre mí", tech: "Tecnologías", exp: "Experiencia", projects: "Proyectos", contact: "Contacto", services: "Servicios", resources: "Recursos", hire: "Contratar" },
+    nav: {
+      value: 'Valor',
+      services: 'Servicios',
+      proof: 'Resultados',
+      outsourcing: 'Outsourcing',
+      contact: 'Contacto',
+    },
     hero: {
-      badge: "DISPONIBLE PARA ARQUITECTURA Y DESARROLLO",
-      title: "Ivan Rene Ramirez Castro",
-      subtitle: "Ingeniero Full Stack | DevOps | Integración de IA",
-      description: "Construyendo ecosistemas de software resilientes. Diseño, construyo y despliego arquitecturas completas en múltiples nubes.",
-      cta_primary: "Ver Proyectos",
-      cta_secondary: "Mentalidad de Arquitecto"
+      badge: 'DISPONIBLE PARA CONTRATACION Y OUTSOURCING GESTIONADO',
+      title: 'Ivan Rene Ramirez Castro',
+      subtitle: 'Ingeniero Full Stack | DevOps | Integración de IA',
+      pitch:
+        'Ayudo a empresas a lanzar software listo para producción con disciplina de arquitectura, eficiencia cloud y ejecución rápida.',
+      ctaHire: 'Contratar a Ivan',
+      ctaOutsourcing: 'Solicitar propuesta de outsourcing',
+      trust: 'Trabajo remoto · Inglés/Español · Enfoque enterprise',
     },
-    about: {
-      title: "Diseño, construyo y despliego ecosistemas de software completos.",
-      text: "Ingeniero de Sistemas con más de 5 años de experiencia creando arquitecturas escalables para web, móvil y nube. Especialista en Full Stack, automatización DevOps e integraciones de IA en AWS, Azure y plataformas modernas."
-    },
-    architecture: {
-      title: "No solo programo funciones. Diseño sistemas.",
-      text: "Abordo el desarrollo desde una perspectiva arquitectónica: pensando en escalabilidad, seguridad, automatización y optimización de costos desde el primer día."
-    },
-    experience: [
-      { company: "CCSolutions", date: "2024 - Presente", role: "Full Stack & DevOps", desc: "Automatización de pipelines CI/CD, infraestructura multi-nube y orquestación de contenedores." },
-      { company: "TechD", date: "2024", role: "Aplicaciones IA", desc: "Integraciones NeuralSeek, fine-tuning de LLMs y optimización de ElasticSearch." },
-      { company: "Double V Partners", date: "2022 - 2024", role: "Full Stack Developer", desc: "Implementaciones en Angular + Flutter + .NET + AWS." },
-      { company: "EY", date: "2021", role: "Especialista de Datos", desc: "Migraciones de bases de datos y pipelines de Azure." }
-    ],
-    projects: {
-      title: "Proyecto Destacado",
-      name: "Micro Campeonato Regional",
-      desc: "Un ecosistema completo que demuestra maestría arquitectónica: Vue 3, LoopBack API, Terraform AWS Infra y despliegue con Docker.",
-      tech: ["Vue 3", "Terraform", "AWS", "MongoDB", "MinIO"]
-    },
-    insights: {
-      architecture: {
-        title: "Como diseño sistemas",
-        subtitle: "Snapshots de arquitectura que muestran pensamiento sistemico.",
-        diagrams: [
-          {
-            title: "Microservicios + API Gateway",
-            diagram: "Cliente → CDN → API Gateway → Servicios → DB\n                     ↓\n                 Worker → Object Storage → Search",
-            caption: "Enrutamiento escalable, cargas async y busqueda preparada."
-          },
-          {
-            title: "CI/CD Pipeline",
-            diagram: "Commit → Tests → Build → Scan → Deploy → Monitor\n                          ↘ Rollback ↙",
-            caption: "Puertas de seguridad con rollback automatizado."
-          },
-          {
-            title: "Flujo LLM",
-            diagram: "Upload → Extract → Embed → Index → Retrieve → Answer",
-            caption: "Flujos de IA con trazabilidad y control."
-          }
-        ]
-      },
-      costStories: {
-        title: "Historias de optimizacion de costos",
-        items: [
-          "Reduje gasto cloud consolidando contenedores y ajustando recursos.",
-          "Baje tiempos de release de horas a minutos con CI/CD.",
-          "Optimice busquedas y cache para reducir latencia."
-        ]
-      },
-      aiDemo: {
-        title: "Pregunta a mi IA (Demo)",
-        subtitle: "Mock de flujo para mostrar como extraer insights.",
-        placeholder: "Pregunta sobre un documento o dataset...",
-        exampleQuestion: "Resume riesgos clave en un contrato de 50 paginas",
-        exampleAnswer: "Detecto brechas de compliance, SLAs faltantes y riesgos de renovacion."
-      },
-      timeline: {
-        title: "Timeline de despliegue",
-        steps: [
-          "Dia 1 — Arquitectura y roadmap",
-          "Dia 3 — Backend base",
-          "Dia 5 — Frontend",
-          "Dia 7 — Docker + IaC",
-          "Dia 10 — Produccion"
-        ]
-      },
-      infraStack: {
-        title: "Visualizacion de stack",
-        layers: [
-          "Frontend: Angular / Vue / React",
-          "API: NestJS / .NET / Node",
-          "Auth: JWT / OAuth",
-          "Data: PostgreSQL / MongoDB",
-          "Infra: Docker / Terraform / CapRover",
-          "Cloud: AWS / Azure / Cloudflare"
-        ]
-      },
-      metrics: {
-        title: "Impacto",
-        items: [
-          { label: "Años de experiencia", value: "5+" },
-          { label: "Deploys en produccion", value: "20+" },
-          { label: "Multi-cloud", value: "AWS + Azure" },
-          { label: "Pipelines", value: "CI/CD" }
-        ]
-      },
-      principles: {
-        title: "Principios de ingenieria",
-        items: [
-          "Automatizacion sobre trabajo manual",
-          "Infraestructura como codigo",
-          "Seguridad primero",
-          "Costo como parte del diseño",
-          "Observabilidad como producto"
-        ]
-      },
-      techRadar: {
-        title: "Tech Radar",
-        daily: ["Docker", "Git", "AWS", "Node.js"],
-        architect: ["Terraform", "CQRS", "GraphQL", "Event-driven"],
-        exploring: ["Edge functions", "AI Agents", "Vector DB"]
-      },
-      productionReady: {
-        title: "Mentalidad production-ready",
-        items: ["Monitoreo", "Logs", "Error tracking", "Backups", "Rollbacks", "CI/CD"]
-      },
-      clientFit: {
-        title: "Si necesitas...",
-        items: [
-          "Un perfil que maneje infra + backend + frontend",
-          "Migraciones cloud seguras y optimizacion de costos",
-          "IA en produccion",
-          "Automatizacion CI/CD",
-          "Performance y observabilidad"
-        ]
-      },
-      availability: {
-        title: "Disponibilidad y modelo",
-        items: ["Remote-first", "Overlap de zona horaria", "Ingles / Espanol", "Corto o largo plazo"]
-      },
-      howIThink: {
-        title: "Como pienso",
-        items: [
-          { q: "Cuando eliges microservicios?", a: "Cuando hay equipos o dominios que deben desplegar independiente." },
-          { q: "Cuando mantener monolito?", a: "En etapas tempranas donde la velocidad es clave." },
-          { q: "Cuando usar serverless?", a: "Cargas variables o flujos event-driven con baja operacion." }
-        ]
-      },
-      behindScenes: {
-        title: "Detras de escena",
-        subtitle: "Visuales reales de sistemas en produccion."
-      }
-    },
-    ui: {
-      techTitle: "Tecnologías",
-      techSections: [
-        { title: "Frontend y Mobile", items: ["Angular", "Vue 3", "NextJS", "Flutter (Bloc/GetX)"] },
-        { title: "Backend y Sistemas", items: ["NestJS", ".NET Core", "NodeJS", "LoopBack"] },
-        { title: "DevOps y Cloud", items: ["Terraform", "Docker", "AWS", "Azure", "CI/CD Pipelines"] }
+    value: {
+      title: 'Por qué las empresas me contratan',
+      items: [
+        'Diseño sistemas, no solo funcionalidades: arquitectura, delivery y operación en un solo flujo.',
+        'Reduzco riesgo con automatización CI/CD, observabilidad, rollback y seguridad por defecto.',
+        'Optimizo costos cloud mientras mejoro confiabilidad y velocidad de entrega.',
       ],
-      projectLabel: "APLICACION WEB",
-      liveDemo: "Demo en vivo",
-      previewLabel: "Vista previa: Micro Freeloz",
-      contactTitle: "Construyamos algo realmente escalable.",
-      contactCta: "Contactame",
-      footerLine: "Ingenieria orientada al rendimiento.",
-      footerRss: "RSS",
-      moreProjectsTitle: "Mas Proyectos"
     },
     services: {
-      badge: "SERVICIOS",
-      title: "Liderazgo de ingenieria end-to-end.",
-      subtitle: "Arquitectura cloud, automatizacion DevOps, Node.js a escala e integraciones de IA con rigor empresarial.",
-      highlightsTitle: "Lo que recibes",
-      highlights: [
-        "Arquitectura escalable con seguridad y control de costos.",
-        "Pipelines con observabilidad y respuesta a incidentes.",
-        "Planes de ejecucion claros y alineacion con liderazgo."
+      title: 'Servicios principales',
+      cards: [
+        {
+          title: 'Liderazgo de ingeniería',
+          text: 'Ejecución orientada a producto desde arquitectura hasta producción.',
+        },
+        {
+          title: 'Cloud y DevOps',
+          text: 'AWS, Azure, Cloudflare, servidores Linux, IaC, CI/CD, monitoreo y recuperación.',
+        },
+        {
+          title: 'Datos e IA',
+          text: 'Workflows con LLM, optimización de búsqueda y funcionalidades de IA en producción.',
+        },
       ],
-      expertiseTitle: "Experiencia clave",
-      expertise: [
-        "AWS, Azure, Cloudflare, gestion DNS",
-        "Firebase, Supabase, PostgreSQL, MongoDB",
-        "Docker, Terraform, CapRover, CI/CD",
-        "Servidores Linux, networking y performance",
-        "Integraciones de IA, workflows LLM y guardrails"
+      stackTitle: 'Profundidad técnica en stack e infraestructura',
+      stack: [
+        'AWS, Azure, Cloudflare, gestión DNS',
+        'Firebase, Supabase, PostgreSQL, MongoDB',
+        'Docker, Terraform, CapRover, pipelines CI/CD',
+        'Servidores Linux, performance e incident response',
       ],
-      engagementTitle: "Modelos de trabajo",
-      engagementItems: [
-        "Outsourcing gestionado via contrato de prestacion de servicios con persona juridica en Colombia.",
-        "Acuerdos como contractor para empresas extranjeras.",
-        "Opciones full-time o CTO fraccional segun el alcance."
-      ],
-      cta: "Agendar llamada estrategica"
     },
-    resources: {
-      badge: "RECURSOS",
-      title: "Playbooks para equipos modernos.",
-      subtitle: "Guia practica sobre arquitectura, delivery y liderazgo.",
-      sections: [
-        { title: "Arquitectura y Plataformas", items: ["Estrategia cloud y multi-cloud", "Platform engineering", "Datos y analytics"] },
-        { title: "Entrega y Confiabilidad", items: ["Automatizacion CI/CD", "Observabilidad y SLOs", "Respuesta a incidentes"] },
-        { title: "Liderazgo y Crecimiento", items: ["Sistemas de hiring", "Rituales de liderazgo", "CTO advisory"] }
-      ]
-    },
-    hire: {
-      badge: "CONTRATAR",
-      title: "Ingeniero senior y CTO partner para equipos ambiciosos.",
-      subtitle: "Disponible para roles full-time, CTO fraccional o consultoria.",
-      reasonsTitle: "Por que me contratan",
-      reasons: [
-        "Claridad de arquitectura con plan de ejecucion.",
-        "Entrega comprobada en web, mobile y cloud.",
-        "Rigor operativo con automatizacion DevOps."
+    proof: {
+      title: 'Prueba de ejecución',
+      metrics: [
+        { label: 'Años de experiencia', value: '5+' },
+        { label: 'Deploys en producción', value: '20+' },
+        { label: 'Entornos cloud', value: 'Multi-cloud' },
+        { label: 'Estilo de entrega', value: 'Automation-first' },
       ],
-      availability: "Escribeme directamente"
+      casesTitle: 'Productos y clientes destacados',
+      cases: [
+        {
+          name: 'Micro Freeloz',
+          text: 'Ecosistema de torneos con arquitectura full stack y despliegue en producción.',
+          image: '/images/projects/micro-freeloz-home.webp',
+          alt: 'Captura home Micro Freeloz',
+          link: 'https://micro.freeloz.com',
+        },
+        {
+          name: 'Timer Freeloz',
+          text: 'Aplicación de productividad con UX limpia y alto rendimiento.',
+          image: '/images/projects/timer-freeloz.webp',
+          alt: 'Captura Timer Freeloz',
+          link: 'https://timer.freeloz.com',
+        },
+        {
+          name: 'Freeloz (Cliente)',
+          text: 'Sitio corporativo y plataforma de servicios para cliente tecnológico.',
+          image: '/images/projects/freeloz-home.webp',
+          alt: 'Captura sitio cliente Freeloz',
+          link: 'https://freeloz.com',
+        },
+      ],
     },
-    caseStudies: {
-      badge: "CASOS",
-      title: "Resultados de arquitectura con impacto medible.",
-      subtitle: "Trabajo en cloud, delivery y plataformas.",
-      items: [
+    outsourcing: {
+      title: 'Modelo de outsourcing gestionado',
+      subtitle:
+        'Para empresas externas que necesitan entrega confiable sin fricción de contratación.',
+      cards: [
         {
-          name: "Micro Freeloz",
-          desc: "Plataforma de torneos con full stack e infraestructura escalable.",
-          image: "/images/projects/micro-freeloz-home.webp",
-          alt: "Captura del home de Micro Freeloz",
-          link: "https://micro.freeloz.com"
+          title: 'Modelo con persona jurídica en Colombia',
+          text: 'Outsourcing gestionado vía contrato de prestación de servicios con persona jurídica en Colombia.',
+          icon: 'building',
         },
         {
-          name: "Micro Freeloz Torneo",
-          desc: "Experiencia de tablas y estadisticas en vivo.",
-          image: "/images/projects/micro-freeloz-tournament.webp",
-          alt: "Captura de torneo Micro Freeloz",
-          link: "https://micro.freeloz.com/torneo/68f68c3a33878c42aafe471d"
+          title: 'Modelo contractor internacional',
+          text: 'Esquema contractor para empresas extranjeras con alcance claro y ownership técnico.',
+          icon: 'globe',
         },
-        {
-          name: "Focus Timer",
-          desc: "Timer de productividad con UI limpia y performance.",
-          image: "/images/projects/timer-freeloz.webp",
-          alt: "Captura de Timer Freeloz",
-          link: "https://timer.freeloz.com"
-        },
-        {
-          name: "El Impostor",
-          desc: "Juego realtime para crear y unirse a sesiones.",
-          image: "/images/projects/impostor-freeloz.webp",
-          alt: "Captura de Impostor Freeloz",
-          link: "https://impostor.freeloz.com"
-        },
-        {
-          name: "Freeloz",
-          desc: "Sitio corporativo de cliente con servicios y crecimiento.",
-          image: "/images/projects/freeloz-home.webp",
-          alt: "Captura de sitio Freeloz",
-          link: "https://freeloz.com"
-        }
-      ]
-    }
-  }
-};
+      ],
+      bullets: [
+        'Reporte semanal y visibilidad técnica',
+        'Guía de arquitectura + implementación hands-on',
+        'Colaboración escalable con equipo liderado por Ivan',
+      ],
+    },
+    principles: {
+      title: 'Principios production-ready',
+      list: [
+        'Automatización sobre trabajo manual',
+        'Infraestructura como código por defecto',
+        'Decisiones con seguridad primero',
+        'Arquitectura cloud orientada a costo',
+        'Monitoreo, logs, backups y rollback',
+      ],
+    },
+    cta: {
+      title: '¿Necesitas un ingeniero senior o partner de outsourcing?',
+      subtitle:
+        'Si necesitas entregar más rápido, operar cloud con menos riesgo y tener ownership de arquitectura, conversemos.',
+      hire: 'Agendar llamada técnica',
+      proposal: 'Recibir propuesta de outsourcing',
+    },
+    footer: 'Ingeniería enfocada en resultados de negocio.',
+  },
+}
 
-const Layout = ({ lang, setLang, t, children }) => (
-  <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-blue-500/30">
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/10 blur-[120px] rounded-full" />
-    </div>
+const iconMap = {
+  building: Building2,
+  globe: Globe2,
+}
 
-    <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-[#020617]/80 backdrop-blur-md px-6 py-4" aria-label="Primary">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold tracking-tighter flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg overflow-hidden border border-blue-500/40">
-            <img src="/favicon.svg" alt="IR logo" className="w-full h-full" />
-          </div>
-          <span className="hidden sm:inline">ivanrene.com</span>
-        </Link>
+function App() {
+  const [lang, setLang] = useState('en')
+  const t = useMemo(() => content[lang], [lang])
 
-        <div className="flex items-center gap-8 text-sm font-medium text-slate-300">
-          <a href="/#about" className="hover:text-white transition-colors">{t.nav.about}</a>
-          <a href="/#experience" className="hover:text-white transition-colors">{t.nav.exp}</a>
-          <a href="/#projects" className="hover:text-white transition-colors">{t.nav.projects}</a>
-          <Link to="/services" className="hover:text-white transition-colors">{t.nav.services}</Link>
-          <Link to="/resources" className="hover:text-white transition-colors">{t.nav.resources}</Link>
-          <Link to="/case-studies" className="hover:text-white transition-colors">{lang === 'es' ? 'Casos' : 'Case Studies'}</Link>
-          <Link to="/hire-ivan" className="hover:text-white transition-colors">{t.nav.hire}</Link>
-          <button
-            onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
-            className="flex items-center gap-1 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 hover:border-slate-600 transition-all text-blue-400"
-            aria-label={`Language ${lang.toUpperCase()}`}
-          >
-            <Languages size={14} />
-            {lang.toUpperCase()}
-          </button>
-        </div>
+  useEffect(() => {
+    const stored = localStorage.getItem('lang')
+    const browser = (navigator.language || '').toLowerCase().startsWith('es') ? 'es' : 'en'
+    const resolved = stored || browser || 'en'
+    setLang(resolved)
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('lang', lang)
+    document.documentElement.lang = lang
+  }, [lang])
+
+  return (
+    <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-blue-500/30">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/10 blur-[120px] rounded-full" />
       </div>
-    </nav>
 
-    <main className="relative z-10">{children}</main>
-
-    <footer className="max-w-7xl mx-auto px-6 py-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div className="text-slate-400 text-sm">
-        © {new Date().getFullYear()} Ivan Rene Ramirez Castro. {t.ui.footerLine}
-      </div>
-      <div className="flex gap-8 text-slate-400 text-sm font-mono uppercase tracking-widest">
-        <span className="text-blue-300">Next.js</span>
-        <span className="text-blue-300">Tailwind</span>
-        <span className="text-blue-300">Framer Motion</span>
-      </div>
-      <a
-        href="/rss.xml"
-        className="text-xs text-slate-400 hover:text-slate-200 transition-colors"
-        aria-label="RSS feed"
-      >
-        {t.ui.footerRss}
-      </a>
-    </footer>
-  </div>
-);
-
-const HomePage = ({ t, lang }) => (
-  <>
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-20">
-      <div className="text-center animate-fade-up">
-        <span className="px-3 py-1 text-[10px] font-mono tracking-widest text-blue-400 border border-blue-400/30 rounded-full bg-blue-400/5">
-          {t.hero.badge}
-        </span>
-
-        <div className="mt-8 flex justify-center">
-          <img
-            src="https://avatars.githubusercontent.com/u/6560951?v=4&s=256"
-            alt="Ivan Rene Ramirez Castro"
-            width="128"
-            height="128"
-            loading="eager"
-            fetchpriority="high"
-            className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-slate-900 shadow-2xl ring-2 ring-blue-500/20"
-          />
-        </div>
-
-        <h1 className="mt-6 text-5xl md:text-8xl font-bold tracking-tighter bg-gradient-to-b from-white to-slate-500 bg-clip-text text-transparent">
-          {t.hero.title}
-        </h1>
-
-        <p className="mt-4 text-xl md:text-2xl font-medium text-slate-300">
-          {t.hero.subtitle}
-        </p>
-
-        <p className="mt-6 text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-          {t.hero.description}
-        </p>
-
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <a href="#projects" className="group bg-blue-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-blue-500 transition-all duration-300 flex items-center gap-2">
-            {t.hero.cta_primary} <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+      <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-[#020617]/80 backdrop-blur-md px-6 py-4" aria-label="Primary">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <a href="#top" className="text-xl font-bold tracking-tighter flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg overflow-hidden border border-blue-500/40">
+              <img src="/favicon.svg" alt="IR logo" className="w-full h-full" />
+            </div>
+            <span className="hidden sm:inline">ivanrene.com</span>
           </a>
-          <a href="#about" className="bg-slate-900 border border-slate-800 px-8 py-4 rounded-xl font-medium hover:border-slate-600 transition-all">
-            {t.hero.cta_secondary}
-          </a>
+
+          <div className="flex items-center gap-7 text-sm font-medium text-slate-300">
+            <a href="#value" className="hover:text-white transition-colors">{t.nav.value}</a>
+            <a href="#services" className="hover:text-white transition-colors">{t.nav.services}</a>
+            <a href="#proof" className="hover:text-white transition-colors">{t.nav.proof}</a>
+            <a href="#outsourcing" className="hover:text-white transition-colors">{t.nav.outsourcing}</a>
+            <a href="#contact" className="hover:text-white transition-colors">{t.nav.contact}</a>
+            <button
+              onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
+              className="flex items-center gap-1 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 hover:border-slate-600 transition-all text-blue-400"
+              aria-label={`Language ${lang.toUpperCase()}`}
+            >
+              <Globe2 size={14} />
+              {lang.toUpperCase()}
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </nav>
 
-        {/* --- ABOUT & MINDSET --- */}
-        <section id="about" className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="animate-fade-left">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                {t.about.title}
-              </h2>
-              <p className="text-lg text-slate-400 leading-relaxed mb-8">
-                {t.about.text}
-              </p>
-
-              <div className="flex flex-wrap gap-3">
-                {['Angular', 'Flutter', '.NET', 'NestJS', 'AWS', 'Docker', 'Terraform', 'OpenAI'].map(tag => (
-                  <span key={tag} className="px-3 py-1 text-xs font-mono bg-slate-900 border border-slate-800 rounded-md text-blue-400">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 backdrop-blur-sm relative group overflow-hidden animate-fade-zoom">
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Workflow size={120} />
-              </div>
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <ShieldCheck className="text-blue-500" /> {t.architecture.title}
-              </h3>
-              <p className="text-slate-400 italic">
-                "{t.architecture.text}"
-              </p>
-            </div>
+      <main id="top" className="relative z-10">
+        <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-20 text-center">
+          <span className="px-3 py-1 text-[10px] font-mono tracking-widest text-blue-400 border border-blue-400/30 rounded-full bg-blue-400/5">
+            {t.hero.badge}
+          </span>
+          <h1 className="mt-6 text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-white to-slate-500 bg-clip-text text-transparent">
+            {t.hero.title}
+          </h1>
+          <p className="mt-4 text-xl md:text-2xl font-medium text-slate-300">{t.hero.subtitle}</p>
+          <p className="mt-6 text-base md:text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">{t.hero.pitch}</p>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <a href="mailto:ivanrene10@gmail.com?subject=Hiring%20Ivan" className="group bg-blue-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-blue-500 transition-all duration-300 flex items-center gap-2">
+              <Briefcase size={18} /> {t.hero.ctaHire}
+            </a>
+            <a href="mailto:ivanrene10@gmail.com?subject=Managed%20Outsourcing%20Proposal" className="bg-slate-900 border border-slate-800 px-8 py-4 rounded-xl font-medium hover:border-slate-600 transition-all flex items-center gap-2">
+              <Handshake size={18} /> {t.hero.ctaOutsourcing}
+            </a>
           </div>
+          <p className="mt-6 text-slate-500 text-sm font-mono">{t.hero.trust}</p>
         </section>
 
-        {/* --- TECH GRID --- */}
-        <section className="bg-slate-950/50 py-32 border-y border-white/5">
-          <div className="max-w-7xl mx-auto px-6 text-center">
-            <h2 className="text-sm font-mono text-blue-500 uppercase tracking-widest mb-16">{t.ui.techTitle}</h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[<Smartphone size={24} />, <Server size={24} />, <Cloud size={24} />].map((icon, idx) => (
-                <div key={idx} className="p-8 rounded-2xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 transition-all text-left">
-                  <div className="text-blue-500 mb-4">{icon}</div>
-                  <h3 className="text-lg font-bold mb-4">{t.ui.techSections[idx].title}</h3>
-                  <ul className="space-y-2">
-                    {t.ui.techSections[idx].items.map(item => (
-                      <li key={item} className="text-slate-400 text-sm flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500/50" /> {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">{t.insights.architecture.title}</h2>
-            <p className="text-slate-400 mt-3">{t.insights.architecture.subtitle}</p>
-          </div>
+        <section id="value" className="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
+          <h2 className="text-3xl font-bold mb-8">{t.value.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {t.insights.architecture.diagrams.map((item) => (
-              <div key={item.title} className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-                <h3 className="text-lg font-bold mb-3">{item.title}</h3>
-                <pre className="text-xs font-mono text-slate-300 bg-slate-950/70 border border-slate-800 rounded-xl p-4 whitespace-pre-wrap">
-                  {item.diagram}
-                </pre>
-                <p className="text-slate-400 text-sm mt-4">{item.caption}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="section">
-            <h3 className="text-2xl font-bold mb-4">{t.insights.infraStack.title}</h3>
-            <ul className="list">
-              {t.insights.infraStack.layers.map((layer) => (
-                <li key={layer}>{layer}</li>
-              ))}
-            </ul>
-            <img className="content-image" src="/images/section-architecture.png" alt="Infra stack blueprint visual" loading="lazy" />
-          </div>
-          <div className="section">
-            <h3 className="text-2xl font-bold mb-4">{t.insights.timeline.title}</h3>
-            <ul className="list">
-              {t.insights.timeline.steps.map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ul>
-            <img className="content-image" src="/images/section-delivery.png" alt="Delivery timeline visual" loading="lazy" />
-          </div>
-        </section>
-
-        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="section">
-            <h3 className="text-2xl font-bold mb-4">{t.insights.costStories.title}</h3>
-            <ul className="list">
-              {t.insights.costStories.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <img className="content-image" src="/images/section-outcomes.png" alt="Cost optimization outcomes visual" loading="lazy" />
-          </div>
-          <div className="section">
-            <h3 className="text-2xl font-bold mb-4">{t.insights.metrics.title}</h3>
-            <div className="grid grid-cols-2 gap-4">
-              {t.insights.metrics.items.map((metric) => (
-                <div key={metric.label} className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
-                  <div className="text-2xl font-bold text-blue-300">{metric.value}</div>
-                  <div className="text-xs text-slate-400 mt-1">{metric.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="section">
-            <h3 className="text-2xl font-bold mb-4">{t.insights.principles.title}</h3>
-            <ul className="list">
-              {t.insights.principles.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="section">
-            <h3 className="text-2xl font-bold mb-4">{t.insights.productionReady.title}</h3>
-            <div className="flex flex-wrap gap-3">
-              {t.insights.productionReady.items.map((item) => (
-                <span key={item} className="px-3 py-1 text-xs font-mono bg-slate-900 border border-slate-800 rounded-md text-blue-400">
-                  {item}
-                </span>
-              ))}
-            </div>
-            <img className="content-image" src="/images/section-reliability.png" alt="Production readiness visual" loading="lazy" />
-          </div>
-        </section>
-
-        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold">{t.insights.techRadar.title}</h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="section">
-              <h4 className="font-bold mb-3">{lang === 'es' ? 'Uso diario' : 'I Use Daily'}</h4>
-              <ul className="list">
-                {t.insights.techRadar.daily.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="section">
-              <h4 className="font-bold mb-3">{lang === 'es' ? 'Arquitecto con' : 'I Architect With'}</h4>
-              <ul className="list">
-                {t.insights.techRadar.architect.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="section">
-              <h4 className="font-bold mb-3">{lang === 'es' ? 'Explorando' : 'Exploring'}</h4>
-              <ul className="list">
-                {t.insights.techRadar.exploring.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="section">
-            <h3 className="text-2xl font-bold mb-4">{t.insights.clientFit.title}</h3>
-            <ul className="list">
-              {t.insights.clientFit.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="section">
-            <h3 className="text-2xl font-bold mb-4">{t.insights.availability.title}</h3>
-            <ul className="list">
-              {t.insights.availability.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <img className="content-image" src="/images/section-success.png" alt="Availability and collaboration visual" loading="lazy" />
-          </div>
-        </section>
-
-        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
-          <div className="section">
-            <h3 className="text-2xl font-bold mb-4">{t.insights.aiDemo.title}</h3>
-            <p className="text-slate-400 mb-4">{t.insights.aiDemo.subtitle}</p>
-            <div className="flex flex-col gap-3">
-              <input
-                type="text"
-                placeholder={t.insights.aiDemo.placeholder}
-                className="bg-slate-950/70 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200"
-                readOnly
-              />
-              <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-4 text-sm text-slate-300">
-                <div className="text-xs text-blue-400 font-mono mb-2">{t.insights.aiDemo.exampleQuestion}</div>
-                <div>{t.insights.aiDemo.exampleAnswer}</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold">{t.insights.howIThink.title}</h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {t.insights.howIThink.items.map((item) => (
-              <div key={item.q} className="section">
-                <h4 className="font-bold mb-2">{item.q}</h4>
-                <p className="text-slate-400 text-sm">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold">{t.insights.behindScenes.title}</h3>
-            <p className="text-slate-400 mt-2">{t.insights.behindScenes.subtitle}</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {t.caseStudies.items.map((item) => (
-              <article key={item.name} className="section">
-                <img src={item.image} alt={item.alt} className="w-full h-56 object-cover rounded-xl border border-slate-800" loading="lazy" />
-                <h4 className="font-bold mt-4">{item.name}</h4>
-                <p className="text-slate-400 text-sm mt-2">{item.desc}</p>
+            {t.value.items.map((item) => (
+              <article key={item} className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                <CheckCircle2 className="text-blue-400 mb-4" size={20} />
+                <p className="text-slate-300 text-sm leading-relaxed">{item}</p>
               </article>
             ))}
           </div>
         </section>
 
-        {/* --- EXPERIENCE --- */}
-        <section id="experience" className="max-w-4xl mx-auto px-6 py-32">
-          <h2 className="text-3xl font-bold mb-16 text-center">{t.nav.exp}</h2>
+        <section id="services" className="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
+          <h2 className="text-3xl font-bold mb-8">{t.services.title}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <article className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+              <ServerCog className="text-blue-400 mb-4" size={20} />
+              <h3 className="font-bold mb-2">{t.services.cards[0].title}</h3>
+              <p className="text-slate-400 text-sm">{t.services.cards[0].text}</p>
+            </article>
+            <article className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+              <Cloud className="text-blue-400 mb-4" size={20} />
+              <h3 className="font-bold mb-2">{t.services.cards[1].title}</h3>
+              <p className="text-slate-400 text-sm">{t.services.cards[1].text}</p>
+            </article>
+            <article className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+              <Cpu className="text-blue-400 mb-4" size={20} />
+              <h3 className="font-bold mb-2">{t.services.cards[2].title}</h3>
+              <p className="text-slate-400 text-sm">{t.services.cards[2].text}</p>
+            </article>
+          </div>
 
-          <div className="space-y-12">
-            {t.experience.map((exp, idx) => (
-              <div
-                key={idx}
-                className="relative pl-8 border-l border-slate-800 group animate-fade-up"
-              >
-                <div className="absolute left-[-5px] top-0 w-[9px] h-[9px] rounded-full bg-slate-800 group-hover:bg-blue-500 transition-colors" />
-                <span className="text-xs font-mono text-blue-500">{exp.date}</span>
-                <h3 className="text-xl font-bold mt-1">{exp.company}</h3>
-                <p className="text-blue-400 font-medium mb-2">{exp.role}</p>
-                <p className="text-slate-400 text-sm leading-relaxed">{exp.desc}</p>
+          <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-8">
+            <h3 className="text-xl font-bold mb-4">{t.services.stackTitle}</h3>
+            <ul className="list">
+              {t.services.stack.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section id="proof" className="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
+          <h2 className="text-3xl font-bold mb-8">{t.proof.title}</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            {t.proof.metrics.map((metric) => (
+              <div key={metric.label} className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
+                <div className="text-2xl font-bold text-blue-300">{metric.value}</div>
+                <div className="text-xs text-slate-400 mt-1">{metric.label}</div>
               </div>
             ))}
           </div>
-        </section>
 
-        {/* --- FEATURED PROJECT --- */}
-        <section id="projects" className="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
-          <h2 className="text-sm font-mono text-blue-500 uppercase tracking-widest mb-16 text-center">{t.projects.title}</h2>
-
-          <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-3xl overflow-hidden flex flex-col lg:flex-row items-center transition-transform hover:-translate-y-1">
-            <div className="lg:w-1/2 p-8 lg:p-16">
-              <div className="flex items-center gap-2 text-blue-500 mb-4 font-mono text-xs">
-                <Globe size={14} /> {t.ui.projectLabel}
-              </div>
-              <h3 className="text-3xl font-bold mb-6">{t.projects.name}</h3>
-              <p className="text-slate-400 text-lg mb-8 leading-relaxed">
-                {t.projects.desc}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-10">
-                {t.projects.tech.map(tag => (
-                  <span key={tag} className="px-2 py-1 bg-slate-800 rounded text-[10px] text-slate-300 border border-white/5">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <a
-                href="https://micro.freeloz.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-white font-medium hover:text-blue-400 transition-colors group"
-              >
-                {t.ui.liveDemo} <ExternalLink size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </a>
-            </div>
-
-            <div className="lg:w-1/2 bg-slate-800/50 p-4 w-full h-full min-h-[300px] flex items-center justify-center border-l border-white/5">
-              <div className="relative w-full aspect-video rounded-xl bg-slate-950 overflow-hidden border border-white/10 shadow-2xl">
-                <img
-                  src="/images/projects/micro-freeloz-home.webp"
-                  alt="Micro Freeloz preview screenshot"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-blue-600/10" />
-                <div className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-slate-900/70 border border-white/10 text-slate-300 text-xs font-mono tracking-widest uppercase">
-                  {t.ui.previewLabel}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
-          <h2 className="text-sm font-mono text-blue-500 uppercase tracking-widest mb-12 text-center">{t.ui.moreProjectsTitle}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {t.caseStudies.items.slice(0, 4).map((item) => (
+          <h3 className="text-xl font-bold mb-4">{t.proof.casesTitle}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {t.proof.cases.map((item) => (
               <article key={item.name} className="bg-slate-900/60 border border-slate-800 rounded-2xl overflow-hidden">
-                <img src={item.image} alt={item.alt} className="w-full h-56 object-cover" loading="lazy" />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{item.name}</h3>
-                  <p className="text-slate-400 text-sm mb-4">{item.desc}</p>
-                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-400">
-                    {t.ui.liveDemo} <ExternalLink size={14} />
+                <img src={item.image} alt={item.alt} className="w-full h-52 object-cover" loading="lazy" />
+                <div className="p-5">
+                  <h4 className="font-bold mb-2">{item.name}</h4>
+                  <p className="text-slate-400 text-sm mb-4">{item.text}</p>
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-400 text-sm">
+                    {lang === 'es' ? 'Ver proyecto' : 'View project'} <ArrowRight size={14} />
                   </a>
                 </div>
               </article>
@@ -952,214 +411,67 @@ const HomePage = ({ t, lang }) => (
           </div>
         </section>
 
-        {/* --- CONTACT --- */}
-        <section id="contact" className="max-w-7xl mx-auto px-6 py-32 text-center">
-          <div className="bg-blue-600 rounded-[3rem] p-12 md:p-24 relative overflow-hidden animate-fade-zoom">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#ffffff10_0%,transparent_70%)]" />
+        <section id="outsourcing" className="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
+          <h2 className="text-3xl font-bold mb-3">{t.outsourcing.title}</h2>
+          <p className="text-slate-400 mb-8">{t.outsourcing.subtitle}</p>
 
-            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-8 relative z-10">
-              {t.ui.contactTitle}
-            </h2>
-
-            <div className="flex flex-wrap justify-center gap-6 relative z-10">
-              <a href="mailto:ivanrene10@gmail.com" className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-slate-100 transition-colors shadow-xl">
-                <Mail size={20} /> {t.ui.contactCta}
-              </a>
-              <div className="flex items-center gap-4">
-                <a
-                  href="https://github.com/ivanramirez-git"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Ivan Ramirez on GitHub"
-                  className="w-12 h-12 rounded-xl bg-blue-700/50 flex items-center justify-center hover:bg-blue-700 transition-colors text-white"
-                >
-                  <Github />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/ivanramirez-in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Ivan Ramirez on LinkedIn"
-                  className="w-12 h-12 rounded-xl bg-blue-700/50 flex items-center justify-center hover:bg-blue-700 transition-colors text-white"
-                >
-                  <Linkedin />
-                </a>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {t.outsourcing.cards.map((card) => {
+              const Icon = iconMap[card.icon]
+              return (
+                <article key={card.title} className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+                  <Icon className="text-blue-400 mb-4" size={20} />
+                  <h3 className="font-bold mb-2">{card.title}</h3>
+                  <p className="text-slate-400 text-sm">{card.text}</p>
+                </article>
+              )
+            })}
           </div>
-        </section>
 
-  </>
-);
-
-const ServicesPage = ({ t }) => (
-  <div className="max-w-7xl mx-auto px-6 pt-28 pb-20">
-    <section className="text-center">
-      <span className="px-3 py-1 text-[10px] font-mono tracking-widest text-blue-400 border border-blue-400/30 rounded-full bg-blue-400/5">
-        {t.services.badge}
-      </span>
-      <h1 className="mt-6 text-4xl md:text-6xl font-bold tracking-tighter">{t.services.title}</h1>
-      <p className="mt-4 text-slate-400 max-w-3xl mx-auto">{t.services.subtitle}</p>
-          <img className="content-image" src="/images/hero-services.png" alt="Professional services overview" loading="lazy" style={{ maxHeight: '360px', objectFit: 'cover' }} />
-    </section>
-
-    <section className="section split">
-      <div>
-        <h2 className="text-2xl font-bold mb-4">{t.services.highlightsTitle}</h2>
-        <ul className="list">
-          {t.services.highlights.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <img className="content-image" src="/images/section-architecture.png" alt="Architecture planning visual" loading="lazy" />
-      </div>
-      <div>
-        <h2 className="text-2xl font-bold mb-4">{t.services.expertiseTitle}</h2>
-        <ul className="list">
-          {t.services.expertise.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <img className="content-image" src="/images/section-strategy.png" alt="Technical strategy visual" loading="lazy" />
-      </div>
-    </section>
-
-    <section className="section">
-      <h2 className="text-2xl font-bold mb-4">{t.services.engagementTitle}</h2>
-      <ul className="list">
-        {t.services.engagementItems.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-      <img className="content-image" src="/images/section-success.png" alt="Professional engagement model visual" loading="lazy" />
-    </section>
-
-    <section className="section text-center">
-      <a href="mailto:ivanrene10@gmail.com" className="bg-blue-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-blue-500 transition-all inline-flex items-center gap-2">
-        {t.services.cta} <ChevronRight className="w-4 h-4" />
-      </a>
-    </section>
-  </div>
-);
-
-const ResourcesPage = ({ t }) => (
-  <div className="max-w-7xl mx-auto px-6 pt-28 pb-20">
-    <section className="text-center">
-      <span className="px-3 py-1 text-[10px] font-mono tracking-widest text-blue-400 border border-blue-400/30 rounded-full bg-blue-400/5">
-        {t.resources.badge}
-      </span>
-      <h1 className="mt-6 text-4xl md:text-6xl font-bold tracking-tighter">{t.resources.title}</h1>
-      <p className="mt-4 text-slate-400 max-w-3xl mx-auto">{t.resources.subtitle}</p>
-      <img className="content-image" src="/images/hero-resources.png" alt="Resources library visual" loading="lazy" style={{ maxHeight: '360px', objectFit: 'cover' }} />
-    </section>
-
-    <section className="section grid">
-      {t.resources.sections.map((section) => (
-        <div key={section.title} className="card">
-          <h3 className="text-lg font-bold mb-3">{section.title}</h3>
           <ul className="list">
-            {section.items.map((item) => (
+            {t.outsourcing.bullets.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 py-20 border-t border-white/5 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+            <h3 className="text-xl font-bold mb-4">{t.principles.title}</h3>
+            <ul className="list">
+              {t.principles.list.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div id="contact" className="bg-blue-600 rounded-2xl p-8">
+            <ShieldCheck className="text-white mb-4" size={22} />
+            <h3 className="text-2xl font-bold text-white mb-3">{t.cta.title}</h3>
+            <p className="text-blue-50/90 text-sm mb-6">{t.cta.subtitle}</p>
+            <div className="flex flex-wrap gap-3">
+              <a href="mailto:ivanrene10@gmail.com?subject=Technical%20Call" className="bg-white text-blue-700 px-5 py-3 rounded-xl font-semibold inline-flex items-center gap-2">
+                <Mail size={16} /> {t.cta.hire}
+              </a>
+              <a href="mailto:ivanrene10@gmail.com?subject=Outsourcing%20Proposal" className="bg-blue-700 text-white px-5 py-3 rounded-xl font-semibold inline-flex items-center gap-2 border border-blue-400/30">
+                <Handshake size={16} /> {t.cta.proposal}
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="max-w-7xl mx-auto px-6 py-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
+        <div className="text-slate-400 text-sm">© {new Date().getFullYear()} Ivan Rene Ramirez Castro. {t.footer}</div>
+        <div className="flex gap-8 text-slate-400 text-sm font-mono uppercase tracking-widest">
+          <span className="text-blue-300">AWS</span>
+          <span className="text-blue-300">DevOps</span>
+          <span className="text-blue-300">AI</span>
         </div>
-      ))}
-    </section>
-  </div>
-);
+        <a href="/rss.xml" className="text-xs text-slate-400 hover:text-slate-200 transition-colors" aria-label="RSS feed">RSS</a>
+      </footer>
+    </div>
+  )
+}
 
-const HirePage = ({ t }) => (
-  <div className="max-w-7xl mx-auto px-6 pt-28 pb-20">
-    <section className="text-center">
-      <span className="px-3 py-1 text-[10px] font-mono tracking-widest text-blue-400 border border-blue-400/30 rounded-full bg-blue-400/5">
-        {t.hire.badge}
-      </span>
-      <h1 className="mt-6 text-4xl md:text-6xl font-bold tracking-tighter">{t.hire.title}</h1>
-      <p className="mt-4 text-slate-400 max-w-3xl mx-auto">{t.hire.subtitle}</p>
-      <img className="content-image" src="/images/hero-hire.png" alt="Leadership and hiring visual" loading="lazy" style={{ maxHeight: '360px', objectFit: 'cover' }} />
-    </section>
-
-    <section className="section split">
-      <div>
-        <h2 className="text-2xl font-bold mb-4">{t.hire.reasonsTitle}</h2>
-        <ul className="list">
-          {t.hire.reasons.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <img className="content-image" src="/images/section-reliability.png" alt="Reliability and execution visual" loading="lazy" />
-      </div>
-      <div>
-        <h2 className="text-2xl font-bold mb-4">{t.services.expertiseTitle}</h2>
-        <ul className="list">
-          {t.services.expertise.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <img className="content-image" src="/images/section-hiring.png" alt="Team growth visual" loading="lazy" />
-      </div>
-    </section>
-
-    <section className="section text-center">
-      <a href="mailto:ivanrene10@gmail.com" className="bg-blue-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-blue-500 transition-all inline-flex items-center gap-2">
-        {t.hire.availability} <ChevronRight className="w-4 h-4" />
-      </a>
-    </section>
-  </div>
-);
-
-const CaseStudiesPage = ({ t }) => (
-  <div className="max-w-7xl mx-auto px-6 pt-28 pb-20">
-    <section className="text-center">
-      <span className="px-3 py-1 text-[10px] font-mono tracking-widest text-blue-400 border border-blue-400/30 rounded-full bg-blue-400/5">
-        {t.caseStudies.badge}
-      </span>
-      <h1 className="mt-6 text-4xl md:text-6xl font-bold tracking-tighter">{t.caseStudies.title}</h1>
-      <p className="mt-4 text-slate-400 max-w-3xl mx-auto">{t.caseStudies.subtitle}</p>
-      <img className="content-image" src="/images/hero-cases.png" alt="Case studies overview visual" loading="lazy" style={{ maxHeight: '360px', objectFit: 'cover' }} />
-    </section>
-
-    <section className="section grid">
-      {t.caseStudies.items.map((item) => (
-        <article key={item.name} className="card">
-          <img className="content-image" src={item.image} alt={item.alt} loading="lazy" style={{ maxHeight: '280px', objectFit: 'cover' }} />
-          <h3 className="text-lg font-bold mt-4">{item.name}</h3>
-          <p className="text-slate-400 text-sm mt-2">{item.desc}</p>
-          <a href={item.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-blue-400 mt-3">
-            {t.ui.liveDemo} <ExternalLink size={14} />
-          </a>
-        </article>
-      ))}
-    </section>
-  </div>
-);
-
-const App = () => {
-  const [lang, setLang] = useState('en');
-  const t = useMemo(() => content[lang], [lang]);
-
-  useEffect(() => {
-    const stored = localStorage.getItem('lang');
-    const browser = (navigator.language || '').toLowerCase().startsWith('es') ? 'es' : 'en';
-    setLang(stored || browser || 'en');
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('lang', lang);
-    document.documentElement.lang = lang;
-  }, [lang]);
-
-  return (
-    <Layout lang={lang} setLang={setLang} t={t}>
-      <Routes>
-        <Route path="/" element={<HomePage t={t} lang={lang} />} />
-        <Route path="/services" element={<ServicesPage t={t} />} />
-        <Route path="/resources" element={<ResourcesPage t={t} />} />
-        <Route path="/hire-ivan" element={<HirePage t={t} />} />
-        <Route path="/case-studies" element={<CaseStudiesPage t={t} />} />
-      </Routes>
-    </Layout>
-  );
-};
-
-export default App;
+export default App
