@@ -4,14 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Case Studies | Ivan Rene Ramirez Castro</title>
-    <meta name="description" content="Case studies showcasing cloud architecture, DevOps automation, and enterprise delivery." />
+    <meta name="description" content="Case studies showcasing architecture decisions, delivery outcomes, and system impact." />
     <link rel="canonical" href="https://ivanrene.com/case-studies" />
     <link rel="stylesheet" href="/content.css" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Case Studies" />
-    <meta property="og:description" content="Real projects across cloud, DevOps, and full stack engineering." />
+    <meta property="og:title" content="Case Studies | Ivan Rene Ramirez Castro" />
+    <meta property="og:description" content="Architecture outcomes and delivery impact across cloud and platforms." />
     <meta property="og:url" content="https://ivanrene.com/case-studies" />
     <meta property="og:image" content="https://ivanrene.com/og-image.png" />
+    <script>
+      window.I18N = {
+        en: {
+          navHome: 'Home',
+          navServices: 'Services',
+          navResources: 'Resources',
+          navCase: 'Case Studies',
+          navHire: 'Hire Ivan',
+          badge: 'Case Studies',
+          title: 'Architecture outcomes with measurable impact.',
+          subtitle: 'Selected work focused on delivery, reliability, and cloud scale.',
+          case1Title: 'Tournament Platform Ecosystem',
+          case1Body: 'Full stack product with infrastructure automation and stable deployments.',
+          case2Title: 'Multi-cloud CI/CD Modernization',
+          case2Body: 'Standardized delivery pipelines with observability and rollback safety.',
+          case3Title: 'Enterprise Data Platform',
+          case3Body: 'Analytics foundation with data quality and access controls.',
+          sectionResultsTitle: 'Common results',
+          result1: 'Faster release cycles with consistent quality gates.',
+          result2: 'Lower cloud risk through repeatable infrastructure.',
+          result3: 'Clear ownership with monitoring and incident playbooks.',
+          ctaTitle: 'Want a similar outcome?',
+          ctaBody: 'I can design the architecture and execution plan for your team.',
+          ctaPrimary: 'Start a project conversation',
+          footer: 'Ivan Rene Ramirez Castro. Case studies and delivery impact.'
+        },
+        es: {
+          navHome: 'Inicio',
+          navServices: 'Servicios',
+          navResources: 'Recursos',
+          navCase: 'Casos',
+          navHire: 'Contratar',
+          badge: 'Casos',
+          title: 'Resultados de arquitectura con impacto medible.',
+          subtitle: 'Trabajo enfocado en entrega, confiabilidad y escala cloud.',
+          case1Title: 'Ecosistema de torneos',
+          case1Body: 'Producto full stack con automatizacion de infraestructura.',
+          case2Title: 'Modernizacion CI/CD multi-cloud',
+          case2Body: 'Pipelines estandarizados con observabilidad y rollback seguro.',
+          case3Title: 'Plataforma de datos empresarial',
+          case3Body: 'Base analitica con calidad de datos y control de acceso.',
+          sectionResultsTitle: 'Resultados comunes',
+          result1: 'Ciclos de release mas rapidos con calidad constante.',
+          result2: 'Menor riesgo cloud con infraestructura repetible.',
+          result3: 'Ownership claro con monitoreo y playbooks.',
+          ctaTitle: 'Quieres un resultado similar?',
+          ctaBody: 'Puedo diseñar la arquitectura y plan de ejecucion para tu equipo.',
+          ctaPrimary: 'Iniciar conversacion',
+          footer: 'Ivan Rene Ramirez Castro. Casos y resultados de entrega.'
+        }
+      };
+    </script>
+    <script src="/i18n.js" defer></script>
   </head>
   <body>
     <header class="nav">
@@ -21,38 +74,56 @@
           <span>ivanrene.com</span>
         </div>
         <nav class="nav-links">
-          <a href="/">Home</a>
-          <a href="/services">Services</a>
-          <a href="/resources">Resources</a>
-          <a href="/case-studies">Case Studies</a>
-          <a href="/hire-ivan">Hire Ivan</a>
+          <a href="/" data-i18n="navHome">Home</a>
+          <a href="/services" data-i18n="navServices">Services</a>
+          <a href="/resources" data-i18n="navResources">Resources</a>
+          <a href="/case-studies" data-i18n="navCase">Case Studies</a>
+          <a href="/hire-ivan" data-i18n="navHire">Hire Ivan</a>
+          <button class="lang-toggle" data-lang-toggle type="button">ES</button>
         </nav>
       </div>
     </header>
 
     <main class="container">
       <section class="hero">
-        <span class="pill">Case Studies</span>
-        <h1>Architecture outcomes with measurable impact.</h1>
-        <p>Selected projects showing how I build full stack systems and cloud foundations that scale.</p>
+        <span class="pill" data-i18n="badge">Case Studies</span>
+        <h1 data-i18n="title">Architecture outcomes with measurable impact.</h1>
+        <p data-i18n="subtitle">Selected work focused on delivery, reliability, and cloud scale.</p>
       </section>
 
       <section class="section grid">
         <article class="card">
-          <h3>Micro Campeonato Regional</h3>
-          <p>Full stack ecosystem with Vue 3, LoopBack API, Terraform, and AWS infrastructure.</p>
-          <a class="accent" href="/case-study-micro">Read case study</a>
+          <h3 data-i18n="case1Title">Tournament Platform Ecosystem</h3>
+          <p data-i18n="case1Body">Full stack product with infrastructure automation and stable deployments.</p>
         </article>
         <article class="card">
-          <h3>Multi cloud CI/CD Modernization</h3>
-          <p>Automated delivery pipelines, observability, and reliable rollbacks across AWS and Azure.</p>
-          <a class="accent" href="/case-study-multicloud">Read case study</a>
+          <h3 data-i18n="case2Title">Multi-cloud CI/CD Modernization</h3>
+          <p data-i18n="case2Body">Standardized delivery pipelines with observability and rollback safety.</p>
         </article>
+        <article class="card">
+          <h3 data-i18n="case3Title">Enterprise Data Platform</h3>
+          <p data-i18n="case3Body">Analytics foundation with data quality and access controls.</p>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="sectionResultsTitle">Common results</h2>
+        <ul class="list">
+          <li data-i18n="result1">Faster release cycles with consistent quality gates.</li>
+          <li data-i18n="result2">Lower cloud risk through repeatable infrastructure.</li>
+          <li data-i18n="result3">Clear ownership with monitoring and incident playbooks.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="ctaTitle">Want a similar outcome?</h2>
+        <p class="tagline" data-i18n="ctaBody">I can design the architecture and execution plan for your team.</p>
+        <a class="cta" href="mailto:ivanrene10@gmail.com" data-i18n="ctaPrimary">Start a project conversation</a>
       </section>
     </main>
 
     <footer class="footer container">
-      <p>Ivan Rene Ramirez Castro. Delivering outcomes through architecture.</p>
+      <p data-i18n="footer">Ivan Rene Ramirez Castro. Case studies and delivery impact.</p>
     </footer>
   </body>
 </html>
