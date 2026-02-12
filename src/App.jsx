@@ -568,7 +568,7 @@ const Layout = ({ lang, setLang, t, children }) => (
   </div>
 );
 
-const HomePage = ({ t }) => (
+const HomePage = ({ t, lang }) => (
   <>
     <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-20">
       <div className="text-center animate-fade-up">
@@ -1130,7 +1130,7 @@ const App = () => {
   return (
     <Layout lang={lang} setLang={setLang} t={t}>
       <Routes>
-        <Route path="/" element={<HomePage t={t} />} />
+        <Route path="/" element={<HomePage t={t} lang={lang} />} />
         <Route path="/services" element={<ServicesPage t={t} />} />
         <Route path="/resources" element={<ResourcesPage t={t} />} />
         <Route path="/hire-ivan" element={<HirePage t={t} />} />
