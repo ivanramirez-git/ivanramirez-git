@@ -114,7 +114,7 @@ const content = {
           text: 'Multi-step digital onboarding platform for financial compliance. Customizable forms, multi-tenant architecture, and production deployment.',
           image: '/images/projects/vinculaform-home.webp',
           alt: 'VinculaForm screenshot',
-          link: 'https://vinculaform.ivanrene.com',
+          link: 'https://vinculaform.com',
         },
         {
           name: 'TeSorteo',
@@ -287,7 +287,7 @@ const content = {
           text: 'Plataforma digital de vinculación multi-paso para cumplimiento financiero. Formularios personalizables, arquitectura multi-tenant y despliegue en producción.',
           image: '/images/projects/vinculaform-home.webp',
           alt: 'Captura VinculaForm',
-          link: 'https://vinculaform.ivanrene.com',
+          link: 'https://vinculaform.com',
         },
         {
           name: 'TeSorteo',
