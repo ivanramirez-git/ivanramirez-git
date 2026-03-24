@@ -2,9 +2,6 @@ name = "ivanramirez-git"
 main = "src/worker.js"
 compatibility_date = "2026-02-12"
 
-[build]
-command = "npm install && npm run build"
-
 [assets]
 directory = "./dist"
 binding = "ASSETS"
