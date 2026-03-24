@@ -109,6 +109,13 @@ const content = {
           alt: 'WyCrédito home screenshot',
           link: 'https://wycredito.com',
         },
+        {
+          name: 'VinculaForm (Client)',
+          text: 'Multi-step digital onboarding platform for financial compliance. Customizable forms, multi-tenant architecture, and production deployment.',
+          image: '/images/projects/vinculaform-home.webp',
+          alt: 'VinculaForm screenshot',
+          link: 'https://vinculaform.ivanrene.com',
+        },
       ],
     },
     outsourcing: {
@@ -246,6 +253,13 @@ const content = {
           image: '/images/projects/wycredito-home.webp',
           alt: 'Captura home WyCrédito',
           link: 'https://wycredito.com',
+        },
+        {
+          name: 'VinculaForm (Cliente)',
+          text: 'Plataforma digital de vinculación multi-paso para cumplimiento financiero. Formularios personalizables, arquitectura multi-tenant y despliegue en producción.',
+          image: '/images/projects/vinculaform-home.webp',
+          alt: 'Captura VinculaForm',
+          link: 'https://vinculaform.ivanrene.com',
         },
       ],
     },
