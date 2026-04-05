@@ -4,8 +4,9 @@ export default {
     const path = url.pathname;
 
     // Routes that should be proxied to Flask backend (CV Manager)
-    const flaskRoutes = ['/cv/', '/panel/', '/auth/', '/api/', '/sitemap.xml', '/robots.txt', '/llms.txt'];
-    const isFlaskRoute = flaskRoutes.some(route => path.startsWith(route) || path === route.replace(/\/$/, ''));
+    const flaskPrefixes = ['/cv/', '/panel/', '/auth/', '/api/', '/static/'];
+    const flaskExact = ['/sitemap.xml', '/robots.txt', '/llms.txt', '/cv', '/panel', '/auth'];
+    const isFlaskRoute = flaskPrefixes.some(p => path.startsWith(p)) || flaskExact.includes(path);
 
     if (isFlaskRoute) {
       // Proxy to Flask backend via cv.ivanrene.com tunnel
