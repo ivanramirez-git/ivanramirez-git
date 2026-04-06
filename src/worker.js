@@ -25,6 +25,8 @@ export default {
       if (location) {
         newHeaders.set('Location', location.replace('cv.ivanrene.com', 'ivanrene.com'));
       }
+      // Prevent CF from caching Flask responses
+      newHeaders.set('Cache-Control', 'no-store, no-cache, must-revalidate');
       return new Response(response.body, {
         status: response.status,
         statusText: response.statusText,
