@@ -368,15 +368,12 @@ const iconMap = {
 }
 
 function App() {
-  const [lang, setLang] = useState('en')
-  const t = useMemo(() => content[lang], [lang])
-
-  useEffect(() => {
+  const [lang, setLang] = useState(() => {
     const stored = localStorage.getItem('lang')
-    const browser = (navigator.language || '').toLowerCase().startsWith('es') ? 'es' : 'en'
-    const resolved = stored || browser || 'en'
-    setLang(resolved)
-  }, [])
+    if (stored === 'es' || stored === 'en') return stored
+    return (navigator.language || '').toLowerCase().startsWith('es') ? 'es' : 'en'
+  })
+  const t = useMemo(() => content[lang], [lang])
 
   useEffect(() => {
     localStorage.setItem('lang', lang)
