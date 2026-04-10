@@ -3,18 +3,6 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // BTG Fund Manager demo at prueba-ceiba.ivanrene.com or /btg/
-    if (url.hostname === 'prueba-ceiba.ivanrene.com' || path.startsWith('/btg/')) {
-      let assetPath = path.startsWith('/btg/') ? path.replace('/btg', '') : path;
-      if (assetPath === '/' || assetPath === '') assetPath = '/index.html';
-      const assetUrl = new URL('/btg-app' + assetPath, url.origin);
-      const assetReq = new Request(assetUrl.toString(), request);
-      const res = await env.ASSETS.fetch(assetReq);
-      if (res.status === 200) return res;
-      // SPA fallback
-      return env.ASSETS.fetch(new Request(new URL('/btg-app/index.html', url.origin), request));
-    }
-
     // Routes that should be proxied to Flask backend (CV Manager)
     const flaskPrefixes = ['/cv/', '/panel/', '/auth/', '/api/', '/static/'];
     const flaskExact = ['/sitemap.xml', '/robots.txt', '/llms.txt', '/cv', '/panel', '/auth'];
