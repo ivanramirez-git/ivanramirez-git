@@ -3,6 +3,101 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
+    // CelularesBaratos — proxy to internal container via cv.ivanrene.com tunnel
+    if (url.hostname === 'celularesbaratos.ivanrene.com') {
+      const backendUrl = new URL(request.url);
+      backendUrl.hostname = 'cv.ivanrene.com';
+      backendUrl.port = '';
+      // Rewrite to internal path handled by cv-manager proxy
+      const proxyReq = new Request(backendUrl.toString(), {
+        method: request.method,
+        headers: request.headers,
+        body: request.body,
+        redirect: 'manual',
+      });
+      try {
+        // Forward to the celularesbaratos container via a known backend
+        const targetUrl = 'http://celularesbaratos.ivanrene.com.internal' + path;
+        // Actually proxy directly using fetch to the tunnel hostname
+        return await fetch(new Request(
+          'https://cv.ivanrene.com' + path + url.search,
+          { method: request.method, headers: request.headers, body: request.body, redirect: 'manual' }
+        ));
+      } catch(e) {
+        return new Response('Service unavailable', { status: 503 });
+      }
+    }
+
+    // Override robots.txt — bypass Cloudflare Managed Content
+    if (path === '/robots.txt') {
+      const robotsTxt = `# ivanrene.com — Ivan Rene Ramirez Castro
+# Full Stack Developer & DevOps | Colombia
+
+User-agent: *
+Allow: /
+Allow: /cv/
+Disallow: /panel/
+Disallow: /auth/
+
+# Search engines — full access
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# AI assistants — full access
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# Sitemaps
+Sitemap: https://ivanrene.com/sitemap.xml
+Sitemap: https://ivanrene.com/sitemap-cvs.xml
+
+# llms.txt for AI context
+# https://ivanrene.com/llms.txt`;
+      return new Response(robotsTxt, {
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Cache-Control': 'public, max-age=3600',
+          'X-Robots-Tag': 'all',
+        }
+      });
+    }
+
     // BTG Fund Manager demo at prueba-ceiba.ivanrene.com or /btg/
     if (url.hostname === 'prueba-ceiba.ivanrene.com' || path.startsWith('/btg/')) {
       let assetPath = path.startsWith('/btg/') ? path.replace('/btg', '') : path;
