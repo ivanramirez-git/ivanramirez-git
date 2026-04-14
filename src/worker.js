@@ -3,6 +3,7 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
+<<<<<<< HEAD
     // CelularesBaratos — proxy to internal container via cv.ivanrene.com tunnel
     if (url.hostname === 'celularesbaratos.ivanrene.com') {
       const backendUrl = new URL(request.url);
@@ -110,6 +111,8 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
       return env.ASSETS.fetch(new Request(new URL('/btg-app/index.html', url.origin), request));
     }
 
+=======
+>>>>>>> 9f0a46b9466f6d628a60c2a40a6f991b2d276e83
     // Routes that should be proxied to Flask backend (CV Manager)
     const flaskPrefixes = ['/cv/', '/panel/', '/auth/', '/api/', '/static/'];
     const flaskExact = ['/sitemap.xml', '/robots.txt', '/llms.txt', '/cv', '/panel', '/auth'];
