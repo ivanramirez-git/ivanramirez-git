@@ -3,7 +3,6 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-<<<<<<< HEAD
     // CelularesBaratos — proxy to internal container via cv.ivanrene.com tunnel
     if (url.hostname === 'celularesbaratos.ivanrene.com') {
       const backendUrl = new URL(request.url);
