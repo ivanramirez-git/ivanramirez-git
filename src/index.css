@@ -99,3 +99,28 @@ body {
     animation: none;
   }
 }
+
+/* ── Light mode overrides ─────────────────────────────────────────────── */
+html:not(.dark) {
+  --bg: #f1f5f9;
+  --text: #0f172a;
+}
+
+html:not(.dark) body {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+html:not(.dark) .section {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(100, 116, 139, 0.2);
+}
+
+html:not(.dark) .list {
+  color: #334155;
+}
+
+html:not(.dark) .content-image {
+  border-color: rgba(100, 116, 139, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}

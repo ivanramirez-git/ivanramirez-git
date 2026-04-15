@@ -9,8 +9,11 @@ import {
   Globe2,
   Handshake,
   Mail,
+  Monitor,
+  Moon,
   ServerCog,
   ShieldCheck,
+  Sun,
 } from 'lucide-react'
 
 const content = {
@@ -380,15 +383,43 @@ function App() {
     document.documentElement.lang = lang
   }, [lang])
 
+  // ── Theme (light / dark / system) ─────────────────────────────────────
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark')
+
+  useEffect(() => {
+    const root = document.documentElement
+    localStorage.setItem('theme', theme)
+    const applyDark = (dark) => {
+      root.classList.toggle('dark', dark)
+      root.style.colorScheme = dark ? 'dark' : 'light'
+    }
+    if (theme === 'system') {
+      const mq = window.matchMedia('(prefers-color-scheme: dark)')
+      applyDark(mq.matches)
+      const handler = (e) => applyDark(e.matches)
+      mq.addEventListener('change', handler)
+      return () => mq.removeEventListener('change', handler)
+    } else {
+      applyDark(theme === 'dark')
+    }
+  }, [theme])
+
+  const cycleTheme = () => {
+    setTheme(t => t === 'dark' ? 'light' : t === 'light' ? 'system' : 'dark')
+  }
+  const ThemeIcon = theme === 'dark' ? Moon : theme === 'light' ? Sun : Monitor
+  const themeLabel = theme === 'dark' ? 'Dark' : theme === 'light' ? 'Light' : 'Auto'
+  // ──────────────────────────────────────────────────────────────────────
+
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen bg-[#020617] dark:bg-[#020617] light:bg-slate-50 text-slate-200 dark:text-slate-200 font-sans selection:bg-blue-500/30 transition-colors duration-300">
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] dark:opacity-100 opacity-30" />
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/10 blur-[120px] rounded-full" />
       </div>
 
-      <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-[#020617]/80 backdrop-blur-md px-6 py-4" aria-label="Primary">
+      <nav className="fixed top-0 w-full z-50 border-b border-white/5 dark:border-white/5 dark:bg-[#020617]/80 bg-white/80 backdrop-blur-md px-6 py-4 transition-colors duration-300" aria-label="Primary">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <a href="#top" className="text-xl font-bold tracking-tighter flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg overflow-hidden border border-blue-500/40">
@@ -405,11 +436,20 @@ function App() {
             <a href="#contact" className="hover:text-white transition-colors">{t.nav.contact}</a>
             <button
               onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
-              className="flex items-center gap-1 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 hover:border-slate-600 transition-all text-blue-400"
+              className="flex items-center gap-1 px-3 py-1 rounded-full border border-slate-700 dark:border-slate-800 bg-slate-100/80 dark:bg-slate-900/50 hover:border-slate-500 transition-all text-blue-500 dark:text-blue-400"
               aria-label={`Language ${lang.toUpperCase()}`}
             >
               <Globe2 size={14} />
               {lang.toUpperCase()}
+            </button>
+            <button
+              onClick={cycleTheme}
+              className="flex items-center gap-1 px-3 py-1 rounded-full border border-slate-700 dark:border-slate-800 bg-slate-100/80 dark:bg-slate-900/50 hover:border-slate-500 transition-all text-slate-500 dark:text-slate-400"
+              aria-label={`Theme: ${themeLabel}`}
+              title={themeLabel}
+            >
+              <ThemeIcon size={14} />
+              <span className="hidden sm:inline text-xs">{themeLabel}</span>
             </button>
           </div>
         </div>
