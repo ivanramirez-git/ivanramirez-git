@@ -98,10 +98,16 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
       });
     }
 
-    // PlátanoControl — bypass Worker, let tunnel handle it
+    // PlátanoControl — proxy to the landing via platanocontrol.com tunnel
     if (url.hostname === 'platano.ivanrene.com') {
-      // Pass through to the Cloudflare Tunnel (configured via CNAME)
-      return fetch(request);
+      const targetUrl = new URL(request.url);
+      targetUrl.hostname = 'platanocontrol.com';
+      return fetch(new Request(targetUrl.toString(), {
+        method: request.method,
+        headers: { 'Host': 'platanocontrol.com', 'Accept': '*/*' },
+        body: ['GET','HEAD'].includes(request.method) ? undefined : request.body,
+        redirect: 'follow',
+      }));
     }
 
     // BTG Fund Manager demo at prueba-ceiba.ivanrene.com or /btg/
