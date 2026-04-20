@@ -98,15 +98,21 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
       });
     }
 
-    // PlátanoControl — proxy al nginx via fetch al servidor
+    // PlátanoControl — proxy al nginx del platano-proxy container
     if (url.hostname === 'platano.ivanrene.com') {
       const backendUrl = new URL(request.url);
       backendUrl.hostname = 'platanocontrol.com';
       try {
+        // Crear nuevos headers sin el Host original para evitar bloqueo de Cloudflare
+        const newHeaders = new Headers();
+        for (const [k, v] of request.headers.entries()) {
+          if (k.toLowerCase() !== 'host') newHeaders.set(k, v);
+        }
+        newHeaders.set('host', 'platanocontrol.com');
         const proxyReq = new Request(backendUrl.toString(), {
           method: request.method,
-          headers: request.headers,
-          body: request.body,
+          headers: newHeaders,
+          body: ['GET','HEAD'].includes(request.method) ? undefined : request.body,
           redirect: 'manual',
         });
         const resp = await fetch(proxyReq);
