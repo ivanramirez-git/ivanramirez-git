@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>PlátanoControl — Controla cada peso de tu cultivo</title>
+  <meta name="description" content="PlátanoControl centraliza todos los gastos de tus proyectos de plátano. Socios, operarios y administradores en un solo lugar, con trazabilidad completa." />
+  <meta name="keywords" content="plátano, control de gastos, gestión agrícola, finca, cultivo, Colombia, trazabilidad" />
+  <meta name="author" content="Freeloz SAS" />
+  <link rel="canonical" href="https://platano.ivanrene.com/" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://platano.ivanrene.com/" />
+  <meta property="og:site_name" content="PlátanoControl" />
+  <meta property="og:title" content="PlátanoControl — Controla cada peso de tu cultivo" />
+  <meta property="og:description" content="Centraliza todos los gastos de tus proyectos de plátano. Socios, operarios y administradores en un solo lugar, con trazabilidad completa." />
+  <meta property="og:image" content="https://platano.ivanrene.com/icons/icon-512.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:locale" content="es_CO" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="PlátanoControl — Controla cada peso de tu cultivo" />
+  <meta name="twitter:description" content="Centraliza todos los gastos de tus proyectos de plátano. Socios, operarios y administradores en un solo lugar." />
+  <meta name="twitter:image" content="https://platano.ivanrene.com/icons/icon-512.png" />
+
+  <!-- Google Play Smart App Banner -->
+  <meta name="google-play-app" content="app-id=com.freeloz.platanocontrol" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PlátanoControl",
+    "description": "Plataforma de gestión agrícola para productores de plátano. Controla gastos, proyectos, operarios y evidencias fotográficas.",
+    "url": "https://platano.ivanrene.com",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Android, Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "COP" },
+    "author": { "@type": "Organization", "name": "Freeloz SAS", "url": "https://freeloz.com" }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f172a; --card: #1e293b; --card2: #162032;
+      --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+      --text: #f1f5f9; --muted: #94a3b8; --border: #1e3a5f;
+      --green: #22c55e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1rem; }
+    .nav-brand img { width: 32px; height: 32px; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { font-size: 0.88rem; color: var(--muted); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-btn {
+      background: var(--yellow); color: #0f172a;
+      padding: 8px 18px; border-radius: 10px;
+      font-weight: 700; font-size: 0.85rem;
+      transition: background 0.15s;
+    }
+    .nav-btn:hover { background: #fde047; color: #0f172a; }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 1100px; margin: 0 auto;
+      padding: 80px 24px 60px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; text-align: center; padding: 48px 20px 40px; }
+      .hero-card { display: none; }
+      .nav-links .nav-link-docs { display: none; }
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--yellow-dim); border: 1px solid rgba(250,204,21,0.25);
+      color: var(--yellow); padding: 6px 14px; border-radius: 999px;
+      font-size: 0.8rem; font-weight: 600; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900; letter-spacing: -0.03em; line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--yellow); }
+    .hero p {
+      font-size: 1.05rem; color: var(--muted); margin-bottom: 36px; max-width: 480px;
+    }
+    @media (max-width: 768px) { .hero p { margin: 0 auto 32px; } }
+
+    .cta-group { display: flex; flex-wrap: wrap; gap: 12px; }
+    @media (max-width: 768px) { .cta-group { justify-content: center; } }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 13px 22px; border-radius: 12px;
+      font-weight: 700; font-size: 0.95rem;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      cursor: pointer; border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn svg, .btn img { flex-shrink: 0; }
+
+    .btn-play {
+      background: #000; color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      border: 1px solid #333;
+    }
+    .btn-play:hover { background: #111; box-shadow: 0 8px 28px rgba(0,0,0,0.5); }
+
+    .btn-web {
+      background: var(--card); color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-web:hover { border-color: var(--yellow); color: var(--yellow); }
+
+    /* ── HERO CARD ── */
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .card-header {
+      background: #162032;
+      padding: 16px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-header strong { font-size: 0.95rem; }
+    .badge-active {
+      background: rgba(34,197,94,0.15); color: var(--green);
+      border: 1px solid rgba(34,197,94,0.3);
+      font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 999px;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .card-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-box { padding: 16px 20px; }
+    .stat-box:first-child { border-right: 1px solid var(--border); }
+    .stat-label { font-size: 0.65rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .stat-value { font-size: 1.3rem; font-weight: 900; color: var(--yellow); }
+    .card-expenses { padding: 16px 20px; display: flex; flex-direction: column; gap: 10px; }
+    .expense-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
+    .expense-row .amount { font-weight: 700; color: var(--yellow); }
+    .card-footer { padding: 16px 20px; border-top: 1px solid var(--border); }
+    .card-footer .stat-label { margin-bottom: 8px; }
+    .progress-bar { height: 6px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden; }
+    .progress-fill { height: 100%; width: 100%; background: linear-gradient(90deg, var(--yellow), #86efac); border-radius: 999px; }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 24px 60px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    }
+    @media (max-width: 640px) { .stats-bar { grid-template-columns: repeat(2, 1fr); } }
+    .stat-pill {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px;
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;
+    }
+    .stat-pill .num { font-size: 1.5rem; font-weight: 900; color: var(--yellow); }
+    .stat-pill .desc { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── SECTION HEADER ── */
+    .section-header { text-align: center; padding: 0 24px 40px; }
+    .section-header h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; margin-bottom: 10px; }
+    .section-header p  { color: var(--muted); font-size: 1rem; max-width: 520px; margin: 0 auto; }
+
+    /* ── FEATURES GRID ── */
+    .features-section { max-width: 1100px; margin: 0 auto; padding: 20px 24px 80px; }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;
+    }
+    .feature-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-card:hover { border-color: rgba(250,204,21,0.3); transform: translateY(-3px); }
+    .feat-emoji { font-size: 1.8rem; margin-bottom: 14px; }
+    .feature-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
+    .feature-card p  { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; align-items: start; }
+    @media (max-width: 768px) { .steps { grid-template-columns: 1fr; } .step-arrow { display: none; } }
+    .step { text-align: center; padding: 24px; }
+    .step-num {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--yellow-dim); border: 2px solid rgba(250,204,21,0.4);
+      color: var(--yellow); font-weight: 900; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
+    .step p  { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .step-arrow { display: flex; align-items: center; justify-content: center; padding-top: 24px; color: var(--muted); font-size: 1.5rem; }
+
+    /* ── ROLES ── */
+    .roles-section { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+    .roles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 768px) { .roles-grid { grid-template-columns: 1fr; } }
+    .role-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px;
+    }
+    .role-card h3 { font-size: 1rem; font-weight: 900; margin-bottom: 16px; color: var(--yellow); }
+    .role-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .role-card li { font-size: 0.875rem; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+    .role-card li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+    /* ── CTA FINAL ── */
+    .cta-section {
+      text-align: center; padding: 60px 24px 80px;
+      background: linear-gradient(180deg, transparent 0%, rgba(250,204,21,0.04) 100%);
+    }
+    .cta-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; margin-bottom: 12px; }
+    .cta-section p  { color: var(--muted); font-size: 1rem; margin-bottom: 36px; }
+    .cta-section .cta-group { justify-content: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      max-width: 1100px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; justify-content: space-between;
+      align-items: flex-start; gap: 32px;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 0.95rem; margin-bottom: 8px; }
+    .footer-brand img { width: 28px; height: 28px; object-fit: contain; }
+    .footer-desc { font-size: 0.8rem; color: var(--muted); max-width: 260px; line-height: 1.6; }
+    .footer-links h4 { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-links li a { font-size: 0.85rem; color: var(--muted); transition: color 0.15s; }
+    .footer-links li a:hover { color: var(--text); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding: 20px 24px; text-align: center;
+      color: var(--muted); font-size: 0.78rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-brand">
+      <img src="/icons/icon-512.png" alt="PlátanoControl" />
+      PlátanoControl
+    </a>
+    <div class="nav-links">
+      <a href="#features" class="nav-link-docs">Funciones</a>
+      <a href="https://app-platano.ivanrene.com" class="nav-btn">Iniciar sesión</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section>
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">🌿 Plataforma agrícola</div>
+        <h1>Controla cada peso<br/>de <span>tu cultivo</span></h1>
+        <p>PlátanoControl centraliza todos los gastos de tus proyectos de plátano. Socios, operarios y administradores en un solo lugar, con trazabilidad completa.</p>
+        <div class="cta-group">
+          <!-- Google Play -->
+          <a href="https://play.google.com/store/apps/details?id=com.freeloz.platanocontrol"
+             class="btn btn-play" id="btn-play" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+              <path d="M3.18 23.76c.3.17.64.24.98.24.4 0 .8-.1 1.14-.32l12.44-7.18-2.82-2.83-11.74 10.09zm-1.18-20.9v18.28c0 .5.14.96.38 1.34L13.56 12 2.38 1.52A2.5 2.5 0 002 2.86zM20.4 9.4l-2.3-1.33-3.14 3.14 3.14 3.14 2.32-1.34c.66-.38 1.08-1.08 1.08-1.8 0-.72-.42-1.42-1.1-1.8zM4.16.56L16.6 7.74l-2.82 2.82L2.56.9C2.9.38 3.56.14 4.16.56z"/>
+            </svg>
+            Instalar en Google Play
+          </a>
+          <!-- Web -->
+          <a href="https://app-platano.ivanrene.com" class="btn btn-web">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
+            </svg>
+            Usar en la web
+          </a>
+        </div>
+      </div>
+
+      <!-- Demo card -->
+      <div class="hero-card">
+        <div class="card-header">
+          <strong>🌿 Los Almendros en Flor</strong>
+          <span class="badge-active">activo</span>
+        </div>
+        <div class="card-stats">
+          <div class="stat-box">
+            <div class="stat-label">Total invertido</div>
+            <div class="stat-value">$2.840.000</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Gastos hoy</div>
+            <div class="stat-value">$375.000</div>
+          </div>
+        </div>
+        <div class="card-expenses">
+          <div class="expense-row">
+            <span>3 Jornales de guadaña</span>
+            <span class="amount">$240.000</span>
+          </div>
+          <div class="expense-row">
+            <span>1 galón de gasolina</span>
+            <span class="amount">$60.000</span>
+          </div>
+          <div class="expense-row">
+            <span>ACPM - insumos</span>
+            <span class="amount">$50.000</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="stat-label">Trazabilidad de gastos</div>
+          <div class="progress-bar"><div class="progress-fill"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-pill"><span class="num">100%</span><span class="desc">Trazabilidad de gastos</span></div>
+    <div class="stat-pill"><span class="num">3</span><span class="desc">Roles de acceso diferenciados</span></div>
+    <div class="stat-pill"><span class="num">∞</span><span class="desc">Proyectos simultáneos</span></div>
+    <div class="stat-pill"><span class="num">📸</span><span class="desc">Evidencias fotográficas</span></div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features" class="features-section">
+    <div class="section-header">
+      <h2>Todo lo que necesitas para gestionar tu finca</h2>
+      <p>Desde el registro de un jornal hasta el análisis de rentabilidad por proyecto</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feat-emoji">💰</div>
+        <h3>Registro de Gastos</h3>
+        <p>Registra cada gasto por categoría: mano de obra, insumos, transporte, alimentación. Con fecha, proveedor y monto.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-emoji">📸</div>
+        <h3>Evidencias Fotográficas</h3>
+        <p>Adjunta fotos a cualquier gasto desde tu celular. Sube desde galería o toma una foto en el momento con la cámara.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-emoji">👥</div>
+        <h3>Gestión de Equipos</h3>
+        <p>Invita socios y operarios a cada proyecto. Controla quién puede ver y registrar gastos con roles diferenciados.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-emoji">📊</div>
+        <h3>Análisis por Proyecto</h3>
+        <p>Visualiza el desglose de gastos por categoría, balance entre socios y operarios, y tendencias de inversión.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-emoji">🔔</div>
+        <h3>Notificaciones por Correo</h3>
+        <p>Recibe invitaciones y alertas importantes en tu correo. Sistema de correo transaccional integrado.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-emoji">🔒</div>
+        <h3>Seguridad y Auditoría</h3>
+        <p>Registro completo de todas las acciones. Sabe quién registró qué y cuándo, con log de auditoría completo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-header">
+      <h2>Así de simple funciona</h2>
+      <p>En tres pasos tienes el control total de tus proyectos</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Crea tu proyecto</h3>
+        <p>Define el nombre, ubicación, hectáreas y fecha de siembra. Invita a tus socios y operarios con un enlace.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Registra gastos</h3>
+        <p>Cada operario o socio ingresa los gastos del día con categoría y monto. Se puede adjuntar foto de comprobante.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Analiza y decide</h3>
+        <p>Visualiza el resumen por proyecto y categoría. Exporta a CSV para tu contabilidad o toma decisiones informadas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLES -->
+  <section class="roles-section">
+    <div class="section-header">
+      <h2>Un sistema para todo el equipo</h2>
+      <p>Cada persona tiene el acceso y las herramientas que necesita</p>
+    </div>
+    <div class="roles-grid">
+      <div class="role-card">
+        <h3>Administrador</h3>
+        <ul>
+          <li>Gestión completa de proyectos</li>
+          <li>Administración de usuarios</li>
+          <li>Logs de correo y auditoría</li>
+          <li>Exportación de reportes</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <h3>Socio</h3>
+        <ul>
+          <li>Registro y edición de gastos</li>
+          <li>Invitación a nuevos miembros</li>
+          <li>Visualización de análisis</li>
+          <li>Subida de evidencias</li>
+        </ul>
+      </div>
+      <div class="role-card">
+        <h3>Operario</h3>
+        <ul>
+          <li>Registro de sus gastos</li>
+          <li>Adjuntar fotos de evidencia</li>
+          <li>Interfaz simplificada</li>
+          <li>Acceso desde móvil</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <h2>¿Listo para tener el control?</h2>
+    <p>Accede ahora y empieza a registrar los gastos de tu cultivo hoy mismo.</p>
+    <div class="cta-group">
+      <a href="https://play.google.com/store/apps/details?id=com.freeloz.platanocontrol"
+         class="btn btn-play" id="btn-play-bottom" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <path d="M3.18 23.76c.3.17.64.24.98.24.4 0 .8-.1 1.14-.32l12.44-7.18-2.82-2.83-11.74 10.09zm-1.18-20.9v18.28c0 .5.14.96.38 1.34L13.56 12 2.38 1.52A2.5 2.5 0 002 2.86zM20.4 9.4l-2.3-1.33-3.14 3.14 3.14 3.14 2.32-1.34c.66-.38 1.08-1.08 1.08-1.8 0-.72-.42-1.42-1.1-1.8zM4.16.56L16.6 7.74l-2.82 2.82L2.56.9C2.9.38 3.56.14 4.16.56z"/>
+        </svg>
+        Instalar en Google Play
+      </a>
+      <a href="https://app-platano.ivanrene.com" class="btn btn-web">
+        Iniciar sesión →
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-brand">
+        <img src="/icons/icon-512.png" alt="PlátanoControl" />
+        PlátanoControl
+      </div>
+      <p class="footer-desc">Gestión simplificada de costos agrícolas para productores de plátano colombianos.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Plataforma</h4>
+      <ul>
+        <li><a href="https://app-platano.ivanrene.com">Iniciar sesión</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.freeloz.platanocontrol">Google Play</a></li>
+        <li><a href="https://app-platano.ivanrene.com">Usar en la web</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Soporte</h4>
+      <ul>
+        <li><a href="mailto:soporte@freeloz.com">Contacto</a></li>
+        <li><a href="https://freeloz.com">Freeloz SAS</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    © 2026 PlátanoControl · Hecho con ❤️ para agricultores colombianos
+  </div>
+
+  <script>
+    // En Android: intenta abrir la app con Intent; si no, Play Store
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const PLAY = 'https://play.google.com/store/apps/details?id=com.freeloz.platanocontrol';
+    const INTENT = 'intent://app-platano.ivanrene.com/#Intent;scheme=https;package=com.freeloz.platanocontrol;S.browser_fallback_url=' + encodeURIComponent(PLAY) + ';end';
+
+    ['btn-play', 'btn-play-bottom'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el && isAndroid) {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.location.href = INTENT;
+        });
+      }
+    });
+  </script>
+</body>
+</html>

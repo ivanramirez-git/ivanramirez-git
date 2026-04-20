@@ -111,21 +111,16 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
         const assetRes = await env.ASSETS.fetch(assetReq);
         if (assetRes.status === 200) return assetRes;
       }
-      // All other paths: proxy to platanocontrol.com via tunnel
-      const targetUrl = new URL(request.url);
-      targetUrl.hostname = 'platanocontrol.com';
-      const h = new Headers(request.headers);
-      h.set('host', 'platanocontrol.com');
-      const resp = await fetch(targetUrl.toString(), {
-        method: request.method,
-        headers: h,
-        body: ['GET','HEAD'].includes(request.method) ? undefined : request.body,
-        redirect: 'follow',
-      });
-      return new Response(resp.body, {
-        status: resp.status,
-        headers: resp.headers,
-      });
+      // Landing page and other paths: serve from Worker assets
+      const assetPath = (path === '/' || path === '') ? '/platano/index.html' : '/platano' + path + '.html';
+      try {
+        const assetReq = new Request(new URL(assetPath, url.origin), request);
+        const assetRes = await env.ASSETS.fetch(assetReq);
+        if (assetRes.status === 200) return assetRes;
+      } catch {}
+      // Fallback: try the landing index
+      const fallbackReq = new Request(new URL('/platano/index.html', url.origin), request);
+      return env.ASSETS.fetch(fallbackReq);
     }
 
     // BTG Fund Manager demo at prueba-ceiba.ivanrene.com or /btg/
