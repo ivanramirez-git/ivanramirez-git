@@ -113,7 +113,7 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
       }
       // Landing: serve static HTML from assets
       if (path === '/' || path === '') {
-        const r = new Request(new URL('/platano/index.html', url.origin), request);
+        const r = new Request(new URL('/platano/landing.html', url.origin), request);
         return env.ASSETS.fetch(r);
       }
       // All other paths: try as asset first, then proxy
