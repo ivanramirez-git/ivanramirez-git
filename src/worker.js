@@ -98,27 +98,32 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
       });
     }
 
-    // PlátanoControl — proxy to platanocontrol.com (same tunnel)
+    // PlátanoControl — proxy to platanocontrol.com + static fallbacks
     if (url.hostname === 'platano.ivanrene.com') {
+      // Static pages served from Worker assets
+      if (path === '/eliminar-cuenta' || path === '/eliminar-cuenta/') {
+        const assetReq = new Request(new URL('/platano/eliminar-cuenta.html', url.origin), request);
+        const assetRes = await env.ASSETS.fetch(assetReq);
+        if (assetRes.status === 200) return assetRes;
+      }
+      if (path === '/privacidad' || path === '/privacidad/') {
+        const assetReq = new Request(new URL('/platano/privacidad.html', url.origin), request);
+        const assetRes = await env.ASSETS.fetch(assetReq);
+        if (assetRes.status === 200) return assetRes;
+      }
+      // All other paths: proxy to platanocontrol.com via tunnel
       const targetUrl = new URL(request.url);
       targetUrl.hostname = 'platanocontrol.com';
       const h = new Headers(request.headers);
       h.set('host', 'platanocontrol.com');
-      h.delete('cf-connecting-ip');
-      h.delete('cf-ray');
-      h.delete('cf-visitor');
-      h.delete('cf-worker');
       const resp = await fetch(targetUrl.toString(), {
         method: request.method,
         headers: h,
         body: ['GET','HEAD'].includes(request.method) ? undefined : request.body,
         redirect: 'follow',
-        cf: { cacheEverything: false },
       });
-      // Ensure the response body and status are forwarded correctly
       return new Response(resp.body, {
         status: resp.status,
-        statusText: resp.statusText,
         headers: resp.headers,
       });
     }
