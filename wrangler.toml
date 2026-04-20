@@ -5,7 +5,3 @@ compatibility_date = "2026-02-12"
 [assets]
 directory = "./dist"
 binding = "ASSETS"
-
-[[routes]]
-pattern = "platano.ivanrene.com/*"
-zone_name = "ivanrene.com"
