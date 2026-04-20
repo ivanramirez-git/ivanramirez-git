@@ -108,12 +108,18 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
       h.delete('cf-ray');
       h.delete('cf-visitor');
       h.delete('cf-worker');
-      return fetch(targetUrl.toString(), {
+      const resp = await fetch(targetUrl.toString(), {
         method: request.method,
         headers: h,
         body: ['GET','HEAD'].includes(request.method) ? undefined : request.body,
         redirect: 'follow',
         cf: { cacheEverything: false },
+      });
+      // Ensure the response body and status are forwarded correctly
+      return new Response(resp.body, {
+        status: resp.status,
+        statusText: resp.statusText,
+        headers: resp.headers,
       });
     }
 
