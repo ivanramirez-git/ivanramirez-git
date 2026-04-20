@@ -111,16 +111,22 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
         const assetRes = await env.ASSETS.fetch(assetReq);
         if (assetRes.status === 200) return assetRes;
       }
-      // Landing page and other paths: serve from Worker assets
-      const assetPath = (path === '/' || path === '') ? '/platano/index.html' : '/platano' + path + '.html';
-      try {
-        const assetReq = new Request(new URL(assetPath, url.origin), request);
-        const assetRes = await env.ASSETS.fetch(assetReq);
-        if (assetRes.status === 200) return assetRes;
-      } catch {}
-      // Fallback: try the landing index
-      const fallbackReq = new Request(new URL('/platano/index.html', url.origin), request);
-      return env.ASSETS.fetch(fallbackReq);
+      // Landing: serve static HTML from assets
+      if (path === '/' || path === '') {
+        const r = new Request(new URL('/platano/index.html', url.origin), request);
+        return env.ASSETS.fetch(r);
+      }
+      // All other paths: try as asset first, then proxy
+      const assetReq = new Request(new URL('/platano' + path, url.origin), request);
+      const ar = await env.ASSETS.fetch(assetReq);
+      if (ar.status === 200) return ar;
+      // Proxy to platanocontrol.com as last resort
+      const tgt = new URL(request.url);
+      tgt.hostname = 'platanocontrol.com';
+      const h2 = new Headers(request.headers);
+      h2.set('host', 'platanocontrol.com');
+      const pr = await fetch(tgt.toString(), { method: request.method, headers: h2 });
+      return new Response(pr.body, { status: pr.status, headers: pr.headers });
     }
 
     // BTG Fund Manager demo at prueba-ceiba.ivanrene.com or /btg/
