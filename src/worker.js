@@ -98,32 +98,10 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
       });
     }
 
-    // PlátanoControl — proxy al nginx del platano-proxy container
+    // PlátanoControl — bypass Worker, let tunnel handle it
     if (url.hostname === 'platano.ivanrene.com') {
-      const backendUrl = new URL(request.url);
-      backendUrl.hostname = 'platanocontrol.com';
-      try {
-        // Crear nuevos headers sin el Host original para evitar bloqueo de Cloudflare
-        const newHeaders = new Headers();
-        for (const [k, v] of request.headers.entries()) {
-          if (k.toLowerCase() !== 'host') newHeaders.set(k, v);
-        }
-        newHeaders.set('host', 'platanocontrol.com');
-        const proxyReq = new Request(backendUrl.toString(), {
-          method: request.method,
-          headers: newHeaders,
-          body: ['GET','HEAD'].includes(request.method) ? undefined : request.body,
-          redirect: 'manual',
-        });
-        const resp = await fetch(proxyReq);
-        return new Response(resp.body, {
-          status: resp.status,
-          statusText: resp.statusText,
-          headers: resp.headers,
-        });
-      } catch (e) {
-        return new Response('Error: ' + e.message, { status: 502 });
-      }
+      // Pass through to the Cloudflare Tunnel (configured via CNAME)
+      return fetch(request);
     }
 
     // BTG Fund Manager demo at prueba-ceiba.ivanrene.com or /btg/
