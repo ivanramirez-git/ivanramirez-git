@@ -98,6 +98,28 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
       });
     }
 
+    // PlátanoControl — proxy al nginx via fetch al servidor
+    if (url.hostname === 'platano.ivanrene.com') {
+      const backendUrl = new URL(request.url);
+      backendUrl.hostname = 'platanocontrol.com';
+      try {
+        const proxyReq = new Request(backendUrl.toString(), {
+          method: request.method,
+          headers: request.headers,
+          body: request.body,
+          redirect: 'manual',
+        });
+        const resp = await fetch(proxyReq);
+        return new Response(resp.body, {
+          status: resp.status,
+          statusText: resp.statusText,
+          headers: resp.headers,
+        });
+      } catch (e) {
+        return new Response('Error: ' + e.message, { status: 502 });
+      }
+    }
+
     // BTG Fund Manager demo at prueba-ceiba.ivanrene.com or /btg/
     if (url.hostname === 'prueba-ceiba.ivanrene.com' || path.startsWith('/btg/')) {
       let assetPath = path.startsWith('/btg/') ? path.replace('/btg', '') : path;
