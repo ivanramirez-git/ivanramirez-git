@@ -74,7 +74,8 @@ export default {
 
     // Routes that should be proxied to Flask backend (CV Manager)
     const flaskPrefixes = ['/cv/', '/panel/', '/auth/', '/api/', '/static/'];
-    const flaskExact = ['/sitemap-cvs.xml', '/cv', '/panel', '/auth'];
+    // sitemap-cvs.xml ya no se expone: la lista de CV por empresa no debe ser pública ni indexable
+    const flaskExact = ['/cv', '/panel', '/auth'];
     const isFlaskRoute = flaskPrefixes.some(p => path.startsWith(p)) || flaskExact.includes(path);
 
     if (isFlaskRoute) {
@@ -96,6 +97,8 @@ export default {
       }
       // Prevent CF from caching Flask responses
       newHeaders.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+      // Los CV personalizados se comparten por enlace, pero no se indexan
+      if (path === '/cv' || path.startsWith('/cv/')) newHeaders.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
       return new Response(response.body, {
         status: response.status,
         statusText: response.statusText,
