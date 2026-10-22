@@ -500,7 +500,7 @@
   /* ------------------------------------------------------------ Arranque */
   $$('.seg [data-lang]').forEach(function (b) { b.addEventListener('click', function () { aplicarIdioma(b.dataset.lang); }); });
   var qLang = new URLSearchParams(location.search).get('lang');
-  var inicial = qLang === 'en' || qLang === 'es' ? qLang : (store('ir-lang') || ((navigator.language || 'es').slice(0, 2) === 'en' ? 'en' : 'es'));
+  var inicial = qLang === 'en' || qLang === 'es' ? qLang : (store('ir-lang') || 'es');
   aplicarIdioma(inicial);
   abrir((location.hash || '#resumen').slice(1));
   cargarRepos();
