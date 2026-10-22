@@ -129,8 +129,13 @@
 
   /* Tarjetas: animar solo las visibles */
   if ('IntersectionObserver' in window) {
-    var vis = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('en-vista', e.isIntersecting); }); }, { rootMargin: '80px' });
-    $$('.card').forEach(function (c) { vis.observe(c); });
+    var vis = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        e.target.classList.toggle('en-vista', e.isIntersecting);
+        $$('svg', e.target).forEach(function (s) { if (s.pauseAnimations) { (e.isIntersecting && !pausado) ? s.unpauseAnimations() : s.pauseAnimations(); } });
+      });
+    }, { rootMargin: '80px' });
+    $$('.card').forEach(function (c) { $$('svg', c).forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); }); vis.observe(c); });
   } else { $$('.card').forEach(function (c) { c.classList.add('en-vista'); }); }
 
   if (reduce) setPausa(true);

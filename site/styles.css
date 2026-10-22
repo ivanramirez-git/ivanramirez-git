@@ -557,3 +557,4 @@ body.con-mouse .glow { opacity: 1; }
 .faq h2 { font-size: 16.5px; }
 .servicio h2 { font-size: 17px; }
 .modelo p a, .faq a, .lead a, .servicio a { text-decoration: underline; text-underline-offset: 2px; }
+.bento { content-visibility: auto; contain-intrinsic-size: auto 1400px; }
