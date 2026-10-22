@@ -293,7 +293,7 @@ export function pagina({ l, tab, ruta, otraRuta, titulo, desc, og, ogAlt, ogTipo
   const t = TX[l], otro = l === 'es' ? 'en' : 'es';
   const url = abs(ruta), urlOtra = abs(otraRuta);
   const es = l === 'es' ? url : urlOtra, en = l === 'en' ? url : urlOtra;
-  const foto = picture('/img/foto-ivan', t.fotoAlt, { anchos: [240, 360, 480, 640], sizes: '(max-width: 900px) 120px, 296px', w: 640, h: 640, cls: 'foto', lazy: false, prioridad: false });
+  const foto = picture('/img/foto-ivan', t.fotoAlt, { anchos: [240, 360, 480, 640], sizes: '(max-width: 900px) 120px, 296px', w: 640, h: 640, cls: 'foto', lazy: false, prioridad: true });
   return `<!doctype html>
 <html lang="${l}">
 <head>
