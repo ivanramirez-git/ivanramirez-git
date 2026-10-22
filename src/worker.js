@@ -46,76 +46,6 @@ export default {
       }
     }
 
-    // Override robots.txt — bypass Cloudflare Managed Content
-    if (path === '/robots.txt') {
-      const robotsTxt = `# ivanrene.com — Ivan Rene Ramirez Castro
-# Full Stack Developer & DevOps | Colombia
-
-User-agent: *
-Allow: /
-Allow: /cv/
-Disallow: /panel/
-Disallow: /auth/
-
-# Search engines — full access
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-# AI assistants — full access
-User-agent: GPTBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Anthropic-AI
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Applebot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: cohere-ai
-Allow: /
-
-User-agent: YouBot
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-# Sitemaps
-Sitemap: https://ivanrene.com/sitemap.xml
-Sitemap: https://ivanrene.com/sitemap-cvs.xml
-
-# llms.txt for AI context
-# https://ivanrene.com/llms.txt`;
-      return new Response(robotsTxt, {
-        headers: {
-          'Content-Type': 'text/plain; charset=utf-8',
-          'Cache-Control': 'public, max-age=3600',
-          'X-Robots-Tag': 'all',
-        }
-      });
-    }
-
     // PlátanoControl — serve landing from assets, redirect special pages
     if (url.hostname === 'platano.ivanrene.com') {
       // Special pages: redirect to platanocontrol.com (same content, working tunnel)
@@ -144,7 +74,7 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
 
     // Routes that should be proxied to Flask backend (CV Manager)
     const flaskPrefixes = ['/cv/', '/panel/', '/auth/', '/api/', '/static/'];
-    const flaskExact = ['/sitemap.xml', '/robots.txt', '/llms.txt', '/cv', '/panel', '/auth'];
+    const flaskExact = ['/sitemap-cvs.xml', '/cv', '/panel', '/auth'];
     const isFlaskRoute = flaskPrefixes.some(p => path.startsWith(p)) || flaskExact.includes(path);
 
     if (isFlaskRoute) {
@@ -173,24 +103,19 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
       });
     }
 
-    // ivanrene.com: la web es la propuesta «perfil» (public/propuestas/perfil) con recursos en /shared/.
-    // Lo que no exista ahí cae a los assets de siempre (imágenes, favicon, platano, rss…).
-    const isMainHost = url.hostname === 'ivanrene.com' || url.hostname === 'www.ivanrene.com';
-    if (isMainHost) {
-      const perfilPath = (path.startsWith('/shared/') ? '/propuestas' + path : '/propuestas/perfil' + path).replace(/\/index\.html$/, '/');
-      const perfil = await env.ASSETS.fetch(new Request(new URL(perfilPath, url.origin), request));
-      if (perfil.status === 200) return perfil;
+    // ivanrene.com: sitio estático generado por scripts/build-site.mjs (ES en /, EN en /en/)
+    if (url.hostname === 'www.ivanrene.com') {
+      return Response.redirect('https://ivanrene.com' + path + url.search, 301);
+    }
+    // *.workers.dev sirve igual que ivanrene.com para revisar versiones antes de publicarlas
+    if (url.hostname === 'ivanrene.com' || url.hostname.endsWith('.workers.dev')) {
+      return servirSitio(request, env, url, path);
     }
 
     // Serve static portfolio assets
     const response = await env.ASSETS.fetch(request);
     if (response.status !== 404 && (response.status < 300 || response.status >= 400)) {
       return response;
-    }
-
-    // Rutas desconocidas: en ivanrene.com vuelven al inicio de la web nueva
-    if (isMainHost) {
-      return Response.redirect(new URL('/', url.origin).toString(), 302);
     }
 
     // SPA fallback
@@ -201,3 +126,39 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
     return env.ASSETS.fetch(indexRequest);
   }
 };
+
+// Rutas de la web anterior que ya tienen equivalente
+const REDIRECCIONES = { '/services': '/servicios/', '/case-studies': '/proyectos/', '/hire-ivan': '/contacto/', '/resources': '/' };
+
+function cachePara(path, tipo) {
+  if (path.startsWith('/assets/') || path.startsWith('/fonts/')) return 'public, max-age=31536000, immutable';
+  if (/^\/(img|og|marca|images)\//.test(path) || /\.(png|webp|avif|svg|ico)$/.test(path)) return 'public, max-age=31536000';
+  if (tipo.includes('text/html')) return 'public, max-age=0, must-revalidate';
+  return 'public, max-age=3600';
+}
+
+async function servirSitio(request, env, url, path) {
+  const destino = REDIRECCIONES[path.replace(/\/$/, '')];
+  if (destino) return Response.redirect('https://ivanrene.com' + destino, 301);
+
+  let res = await env.ASSETS.fetch(request);
+  // html_handling redirige /proyectos → /proyectos/; se hace permanente para los buscadores
+  if (res.status === 307 || res.status === 308) {
+    const loc = res.headers.get('Location');
+    if (loc) return Response.redirect(new URL(loc, url.origin).toString(), 301);
+  }
+  let status = res.status;
+  if (status === 404) {
+    res = await env.ASSETS.fetch(new Request(new URL(path.startsWith('/en/') ? '/en/404.html' : '/404.html', url.origin), request));
+    status = 404;
+  }
+  const headers = new Headers(res.headers);
+  if (path.endsWith('.md')) headers.set('Content-Type', 'text/markdown; charset=utf-8');
+  else if (path.endsWith('.txt')) headers.set('Content-Type', 'text/plain; charset=utf-8');
+  headers.set('Cache-Control', cachePara(path, headers.get('Content-Type') || ''));
+  headers.set('X-Content-Type-Options', 'nosniff');
+  headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  headers.set('Strict-Transport-Security', 'max-age=31536000');
+  if (path.startsWith('/propuestas/')) headers.set('X-Robots-Tag', 'noindex');
+  return new Response(res.body, { status, headers });
+}
