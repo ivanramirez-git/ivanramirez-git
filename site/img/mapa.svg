@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="360" height="260">
+  <style>
+    .pt{fill:#667085;opacity:.55}
+    .arco{fill:none;stroke:#3E3BD6;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:260;stroke-dashoffset:260;animation:traza 5s ease-in-out infinite}
+    .a2{animation-delay:.6s}.a3{animation-delay:1.2s}
+    .punto{fill:#101828}.casa,.mundo{fill:#F59E0B}
+    .halo{fill:#F59E0B;transform-origin:201.9px 106.8px;animation:halo 2.2s ease-out infinite}
+    .lbl{font:700 12px ui-monospace,Menlo,Consolas,monospace;fill:#475467;paint-order:stroke;stroke:#F2F4F8;stroke-width:4px;stroke-linejoin:round}
+    .casa-lbl{fill:#B45309}
+    @keyframes traza{0%{stroke-dashoffset:260}45%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:-260}}
+    @keyframes halo{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+    @media (prefers-color-scheme:dark){.pt{fill:#8A92A6}.arco{stroke:#A5A4FF}.punto{fill:#EEF0F5}.lbl{fill:#B4BBCB;stroke:#141B2B}.casa-lbl{fill:#F59E0B}}
+    @media (prefers-reduced-motion:reduce){.arco{animation:none;stroke-dashoffset:0}.halo{animation:none;opacity:0}}
+  </style>
+  <defs>
+    <pattern id="pt" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1.25" class="pt"/></pattern>
+    <clipPath id="americas"><path d="M3.8 4.9 L3.8 24.5 L30.3 44.2 L56.8 66.2 L75.8 73.6 L106.1 83.4 L125.1 88.3 L144.0 90.8 L159.2 103.0 L174.3 103.0 L178.1 105.5 L181.9 112.8 L170.5 122.6 L166.7 134.9 L185.7 157.0 L204.6 166.8 L208.4 196.2 L197.1 220.8 L189.5 245.3 L216.0 257.5 L227.4 257.5 L216.0 245.3 L227.4 225.7 L257.7 215.8 L272.8 206.0 L291.8 191.3 L318.3 176.6 L325.9 157.0 L341.1 142.3 L341.1 134.9 L306.9 127.5 L284.2 122.6 L276.6 110.4 L246.3 103.0 L238.7 98.1 L216.0 95.7 L200.8 93.2 L189.5 95.7 L181.9 100.6 L174.3 99.3 L166.7 100.6 L159.2 98.1 L155.4 95.7 L144.0 84.6 L140.2 78.5 L144.0 69.9 L132.6 71.1 L128.8 76.0 L117.5 77.3 L106.1 71.1 L106.1 58.9 L117.5 50.3 L136.4 49.1 L155.4 49.1 L162.9 56.4 L170.5 60.1 L170.5 49.1 L166.7 44.2 L185.7 36.8 L185.7 29.4 L193.3 23.3 L208.4 19.6 L208.4 14.7 L223.6 12.3 L231.2 7.4 L246.3 7.4 L261.5 0.0 L170.5 -4.9 L113.7 -4.9 L3.8 -4.9 Z"/></clipPath>
+  </defs>
+  <rect width="360" height="260" fill="url(#pt)" clip-path="url(#americas)"/>
+  <path class="arco a1" d="M201.9 106.8 Q 201.4 94.9 193.0 111.1"/>
+  <path class="arco a2" d="M201.9 106.8 Q 203.8 77.1 169.8 59.5"/>
+  <path class="arco a3" d="M201.9 106.8 Q 264.9 4.0 348.0 34.0"/>
+  <circle class="halo" cx="201.9" cy="106.8" r="5"/>
+  <circle class="punto casa" cx="201.9" cy="106.8" r="5"/>
+  <circle class="punto" cx="193.0" cy="111.1" r="3.5"/>
+  <circle class="punto" cx="169.8" cy="59.5" r="3.5"/>
+  <circle class="punto mundo" cx="348.0" cy="34.0" r="3.5"/>
+  <text x="212.9" y="124.8" class="lbl casa-lbl">Tame</text>
+  <text x="186.0" y="123.1" class="lbl" text-anchor="end">Bogotá</text>
+  <text x="161.8" y="63.5" class="lbl" text-anchor="end">Miami</text>
+  <text x="346.0" y="52.0" class="lbl" text-anchor="end">↗</text>
+</svg>
