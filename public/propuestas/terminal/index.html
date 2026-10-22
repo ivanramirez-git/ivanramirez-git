@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Iván René Ramírez Castro · Ingeniero de Software · Full Stack · SRE</title>
+<meta name="description" content="Ingeniero de Software Full Stack y SRE en remoto desde Tame, Arauca. Diseño, construyo y opero plataformas de pagos, crédito, IoT e IA que llegan a producción y se quedan funcionando.">
+<meta name="theme-color" content="#0B0F19">
+<link rel="icon" href="/shared/marca/monograma.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Iván René Ramírez Castro · Ingeniero de Software">
+<meta property="og:description" content="Software que llega a producción y se queda funcionando. Full Stack · SRE · remoto desde Tame, Arauca.">
+<meta property="og:image" content="https://ivanrene.com/og-image.png">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Iván René Ramírez Castro","jobTitle":"Ingeniero de Software · Full Stack · SRE","url":"https://ivanrene.com","email":"mailto:ivanrene10@gmail.com","telephone":"+57 312 276 0392","address":{"@type":"PostalAddress","addressLocality":"Tame","addressRegion":"Arauca","addressCountry":"CO"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Pontificia Universidad Javeriana"},"worksFor":{"@type":"Organization","name":"Freeloz S.A.S.","url":"https://freeloz.com"},"sameAs":["https://www.linkedin.com/in/ivanramirez-in","https://github.com/ivanramirez-git"],"knowsAbout":["Full Stack","SRE","AWS","Cloudflare","Terraform","Angular","Flutter","Node.js","NestJS",".NET","Inteligencia artificial"]}
+</script>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <!-- Iconos a mano, trazo 1.6 sobre caja 24×24 -->
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4.2l2 2h8.8A1.5 1.5 0 0 1 21 9.5v8A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3.5h8l4 4V20a.5.5 0 0 1-.5.5h-11A.5.5 0 0 1 6 20z M14 3.5V8h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="19" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 7v10M18 9c0 5-6 4-12 8" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 8.2c.3-.6.7-.6 1-.1l.8 1.6c.1.3 0 .6-.2.8l-.5.5c.6 1.2 1.6 2.2 2.8 2.8l.5-.5c.2-.2.5-.3.8-.2l1.6.8c.5.3.5.7-.1 1-.9.7-2 .8-3 .4-2.1-.8-3.9-2.6-4.6-4.7-.4-.9-.3-1.8.4-2.4z" fill="currentColor"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 10.5V16M8 7.8v.1M11.5 16v-5.5M11.5 13c0-1.6 1-2.6 2.3-2.6s2.2.9 2.2 2.6V16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5m12 4.5v-3.2c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.7 4.7 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.8 2.1 5.8 2.4 5.8 2.4a4.3 4.3 0 0 0-.1 3.2A4.7 4.7 0 0 0 4.4 8.8c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pay" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 9.5h18M7 15h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-credit" viewBox="0 0 24 24"><path d="M4 20V10M9 20V6M14 20v-7M19 20V4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3 20.5h18" stroke="currentColor" stroke-width="1.4"/></symbol>
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="8.5" cy="11" r="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 16c.6-1.6 1.7-2.3 3-2.3s2.4.7 3 2.3M14 10h4M14 13.5h3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-iot" viewBox="0 0 24 24"><rect x="8" y="8" width="8" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 4v4M14 4v4M10 16v4M14 16v4M4 10h4M4 14h4M16 10h4M16 14h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-ai" viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.6L12 15l-1.8-4.4L5.5 9l4.7-1.4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M18 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z" fill="currentColor"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18.5h10.5a4 4 0 0 0 .4-8 5.5 5.5 0 0 0-10.6-1.4A4.6 4.6 0 0 0 7 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sign" viewBox="0 0 24 24"><path d="M4 18c3-5 4.5-9 3-10s-3 3-1 6 6 1 7-2 2 4 4 3 2-2 3-2M4 21h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5M5 10v7M9.5 10v7M14.5 10v7M19 10v7M3 20h18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-build" viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4zM4 7v10l8 4 8-4V7M12 11v10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-deploy" viewBox="0 0 24 24"><path d="M12 3c3 2 4.5 5 4.5 9l-2 3h-5l-2-3c0-4 1.5-7 4.5-9zM9.5 15L7 19l3-1M14.5 15L17 19l-3-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="1.5" fill="currentColor"/></symbol>
+  <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-grad" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z" fill="currentColor"/></symbol>
+  <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 9.5l3 2.5-3 2.5M12 15h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+<!-- Barra de la ventana -->
+<header class="chrome">
+  <div class="chrome-l">
+    <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+    <a class="brand" href="#inicio" aria-label="Iván Ramírez, inicio">
+      <img src="/shared/marca/monograma.svg" alt="" width="28" height="28">
+      <span class="brand-t">ivan@tame<span class="dim">:</span><span class="path" id="chrome-path">~/inicio</span></span>
+    </a>
+  </div>
+  <div class="chrome-r">
+    <div class="lang" role="group" aria-label="Idioma">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button type="button" class="pause" id="pause" aria-pressed="false">
+      <svg class="ic" aria-hidden="true"><use href="#i-pause"/></svg>
+      <span data-i18n="pause">Pausar animaciones</span>
+    </button>
+    <a class="btn btn-wa sm" href="https://wa.me/573122760392" target="_blank" rel="noopener">
+      <svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg><span data-i18n="cta_short">Escríbeme</span>
+    </a>
+  </div>
+</header>
+
+<div class="ide">
+  <!-- Explorador de archivos -->
+  <nav class="tree" aria-label="Secciones" id="tree">
+    <p class="tree-h" data-i18n="explorer">Explorador</p>
+    <p class="tree-root"><svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg>ivanrene.com</p>
+    <ul>
+      <li><a href="#inicio" data-sec="inicio"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span data-i18n="t_home">~/inicio</span></a></li>
+      <li><a href="#ahora" data-sec="ahora"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span data-i18n="t_now">~/ahora</span></a></li>
+      <li><a href="#proyectos" data-sec="proyectos"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span data-i18n="t_proj">~/proyectos</span></a></li>
+      <li><a href="#stack" data-sec="stack"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><span>~/stack</span></a></li>
+      <li><a href="#trayectoria" data-sec="trayectoria"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><span data-i18n="t_career">~/trayectoria</span></a></li>
+      <li><a href="#contacto" data-sec="contacto"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><span data-i18n="t_contact">~/contacto</span></a></li>
+    </ul>
+    <div class="tree-card">
+      <img src="/shared/marca/monograma-animado.svg" alt="" width="40" height="40">
+      <div><b>Iván René</b><span class="ok"><i class="dot"></i><span data-i18n="available">disponible</span></span></div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ~/inicio -->
+    <section id="inicio" class="sec hero" aria-labelledby="h-hero">
+      <div class="hero-txt">
+        <p class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">Ingeniero de Software · Full Stack · SRE · Tame, Arauca</span></p>
+        <h1 id="h-hero"><span data-i18n="h1a">Software que llega a producción</span> <span class="hl" data-i18n="h1b">y se queda funcionando.</span></h1>
+        <p class="lede" data-i18n="lede">Soy Iván René Ramírez Castro. Diseño, construyo, despliego y opero plataformas de pagos, crédito, IoT e inteligencia artificial para empresas de Colombia y Estados Unidos. Hablas directo con quien escribe el código.</p>
+        <div class="ctas">
+          <a class="btn btn-wa" href="https://wa.me/573122760392" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg><span data-i18n="cta">Escríbeme por WhatsApp</span></a>
+          <a class="btn btn-ghost" href="#proyectos"><span data-i18n="cta2">ls proyectos/</span><svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></a>
+        </div>
+        <ul class="facts">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-grad"/></svg><span data-i18n="f1">Ingeniero de Sistemas · Javeriana</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span data-i18n="f2">Matrícula COPNIA vigente</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg><span data-i18n="f3">+6 años en producción</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg><span data-i18n="f4">Español e inglés · UTC−5</span></li>
+        </ul>
+      </div>
+
+      <!-- Consola de arranque -->
+      <div class="boot win" aria-label="Consola de arranque">
+        <div class="win-bar"><span class="lights" aria-hidden="true"><i></i><i></i><i></i></span><span class="win-t" data-i18n="boot_t">zsh — arranque</span><button type="button" class="skip-boot" id="skip-boot" data-i18n="skip_boot">Saltar</button></div>
+        <div class="boot-body">
+          <svg class="mono-build" viewBox="0 0 160 160" aria-hidden="true">
+            <defs>
+              <linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3E3BD6"/><stop offset="1" stop-color="#A5A4FF"/></linearGradient>
+            </defs>
+            <rect class="mb-frame" x="6" y="6" width="148" height="148" rx="35" fill="none" stroke="url(#mg)" stroke-width="2" pathLength="1"/>
+            <rect class="mb-tile" x="14" y="14" width="132" height="132" rx="31" fill="#1D2939"/>
+            <text class="mb-text" x="80" y="104" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="54" font-weight="800" fill="#fff" letter-spacing="-2">IR</text>
+            <circle class="mb-halo" cx="129" cy="129" r="7" fill="#A5A4FF"/>
+            <circle class="mb-dot" cx="129" cy="129" r="7" fill="#3E3BD6"/>
+          </svg>
+          <ol class="boot-log" id="boot-log" aria-live="off">
+            <li data-i18n="b0"><span class="ps">$</span> ./arrancar --perfil ivan</li>
+            <li data-i18n="b1"><span class="okc">✓</span> monograma oficial cargado</li>
+            <li data-i18n="b2"><span class="okc">✓</span> stack: TypeScript · Angular · Flutter · NestJS · .NET</li>
+            <li data-i18n="b3"><span class="okc">✓</span> nube: AWS · Cloudflare · Terraform · Docker</li>
+            <li data-i18n="b4"><span class="okc">✓</span> 10 productos reales enlazados</li>
+            <li data-i18n="b5"><span class="live">●</span> operativo · remoto desde Tame, Arauca</li>
+          </ol>
+          <div class="boot-bar" aria-hidden="true"><span id="boot-fill"></span></div>
+        </div>
+      </div>
+
+      <!-- Cinta de dominios -->
+      <div class="tape" aria-label="Dominios en los que he construido software">
+        <div class="tape-track">
+          <span><svg class="ic" aria-hidden="true"><use href="#i-pay"/></svg><b data-i18n="d1">Pagos en punto de venta</b></span>
+          <span><svg class="ic" aria-hidden="true"><use href="#i-iot"/></svg><b data-i18n="d2">Control de acceso IoT en aeropuertos</b></span>
+          <span><svg class="ic" aria-hidden="true"><use href="#i-credit"/></svg><b data-i18n="d3">Originación de crédito</b></span>
+          <span><svg class="ic" aria-hidden="true"><use href="#i-id"/></svg><b data-i18n="d4">KYC y biometría</b></span>
+          <span><svg class="ic" aria-hidden="true"><use href="#i-sign"/></svg><b data-i18n="d5">Firma electrónica</b></span>
+          <span><svg class="ic" aria-hidden="true"><use href="#i-bank"/></svg><b data-i18n="d6">Integración con bancos</b></span>
+          <span><svg class="ic" aria-hidden="true"><use href="#i-ai"/></svg><b data-i18n="d7">Análisis de documentos con IA</b></span>
+          <span><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg><b data-i18n="d8">Hotel inteligente 24/7</b></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ~/ahora -->
+    <section id="ahora" class="sec" aria-labelledby="h-ahora">
+      <p class="cmdline"><span class="ps">ivan@tame:~$</span> <span class="typed" data-type>cd ~/ahora &amp;&amp; cat *.md</span></p>
+      <h2 id="h-ahora" data-i18n="ahora_h">Qué hago hoy</h2>
+      <div class="bento">
+        <article class="card c-wide glow">
+          <p class="tag"><span class="dot"></span>Wait N' Rest · Miami · <span data-i18n="remote">remoto</span></p>
+          <h3 data-i18n="wnr_h">Full Stack y SRE de un hotel inteligente que no se apaga</h3>
+          <p data-i18n="wnr_p">Despliego y mantengo los servicios críticos del sistema del hotel: monitoreo, atención de incidentes en producción y pipelines de CI/CD para entregar cambios sin tumbar nada.</p>
+          <div class="uptime" id="uptime" aria-hidden="true"></div>
+          <p class="note"><span data-i18n="uptime_l">operación continua · 90 días</span><span data-i18n="illus">ilustrativo, no es una medición</span></p>
+        </article>
+
+        <article class="card glow">
+          <p class="tag"><span class="dot v"></span><span data-i18n="partner_t">Socio</span></p>
+          <h3>Freeloz S.A.S.</h3>
+          <p data-i18n="freeloz_p">Software a medida, nube e IA para pymes de Colombia y Latinoamérica, con presupuesto cerrado por fase.</p>
+          <a class="link" href="https://freeloz.com" target="_blank" rel="noopener">freeloz.com <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+
+        <article class="card c-wide glow pipe-card">
+          <p class="tag"><span class="dot g"></span><span data-i18n="pipe_t">Así llega tu software a producción</span></p>
+          <svg class="pipe" viewBox="0 0 640 170" role="img" aria-labelledby="pipe-t">
+            <title id="pipe-t">Flujo: commit, build, despliegue y monitoreo</title>
+            <defs>
+              <linearGradient id="pg" x1="0" x2="1"><stop offset="0" stop-color="#3E3BD6"/><stop offset="1" stop-color="#22C55E"/></linearGradient>
+              <filter id="pglow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <path id="pipe-path" d="M60 80 H580" stroke="#263044" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path class="pipe-flow" d="M60 80 H580" stroke="url(#pg)" stroke-width="3" fill="none" stroke-linecap="round" pathLength="1"/>
+            <g class="node" transform="translate(60 80)"><circle r="30" fill="#141B2B" stroke="#3E3BD6" stroke-width="2"/><use href="#i-code" x="-12" y="-12" width="24" height="24" color="#A5A4FF"/></g>
+            <g class="node" transform="translate(233 80)"><circle r="30" fill="#141B2B" stroke="#5B58E6" stroke-width="2"/><use href="#i-build" x="-12" y="-12" width="24" height="24" color="#A5A4FF"/></g>
+            <g class="node" transform="translate(406 80)"><circle r="30" fill="#141B2B" stroke="#3FA77A" stroke-width="2"/><use href="#i-deploy" x="-12" y="-12" width="24" height="24" color="#86EFAC"/></g>
+            <g class="node n-live" transform="translate(580 80)"><circle class="ring" r="30" fill="none" stroke="#22C55E" stroke-width="2"/><circle r="30" fill="#0F2A1D" stroke="#22C55E" stroke-width="2"/><use href="#i-pulse" x="-12" y="-12" width="24" height="24" color="#4ADE80"/></g>
+            <g font-family="JetBrains Mono, monospace" font-size="13" fill="#98A2B3" text-anchor="middle">
+              <text x="60" y="136">commit</text><text x="233" y="136">build</text><text x="406" y="136" data-i18n="p_deploy">despliegue</text><text x="580" y="136" data-i18n="p_mon">monitoreo</text>
+            </g>
+            <g class="pkt" filter="url(#pglow)"><rect x="-9" y="-6" width="18" height="12" rx="3" fill="#A5A4FF"/></g>
+            <g class="pkt p2" filter="url(#pglow)"><rect x="-9" y="-6" width="18" height="12" rx="3" fill="#4ADE80"/></g>
+            <text x="580" y="34" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#4ADE80" data-i18n="p_live">● en producción</text>
+          </svg>
+          <p class="note"><span data-i18n="pipe_n">Cada cambio pasa por build, despliegue automatizado y monitoreo antes de llegar a tus usuarios.</span></p>
+        </article>
+
+        <article class="card glow map-card">
+          <p class="tag"><span class="dot"></span><span data-i18n="map_t">Remoto desde Tame, Arauca</span></p>
+          <svg class="minimap" viewBox="0 0 260 200" role="img" aria-labelledby="map-t">
+            <title id="map-t">Desde Tame hacia Bogotá, Miami y el mundo</title>
+            <g fill="#263044" id="mapdots"></g>
+            <path class="arc" d="M150 150 Q135 120 128 140" fill="none" stroke="#A5A4FF" stroke-width="1.8" stroke-dasharray="4 4"/>
+            <path class="arc a2" d="M150 150 Q120 60 92 46" fill="none" stroke="#A5A4FF" stroke-width="1.8" stroke-dasharray="4 4"/>
+            <path class="arc a3" d="M150 150 Q220 90 240 30" fill="none" stroke="#4ADE80" stroke-width="1.6" stroke-dasharray="3 5"/>
+            <circle cx="150" cy="150" r="10" fill="#3E3BD6" opacity=".25" class="ping"/>
+            <circle cx="150" cy="150" r="4.5" fill="#A5A4FF"/>
+            <circle cx="128" cy="140" r="3.5" fill="#E6E9F0"/>
+            <circle cx="92" cy="46" r="3.5" fill="#E6E9F0"/>
+            <g font-family="JetBrains Mono, monospace" font-size="11">
+              <text x="158" y="166" fill="#A5A4FF">Tame</text>
+              <text x="82" y="134" fill="#98A2B3">Bogotá</text>
+              <text x="66" y="34" fill="#98A2B3">Miami</text>
+              <text x="190" y="24" fill="#4ADE80" data-i18n="m_world">el mundo</text>
+            </g>
+          </svg>
+        </article>
+      </div>
+
+      <h3 class="sub" data-i18n="svc_h">Qué te construyo</h3>
+      <div class="svcs">
+        <article class="svc glow"><span class="svc-ic"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg></span><h4 data-i18n="s1_h">Construir</h4><p data-i18n="s1_p">Web con Angular, React, Vue o Next.js; apps móviles con Flutter; backend con NestJS, .NET o Node.js.</p></article>
+        <article class="svc glow"><span class="svc-ic"><svg class="ic" aria-hidden="true"><use href="#i-deploy"/></svg></span><h4 data-i18n="s2_h">Desplegar</h4><p data-i18n="s2_p">AWS, Cloudflare y Azure con Terraform, Docker y pipelines de CI/CD. Publicación en Google Play y App Store.</p></article>
+        <article class="svc glow"><span class="svc-ic"><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg></span><h4 data-i18n="s3_h">Operar (SRE)</h4><p data-i18n="s3_p">Monitoreo, respuesta a incidentes, copias de seguridad y ambientes de desarrollo, calidad y producción.</p></article>
+        <article class="svc glow"><span class="svc-ic"><svg class="ic" aria-hidden="true"><use href="#i-ai"/></svg></span><h4 data-i18n="s4_h">Integrar IA</h4><p data-i18n="s4_p">Análisis de documentos, búsqueda con Elasticsearch y automatizaciones con N8N, OpenAI, Anthropic o Bedrock.</p></article>
+      </div>
+    </section>
+
+    <!-- ~/proyectos -->
+    <section id="proyectos" class="sec" aria-labelledby="h-proj">
+      <p class="cmdline"><span class="ps">ivan@tame:~$</span> <span class="typed" data-type>ls -la ~/proyectos --en-produccion</span></p>
+      <h2 id="h-proj" data-i18n="proj_h">Productos reales, en producción</h2>
+      <p class="sec-lede" data-i18n="proj_lede">Cada enlace abre el producto en vivo. Los marcados como cliente son plataformas que construí o mantengo para otras empresas.</p>
+
+      <div class="projects">
+        <article class="proj feat glow">
+          <a class="shot" href="https://wycredito.com" target="_blank" rel="noopener" aria-label="WyCrédito, abrir sitio">
+            <span class="browser"><i></i><i></i><i></i><em>wycredito.com</em></span>
+            <img src="/shared/proyectos/wycredito-home.webp" alt="Página de inicio de WyCrédito" loading="lazy" width="1440" height="782">
+          </a>
+          <div class="proj-b"><p class="kind" data-i18n="client">cliente</p><h3>WyCrédito</h3><p data-i18n="pj_wyc">Crédito empresarial 100 % digital con IA para empresas colombianas.</p><ul class="chips"><li>Fintech</li><li>KYC</li><li data-i18n="ai">IA</li></ul></div>
+        </article>
+        <article class="proj feat glow">
+          <a class="shot" href="https://wytransfer.com" target="_blank" rel="noopener" aria-label="WyTransfer, abrir sitio">
+            <span class="browser"><i></i><i></i><i></i><em>wytransfer.com</em></span>
+            <img src="/shared/proyectos/wytransfer-home.webp" alt="Página de inicio de WyTransfer" loading="lazy" width="1440" height="782">
+          </a>
+          <div class="proj-b"><p class="kind" data-i18n="client">cliente</p><h3>WyTransfer</h3><p data-i18n="pj_wyt">Pagos y cobros locales e internacionales en una sola plataforma.</p><ul class="chips"><li data-i18n="payments">Pagos</li><li data-i18n="banks">Bancos</li></ul></div>
+        </article>
+        <article class="proj glow">
+          <a class="shot" href="https://vinculaform.com" target="_blank" rel="noopener" aria-label="VinculaForm, abrir sitio">
+            <span class="browser"><i></i><i></i><i></i><em>vinculaform.com</em></span>
+            <img src="/shared/proyectos/vinculaform-home.webp" alt="Formulario de vinculación de VinculaForm" loading="lazy" width="800" height="600">
+          </a>
+          <div class="proj-b"><p class="kind" data-i18n="client">cliente</p><h3>VinculaForm</h3><p data-i18n="pj_vf">Vinculación digital multipaso para cumplimiento financiero, multi-tenant.</p></div>
+        </article>
+        <article class="proj glow">
+          <a class="shot scroll" href="https://micro.freeloz.com" target="_blank" rel="noopener" aria-label="Micro, abrir sitio">
+            <span class="browser"><i></i><i></i><i></i><em>micro.freeloz.com</em></span>
+            <img src="/shared/proyectos/micro-freeloz-home.webp" alt="Página de torneos de Micro" loading="lazy" width="1200" height="3701">
+          </a>
+          <div class="proj-b"><p class="kind">Freeloz</p><h3>Micro</h3><p data-i18n="pj_micro">Torneos de microfútbol: equipos, fases, partidos, goles y tarjetas. Vue 3, LoopBack 4, MongoDB y Terraform en AWS.</p></div>
+        </article>
+        <article class="proj glow">
+          <a class="shot" href="https://platanocontrol.com" target="_blank" rel="noopener" aria-label="PlátanoControl, abrir sitio">
+            <span class="browser"><i></i><i></i><i></i><em>platanocontrol.com</em></span>
+            <img src="/shared/proyectos/platanocontrol-home.webp" alt="Panel de PlátanoControl" loading="lazy" width="800" height="600">
+          </a>
+          <div class="proj-b"><p class="kind" data-i18n="product">producto</p><h3>PlátanoControl</h3><p data-i18n="pj_pc">Gastos y labores de campo para productores de plátano. PWA y app Android.</p></div>
+        </article>
+        <article class="proj glow">
+          <a class="shot" href="https://tesorteo.com" target="_blank" rel="noopener" aria-label="TeSorteo, abrir sitio">
+            <span class="browser"><i></i><i></i><i></i><em>tesorteo.com</em></span>
+            <img src="/shared/proyectos/tesorteo-home.webp" alt="Rifa publicada en TeSorteo" loading="lazy" width="800" height="600">
+          </a>
+          <div class="proj-b"><p class="kind" data-i18n="product">producto</p><h3>TeSorteo</h3><p data-i18n="pj_ts">Rifas en línea con pagos Wompi, analítica GA4 y arquitectura multi-tenant.</p></div>
+        </article>
+      </div>
+
+      <div class="ls" role="list" aria-label="Más proyectos">
+        <a class="ls-row" role="listitem" href="https://celularesbaratos.ivanrene.com" target="_blank" rel="noopener"><img src="/shared/proyectos/celularesbaratos-home.webp" alt="" loading="lazy" width="800" height="600"><code>drwxr-xr-x</code><b>CelularesBaratos</b><span data-i18n="pj_cb">Catálogo generado a diario desde un PDF mayorista, con carrito y PayPal.</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <div class="ls-row" role="listitem"><img src="/shared/proyectos/paypay-home.webp" alt="" loading="lazy" width="800" height="600"><code>drwxr-x---</code><b>PayPay</b><span data-i18n="pj_pp">Microservicio central de pagos con Wompi que usan varias plataformas. FastAPI y llaves de API. Servicio interno.</span><span class="ic"></span></div>
+        <a class="ls-row" role="listitem" href="https://timer.freeloz.com" target="_blank" rel="noopener"><img src="/shared/proyectos/timer-freeloz.webp" alt="" loading="lazy" width="1200" height="738"><code>drwxr-xr-x</code><b>Timer · Freeloz</b><span data-i18n="pj_timer">App de productividad, rápida y sin distracciones.</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="ls-row" role="listitem" href="https://freeloz.com" target="_blank" rel="noopener"><img src="/shared/proyectos/freeloz-home.webp" alt="" loading="lazy" width="1200" height="5956"><code>drwxr-xr-x</code><b>Freeloz</b><span data-i18n="pj_fz">Sitio corporativo y plataforma de servicios.</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <div class="oss">
+        <p class="oss-h"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="oss_h">Código abierto</span></p>
+        <a href="https://github.com/ivanramirez-git/mongodb-backup-s3" target="_blank" rel="noopener"><b>mongodb-backup-s3</b><span data-i18n="oss1">copias de MongoDB a almacenamiento S3 con panel web</span></a>
+        <a href="https://github.com/ivanramirez-git/flutter_base" target="_blank" rel="noopener"><b>flutter_base</b><span data-i18n="oss2">base Flutter con arquitectura limpia</span></a>
+        <a href="https://github.com/ivanramirez-git/torneo-de-micro-api" target="_blank" rel="noopener"><b>torneo-de-micro-api</b><span data-i18n="oss3">API de torneos en LoopBack 4</span></a>
+        <a href="https://github.com/ivanramirez-git/template-dot-net-sql-angular" target="_blank" rel="noopener"><b>template-dot-net-sql-angular</b><span data-i18n="oss4">plantilla .NET + SQL Server + Angular</span></a>
+      </div>
+    </section>
+
+    <!-- ~/stack -->
+    <section id="stack" class="sec" aria-labelledby="h-stack">
+      <p class="cmdline"><span class="ps">ivan@tame:~$</span> <span class="typed" data-type>cat stack.json | jq</span></p>
+      <h2 id="h-stack" data-i18n="stack_h">Con qué trabajo</h2>
+      <div class="stack-grid">
+        <pre class="json win" aria-label="Stack en formato JSON"><code><span class="p">{</span>
+  <span class="k">"web"</span><span class="p">:</span> [<span class="s">"Angular"</span>, <span class="s">"React"</span>, <span class="s">"Vue"</span>, <span class="s">"Next.js"</span>, <span class="s">"Astro"</span>],
+  <span class="k">"movil"</span><span class="p">:</span> [<span class="s">"Flutter"</span>],
+  <span class="k">"backend"</span><span class="p">:</span> [<span class="s">"TypeScript/Node.js"</span>, <span class="s">"NestJS"</span>, <span class="s">".NET"</span>,
+              <span class="s">"LoopBack 4"</span>],
+  <span class="k">"datos"</span><span class="p">:</span> [<span class="s">"PostgreSQL"</span>, <span class="s">"Supabase"</span>, <span class="s">"MongoDB"</span>,
+            <span class="s">"SQL Server"</span>, <span class="s">"Elasticsearch"</span>],
+  <span class="k">"nube"</span><span class="p">:</span> [<span class="s">"AWS (ECS, RDS, SES)"</span>, <span class="s">"Cloudflare"</span>, <span class="s">"Azure"</span>,
+           <span class="s">"Docker"</span>, <span class="s">"Kubernetes"</span>, <span class="s">"Terraform"</span>],
+  <span class="k">"ci_cd"</span><span class="p">:</span> [<span class="s">"GitLab CI/CD"</span>, <span class="s">"Azure DevOps"</span>],
+  <span class="k">"ia"</span><span class="p">:</span> [<span class="s">"OpenAI"</span>, <span class="s">"Anthropic"</span>, <span class="s">"Amazon Bedrock"</span>, <span class="s">"N8N"</span>],
+  <span class="k">"tiendas"</span><span class="p">:</span> [<span class="s">"Google Play"</span>, <span class="s">"App Store"</span>]
+<span class="p">}</span><span class="cur" aria-hidden="true"></span></code></pre>
+
+        <svg class="orbit" viewBox="-36 -36 472 472" role="img" aria-labelledby="orb-t">
+          <title id="orb-t">El stack orbitando alrededor del monograma IR</title>
+          <circle cx="200" cy="200" r="82" fill="none" stroke="#263044" stroke-dasharray="2 6"/>
+          <circle cx="200" cy="200" r="175" fill="none" stroke="#263044" stroke-dasharray="2 6"/>
+          <circle cx="200" cy="200" r="222" fill="none" stroke="#1D2939"/>
+          <g class="o1">
+            <g transform="translate(282 200)"><g class="cnt1"><rect x="-38" y="-14" width="76" height="28" rx="14" fill="#141B2B" stroke="#3E3BD6"/><text y="5" text-anchor="middle" fill="#E6E9F0" font-family="JetBrains Mono, monospace" font-size="12">Angular</text></g></g>
+            <g transform="translate(118 200)"><g class="cnt1"><rect x="-36" y="-14" width="72" height="28" rx="14" fill="#141B2B" stroke="#3E3BD6"/><text y="5" text-anchor="middle" fill="#E6E9F0" font-family="JetBrains Mono, monospace" font-size="12">Flutter</text></g></g>
+            <g transform="translate(200 118)"><g class="cnt1"><rect x="-34" y="-14" width="68" height="28" rx="14" fill="#141B2B" stroke="#3E3BD6"/><text y="5" text-anchor="middle" fill="#E6E9F0" font-family="JetBrains Mono, monospace" font-size="12">NestJS</text></g></g>
+            <g transform="translate(200 282)"><g class="cnt1"><rect x="-28" y="-14" width="56" height="28" rx="14" fill="#141B2B" stroke="#3E3BD6"/><text y="5" text-anchor="middle" fill="#E6E9F0" font-family="JetBrains Mono, monospace" font-size="12">.NET</text></g></g>
+          </g>
+          <g class="o2">
+            <g transform="translate(375 200)"><g class="cnt2"><rect x="-26" y="-14" width="52" height="28" rx="14" fill="#0F2A1D" stroke="#22C55E"/><text y="5" text-anchor="middle" fill="#86EFAC" font-family="JetBrains Mono, monospace" font-size="12">AWS</text></g></g>
+            <g transform="translate(25 200)"><g class="cnt2"><rect x="-44" y="-14" width="88" height="28" rx="14" fill="#0F2A1D" stroke="#22C55E"/><text y="5" text-anchor="middle" fill="#86EFAC" font-family="JetBrains Mono, monospace" font-size="12">Terraform</text></g></g>
+            <g transform="translate(200 25)"><g class="cnt2"><rect x="-46" y="-14" width="92" height="28" rx="14" fill="#0F2A1D" stroke="#22C55E"/><text y="5" text-anchor="middle" fill="#86EFAC" font-family="JetBrains Mono, monospace" font-size="12">Cloudflare</text></g></g>
+            <g transform="translate(200 375)"><g class="cnt2"><rect x="-36" y="-14" width="72" height="28" rx="14" fill="#0F2A1D" stroke="#22C55E"/><text y="5" text-anchor="middle" fill="#86EFAC" font-family="JetBrains Mono, monospace" font-size="12">Docker</text></g></g>
+            <g transform="translate(323.7 76.3)"><g class="cnt2"><rect x="-32" y="-14" width="64" height="28" rx="14" fill="#2A1F3D" stroke="#A5A4FF"/><text y="5" text-anchor="middle" fill="#D6D5FF" font-family="JetBrains Mono, monospace" font-size="12" data-i18n="o_ai">IA</text></g></g>
+            <g transform="translate(76.3 323.7)"><g class="cnt2"><rect x="-46" y="-14" width="92" height="28" rx="14" fill="#141B2B" stroke="#3E3BD6"/><text y="5" text-anchor="middle" fill="#E6E9F0" font-family="JetBrains Mono, monospace" font-size="12">PostgreSQL</text></g></g>
+          </g>
+          <g transform="translate(160 160)">
+            <rect width="80" height="80" rx="19" fill="#1D2939"/>
+            <text x="40" y="53" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="32" font-weight="800" fill="#fff" letter-spacing="-1">IR</text>
+            <circle class="beat" cx="69.5" cy="69.5" r="4.2" fill="#3E3BD6"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ~/trayectoria -->
+    <section id="trayectoria" class="sec" aria-labelledby="h-career">
+      <p class="cmdline"><span class="ps">ivan@tame:~$</span> <span class="typed" data-type>git log --graph --oneline carrera</span></p>
+      <h2 id="h-career" data-i18n="career_h">Trayectoria</h2>
+      <ol class="glog" id="glog">
+        <li class="head"><span class="g-node"></span><code>2025.10</code><span class="refs">HEAD → main · tag: copnia</span><div><b data-i18n="c2b">Matrícula profesional COPNIA</b> <span><span class="nw">091122-0797186 CNDC</span> · <span data-i18n="c2">vigente</span></span></div></li>
+        <li class="tag-r now"><span class="g-node"></span><code>2025.04</code><span class="refs t" data-i18n="c1t">actual</span><div><b>Wait N' Rest</b> <span data-i18n="c1">Full Stack y SRE de un hotel inteligente que opera 24/7 · Miami, remoto</span></div></li>
+        <li><span class="g-node"></span><code>2024.09</code><div><b>CCSolutions</b> <span data-i18n="c3">Full Stack y DevOps: pipelines con GitLab, AWS, Azure y servidores Linux y Windows</span></div></li>
+        <li class="tag-r"><span class="g-node"></span><code>2024.09</code><span class="refs t" data-i18n="c4t">tag: grado</span><div><b data-i18n="c4b">Ingeniero de Sistemas</b> <span>Pontificia Universidad Javeriana</span></div></li>
+        <li><span class="g-node"></span><code>2024.01</code><div><b>TechD</b> <span data-i18n="c5">Apps web con IA (NeuralSeek, OpenAI, Anthropic, Bedrock) y Elasticsearch · socio IBM Platinum</span></div></li>
+        <li><span class="g-node"></span><code>2023.03</code><div><b>Double V Partners</b> <span data-i18n="c6">Angular, Flutter, .NET con CQRS, NestJS, Hasura y AWS</span></div></li>
+        <li><span class="g-node"></span><code>2022.11</code><div><b>EY</b> <span data-i18n="c7">Migración de bases de datos, reportes y CI/CD con Azure DevOps</span></div></li>
+        <li><span class="g-node"></span><code>2020.10</code><div><b>Kloustr Labs</b> <span data-i18n="c8">MVPs para startups con Flutter, Angular, Node.js y MongoDB</span></div></li>
+        <li class="root"><span class="g-node"></span><code>2017.01</code><span class="refs i">init</span><div><b data-i18n="c9b">Ingeniería de Sistemas</b> <span data-i18n="c9">empieza en la Javeriana, énfasis en desarrollo avanzado de software</span></div></li>
+      </ol>
+    </section>
+
+    <!-- ~/contacto -->
+    <section id="contacto" class="sec" aria-labelledby="h-contact">
+      <p class="cmdline"><span class="ps">ivan@tame:~$</span> <span class="typed" data-type>contacto --todos</span></p>
+      <h2 id="h-contact" data-i18n="contact_h">¿Hablamos de tu proyecto?</h2>
+      <p class="sec-lede" data-i18n="contact_lede">Cuéntame qué necesitas. Te respondo yo, no un vendedor, y te digo con honestidad si conviene construirlo o usar algo que ya existe.</p>
+      <div class="contact">
+        <a class="ct ct-wa glow" href="https://wa.me/573122760392" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg><span><b>WhatsApp</b><span>+57 312 276 0392</span></span></a>
+        <a class="ct glow" href="mailto:ivanrene10@gmail.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><span><b data-i18n="email">Correo</b><span>ivanrene10@gmail.com</span></span></a>
+        <a class="ct glow" href="https://www.linkedin.com/in/ivanramirez-in" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg><span><b>LinkedIn</b><span>ivanramirez-in</span></span></a>
+        <a class="ct glow" href="https://github.com/ivanramirez-git" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg><span><b>GitHub</b><span>ivanramirez-git</span></span></a>
+      </div>
+      <div class="models">
+        <article class="model glow"><p class="tag"><span class="dot v"></span>Colombia</p><h3 data-i18n="m1_h">Outsourcing gestionado</h3><p data-i18n="m1_p">Contrato de prestación de servicios con persona jurídica en Colombia, con alcance claro, reportes y facturación formal.</p></article>
+        <article class="model glow"><p class="tag"><span class="dot g"></span><span data-i18n="abroad">Exterior</span></p><h3 data-i18n="m2_h">Contratista internacional</h3><p data-i18n="m2_p">Para empresas de fuera de Colombia: contrato directo, trabajo en inglés o español y en tu zona horaria cuando haga falta.</p></article>
+      </div>
+      <p class="bye"><span class="ps">ivan@tame:~$</span> echo "<span data-i18n="bye">gracias por pasar</span>"<span class="cur" aria-hidden="true"></span></p>
+    </section>
+
+    <!-- Línea de comandos -->
+    <div class="cmd" id="cmd">
+      <p class="cmd-out" id="cmd-out" aria-live="polite"></p>
+      <form class="cmd-form" id="cmd-form" autocomplete="off">
+        <label for="cmd-in" class="ps">ivan@tame:~$</label>
+        <input id="cmd-in" name="cmd" type="text" spellcheck="false" placeholder="escribe help o toca un comando" data-i18n-ph="ph">
+        <span class="ghost" id="ghost" aria-hidden="true"></span>
+      </form>
+      <div class="chips-cmd" id="chips" aria-label="Comandos">
+        <button type="button" data-cmd="ahora">ahora</button>
+        <button type="button" data-cmd="proyectos">proyectos</button>
+        <button type="button" data-cmd="stack">stack</button>
+        <button type="button" data-cmd="trayectoria">trayectoria</button>
+        <button type="button" data-cmd="contacto">contacto</button>
+        <button type="button" data-cmd="whatsapp">whatsapp</button>
+        <button type="button" data-cmd="idioma">idioma</button>
+        <button type="button" data-cmd="help">help</button>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <img src="/shared/marca/monograma.svg" alt="" width="32" height="32">
+      <p>© 2026 Iván René Ramírez Castro · <span data-i18n="foot">Ingeniero de Sistemas, matrícula COPNIA 091122-0797186 CNDC · Hecho a mano, sin plantillas.</span></p>
+    </footer>
+  </main>
+</div>
+
+<!-- Barra de estado (escritorio) -->
+<footer class="status" aria-label="Estado">
+  <span><svg class="ic" aria-hidden="true"><use href="#i-branch"/></svg>main</span>
+  <span class="st-ok"><i class="dot g"></i><span data-i18n="st_ok">operativo</span></span>
+  <span class="st-sec" id="st-sec">~/inicio</span>
+  <span class="st-r"><span>Tame <b id="clock">--:--</b> UTC−5</span><span id="st-lang">ES</span><span>UTF-8</span></span>
+</footer>
+
+<!-- Barra CTA (móvil) -->
+<div class="mbar">
+  <a class="btn btn-wa" href="https://wa.me/573122760392" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a>
+  <a class="btn btn-ghost" href="mailto:ivanrene10@gmail.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><span data-i18n="email">Correo</span></a>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

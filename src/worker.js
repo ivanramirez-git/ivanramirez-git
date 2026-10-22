@@ -3,6 +3,24 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
+    // Propuestas de rediseño: propuestas.ivanrene.com (índice) y propuesta-<slug>.ivanrene.com
+    const propuesta = url.hostname.match(/^propuesta-([a-z0-9-]+)\.ivanrene\.com$/);
+    if (url.hostname === 'propuestas.ivanrene.com' || propuesta) {
+      const base = propuesta ? `/propuestas/${propuesta[1]}` : '/propuestas';
+      // /shared/ es común a todas; html_handling sirve el index desde la ruta de directorio
+      const assetPath = (path.startsWith('/shared/') ? '/propuestas' + path : base + path).replace(/\/index\.html$/, '/');
+      let res = await env.ASSETS.fetch(new Request(new URL(assetPath, url.origin), request));
+      if (res.status >= 300 && res.status < 400 && res.headers.get('Location')) {
+        res = await env.ASSETS.fetch(new Request(new URL(res.headers.get('Location'), url.origin), request));
+      }
+      if (res.status === 404) {
+        res = await env.ASSETS.fetch(new Request(new URL(base + '/', url.origin), request));
+      }
+      const headers = new Headers(res.headers);
+      headers.set('X-Robots-Tag', 'noindex');
+      return new Response(res.body, { status: res.status, headers });
+    }
+
     // CelularesBaratos — proxy to internal container via cv.ivanrene.com tunnel
     if (url.hostname === 'celularesbaratos.ivanrene.com') {
       const backendUrl = new URL(request.url);
