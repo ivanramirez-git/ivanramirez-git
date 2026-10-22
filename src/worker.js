@@ -173,10 +173,24 @@ Sitemap: https://ivanrene.com/sitemap-cvs.xml
       });
     }
 
+    // ivanrene.com: la web es la propuesta «perfil» (public/propuestas/perfil) con recursos en /shared/.
+    // Lo que no exista ahí cae a los assets de siempre (imágenes, favicon, platano, rss…).
+    const isMainHost = url.hostname === 'ivanrene.com' || url.hostname === 'www.ivanrene.com';
+    if (isMainHost) {
+      const perfilPath = (path.startsWith('/shared/') ? '/propuestas' + path : '/propuestas/perfil' + path).replace(/\/index\.html$/, '/');
+      const perfil = await env.ASSETS.fetch(new Request(new URL(perfilPath, url.origin), request));
+      if (perfil.status === 200) return perfil;
+    }
+
     // Serve static portfolio assets
     const response = await env.ASSETS.fetch(request);
     if (response.status !== 404 && (response.status < 300 || response.status >= 400)) {
       return response;
+    }
+
+    // Rutas desconocidas: en ivanrene.com vuelven al inicio de la web nueva
+    if (isMainHost) {
+      return Response.redirect(new URL('/', url.origin).toString(), 302);
     }
 
     // SPA fallback
