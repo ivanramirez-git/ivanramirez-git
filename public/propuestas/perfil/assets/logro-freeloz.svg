@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="Socio de Freeloz S.A.S.">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14532D"/><stop offset="1" stop-color="#4ADE80"/></linearGradient>
+    <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCFCE7"/><stop offset="1" stop-color="#86EFAC"/></linearGradient>
+  </defs>
+  <rect x="6" y="6" width="84" height="84" rx="24" fill="url(#b)"/>
+  <rect x="12" y="12" width="72" height="72" rx="20" fill="url(#g)"/>
+  <!-- píxeles en escalera, guiño al logo de Freeloz -->
+  <g fill="#FFFFFF">
+    <rect x="28" y="56" width="10" height="10" rx="2"/>
+    <rect x="42" y="56" width="10" height="10" rx="2"/>
+    <rect x="42" y="42" width="10" height="10" rx="2" opacity=".85"/>
+    <rect x="56" y="42" width="10" height="10" rx="2" opacity=".85"/>
+    <rect x="56" y="28" width="10" height="10" rx="2" opacity=".7"/>
+  </g>
+</svg>

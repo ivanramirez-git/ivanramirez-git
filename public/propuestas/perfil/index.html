@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Iván René Ramírez Castro · Ingeniero de Software · Full Stack · SRE</title>
+<meta name="description" content="Ingeniero de Software Full Stack y SRE en remoto desde Tame, Arauca. Diseño, construyo y opero software en producción: pagos, crédito digital, IoT, IA y nube.">
+<meta name="theme-color" content="#0B0F19" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F7FA" media="(prefers-color-scheme: light)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://ivanrene.com/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Iván René Ramírez Castro · Ingeniero de Software">
+<meta property="og:description" content="Software que llega a producción y se queda funcionando. Full Stack · SRE · remoto desde Tame, Arauca.">
+<meta property="og:url" content="https://ivanrene.com/">
+<meta property="og:image" content="https://ivanrene.com/og-image.png">
+<meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // Tema antes de pintar: ?tema=oscuro|claro, luego la preferencia guardada, si no el sistema.
+  (function () {
+    var q = new URLSearchParams(location.search).get('tema'), t = null;
+    try { t = localStorage.getItem('ir-tema'); } catch (e) {}
+    if (q === 'oscuro' || q === 'claro') t = q;
+    if (t) document.documentElement.setAttribute('data-tema', t);
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Iván René Ramírez Castro",
+  "jobTitle": "Ingeniero de Software · Full Stack · SRE",
+  "url": "https://ivanrene.com",
+  "email": "mailto:ivanrene10@gmail.com",
+  "telephone": "+57 312 276 0392",
+  "address": {"@type": "PostalAddress", "addressLocality": "Tame", "addressRegion": "Arauca", "addressCountry": "CO"},
+  "alumniOf": {"@type": "CollegeOrUniversity", "name": "Pontificia Universidad Javeriana"},
+  "hasCredential": {"@type": "EducationalOccupationalCredential", "name": "Matrícula profesional COPNIA 091122-0797186 CNDC"},
+  "worksFor": {"@type": "Organization", "name": "Freeloz S.A.S.", "url": "https://freeloz.com"},
+  "sameAs": ["https://www.linkedin.com/in/ivanramirez-in", "https://github.com/ivanramirez-git"],
+  "knowsLanguage": ["es", "en"]
+}
+</script>
+</head>
+<body>
+<a class="saltar" href="#contenido" data-i18n="saltar">Saltar al contenido</a>
+
+<!-- Sprite de iconos (hechos a mano) -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2.2a9.6 9.6 0 0 0-8.3 14.5L2.4 21.6l5-1.3A9.6 9.6 0 1 0 12 2.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.6 7.3c.3-.6.7-.6 1-.1l.9 1.9c.1.3 0 .6-.2.9l-.5.6c.7 1.3 1.7 2.3 3 3l.6-.5c.3-.2.6-.3.9-.2l1.9.9c.6.3.6.7.1 1.1-.9.8-2.2 1-3.4.5-2.3-1-4.2-2.9-5.2-5.2-.5-1.1-.4-2.1.9-2.9Z" fill="currentColor"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4" fill="currentColor"/><path d="M8 10.5v6M8 7.6v.1M11.5 16.5v-3.3c0-1.6 1-2.6 2.3-2.6s2.2.9 2.2 2.6v3.3M11.5 10.5v6" stroke="var(--panel)" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.6-.2.6-.5v-1.7c-2.6.6-3.2-1.2-3.2-1.2-.4-1.1-1-1.4-1-1.4-.9-.6 0-.6 0-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.1-.2-4.3-1-4.3-4.7 0-1 .4-1.9 1-2.6-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.6 1a9 9 0 0 1 4.8 0c1.8-1.3 2.6-1 2.6-1 .5 1.3.2 2.3.1 2.5.6.7 1 1.6 1 2.6 0 3.7-2.2 4.5-4.3 4.7.3.3.6.8.6 1.6v2.4c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z" fill="currentColor"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" fill="currentColor"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-build" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 9h17" stroke="currentColor" stroke-width="1.8"/><circle cx="7" cy="6.5" r=".9" fill="currentColor"/><circle cx="9.7" cy="6.5" r=".9" fill="currentColor"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M12 5 22 9.5 12 14 2 9.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m8.3 12.2 2.5 2.5 4.9-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-repo" viewBox="0 0 24 24"><path d="M6 3.5h11.5v15H7.2A2.2 2.2 0 0 0 5 20.7V5.5c0-1.1.9-2 2-2Z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M5 20.7c0-1.2 1-2.2 2.2-2.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 3.5v7l1.6-1.2 1.6 1.2v-7" fill="currentColor"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5c2.7-1 5.3-1 8 .7 2.7-1.7 5.3-1.7 8-.7v13c-2.7-1-5.3-1-8 .7-2.7-1.7-5.3-1.7-8-.7Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 6.2v13" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-commit" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 12h5.9M15.6 12h5.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H10l-4.5 3.5V16H4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 9.5h8M8 12.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.3M12 19.2v2.3M2.5 12h2.3M19.2 12h2.3M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 14.5A7.8 7.8 0 0 1 9.5 4.5a7.8 7.8 0 1 0 10 10Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.6" height="14" rx="1.2" fill="currentColor"/><rect x="13.9" y="5" width="3.6" height="14" rx="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7.5 5.2v13.6L19 12Z" fill="currentColor"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-replay" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3L4.5 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 4.5V9H9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="marca" href="#resumen" aria-label="Iván Ramírez, inicio">
+      <img src="/shared/marca/monograma.svg" width="34" height="34" alt="">
+      <span class="marca-txt"><span class="marca-dom">ivanrene.com</span><span class="marca-sep">/</span><b>ivanramirez</b></span>
+    </a>
+    <div class="topbar-acc">
+      <div class="seg" role="group" aria-label="Idioma">
+        <button type="button" id="lang-es" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="ico-btn" id="btn-tema" aria-label="Cambiar tema" data-i18n-aria="tema">
+        <svg class="if-dark"><use href="#i-sun"/></svg><svg class="if-light"><use href="#i-moon"/></svg>
+      </button>
+      <button type="button" class="ico-btn" id="btn-pausa" aria-pressed="false">
+        <svg class="when-run"><use href="#i-pause"/></svg><svg class="when-paused"><use href="#i-play"/></svg>
+        <span class="lbl-pausa" data-i18n="pausa">Pausar animaciones</span>
+      </button>
+      <a class="btn btn-wa btn-sm" href="https://wa.me/573122760392" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-i18n="escribeme">Escríbeme</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="layout" id="contenido">
+
+  <!-- ===================== Columna de perfil ===================== -->
+  <aside class="perfil" aria-label="Perfil">
+    <div class="avatar">
+      <img class="foto" src="/shared/marca/foto-ivan.jpg" width="800" height="800" alt="Iván René Ramírez Castro en su escritorio, con dos pantallas y un portátil" data-i18n-alt="fotoAlt">
+      <span class="avatar-mono"><img src="/shared/marca/monograma.svg" width="76" height="76" alt=""></span>
+      <span class="estado-burbuja" title="Disponible para proyectos"><span class="pulso" aria-hidden="true"></span><span data-i18n="disponibleCorto">Disponible</span></span>
+    </div>
+
+    <div class="perfil-nombre">
+      <h1>Iván René Ramírez Castro</h1>
+      <p class="handle">ivanramirez-git · <span data-i18n="pronombre">él</span></p>
+    </div>
+
+    <p class="rol"><span class="rol-a" data-i18n="rolA">Ingeniero de Software</span> · Full Stack · SRE</p>
+    <p class="bio" data-i18n="bio">Diseño, construyo y opero software que llega a producción y se queda funcionando: pagos, crédito digital, IoT, IA aplicada y nube. Hablas directo conmigo, el que lo programa.</p>
+
+    <div class="perfil-cta">
+      <a class="btn btn-wa btn-full" href="https://wa.me/573122760392?text=Hola%20Iv%C3%A1n%2C%20vi%20tu%20web%20y%20quiero%20hablar%20de%20un%20proyecto" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-i18n="ctaWa">Escríbeme por WhatsApp</span></a>
+      <a class="btn btn-sec btn-full" href="mailto:ivanrene10@gmail.com"><svg><use href="#i-mail"/></svg><span>ivanrene10@gmail.com</span></a>
+    </div>
+
+    <ul class="datos">
+      <li><svg><use href="#i-pin"/></svg><span>Tame, Arauca · Colombia · <span data-i18n="remoto">remoto</span></span></li>
+      <li><svg><use href="#i-clock"/></svg><span><span id="hora-tame">--:--</span> <span data-i18n="horaLocal">hora local (UTC−5)</span></span></li>
+      <li><svg><use href="#i-build"/></svg><span><span data-i18n="socio">Socio en</span> <a href="https://freeloz.com" target="_blank" rel="noopener">Freeloz</a></span></li>
+      <li><svg><use href="#i-cap"/></svg><span data-i18n="titulo">Ingeniero de Sistemas · Javeriana</span></li>
+      <li><svg><use href="#i-seal"/></svg><span>COPNIA <code>091122-0797186 CNDC</code></span></li>
+      <li><svg><use href="#i-in"/></svg><a href="https://www.linkedin.com/in/ivanramirez-in" target="_blank" rel="noopener">in/ivanramirez-in</a></li>
+      <li><svg><use href="#i-gh"/></svg><a href="https://github.com/ivanramirez-git" target="_blank" rel="noopener">github.com/ivanramirez-git</a></li>
+    </ul>
+
+    <div class="logros">
+      <h2 class="mini-h" data-i18n="logros">Credenciales</h2>
+      <div class="logros-fila">
+        <figure class="logro"><img src="assets/logro-javeriana.svg" width="64" height="64" alt="Ingeniero de Sistemas, Pontificia Universidad Javeriana"><figcaption data-i18n="lgJav">Javeriana</figcaption></figure>
+        <figure class="logro"><img src="assets/logro-copnia.svg" width="64" height="64" alt="Matrícula profesional COPNIA vigente"><figcaption data-i18n="lgCop">COPNIA</figcaption></figure>
+        <figure class="logro"><img src="assets/logro-freeloz.svg" width="64" height="64" alt="Socio de Freeloz S.A.S."><figcaption>Freeloz</figcaption></figure>
+        <figure class="logro"><img src="assets/logro-produccion.svg" width="64" height="64" alt="Más de seis años llevando software a producción"><figcaption data-i18n="lgProd">+6 años</figcaption></figure>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================== Columna principal con pestañas ===================== -->
+  <main class="principal">
+    <nav class="tabs" aria-label="Secciones">
+      <div class="tabs-in" role="tablist">
+        <button role="tab" id="tab-resumen" aria-controls="resumen" aria-selected="true" data-tab="resumen"><svg><use href="#i-book"/></svg><span data-i18n="tResumen">Resumen</span></button>
+        <button role="tab" id="tab-proyectos" aria-controls="proyectos" aria-selected="false" data-tab="proyectos" tabindex="-1"><svg><use href="#i-repo"/></svg><span data-i18n="tProyectos">Proyectos</span><span class="contador" id="cnt-proy">11</span></button>
+        <button role="tab" id="tab-trayectoria" aria-controls="trayectoria" aria-selected="false" data-tab="trayectoria" tabindex="-1"><svg><use href="#i-commit"/></svg><span data-i18n="tTrayectoria">Trayectoria</span></button>
+        <button role="tab" id="tab-contacto" aria-controls="contacto" aria-selected="false" data-tab="contacto" tabindex="-1"><svg><use href="#i-chat"/></svg><span data-i18n="tContacto">Contacto</span></button>
+        <span class="tabs-linea" aria-hidden="true"></span>
+      </div>
+    </nav>
+
+    <!-- ===== RESUMEN ===== -->
+    <section class="panel" id="resumen" role="tabpanel" aria-labelledby="tab-resumen">
+      <div class="readme">
+        <div class="readme-h"><svg><use href="#i-book"/></svg><span>ivanramirez-git / <b>README</b>.md</span></div>
+
+        <!-- Terminal -->
+        <div class="term" id="term">
+          <div class="term-bar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="term-tit">ivan@tame: ~</span>
+            <button type="button" class="term-replay" id="term-replay"><svg><use href="#i-replay"/></svg><span data-i18n="repetir">Repetir</span></button>
+          </div>
+          <div class="term-body" id="term-body" aria-live="polite"></div>
+        </div>
+
+        <!-- Bento -->
+        <div class="bento">
+          <!-- Qué construyo -->
+          <article class="card c-construyo tilt">
+            <p class="eyebrow" data-i18n="bcEyebrow">Qué construyo</p>
+            <h3 data-i18n="bcTit">Software que mueve dinero y cosas</h3>
+            <ul class="construyo">
+              <li>
+                <svg class="mini m-pago" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="12" width="36" height="24" rx="5" class="s-line"/><rect x="6" y="18" width="36" height="5" class="s-fillacc"/><rect class="tarjeta" x="10" y="27" width="12" height="4" rx="2"/><circle class="nfc" cx="36" cy="30" r="2.5"/></svg>
+                <span><b data-i18n="b1t">Pagos</b> <small data-i18n="b1d">en punto de venta e integración con bancos</small></span>
+              </li>
+              <li>
+                <svg class="mini m-credito" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 34a16 16 0 0 1 32 0" class="s-line"/><path class="arco" d="M8 34a16 16 0 0 1 32 0" /><path class="aguja" d="M24 34 33 23"/><circle cx="24" cy="34" r="2.8" class="s-fillacc"/></svg>
+                <span><b data-i18n="b2t">Crédito digital</b> <small data-i18n="b2d">originación, KYC, biometría y firma electrónica</small></span>
+              </li>
+              <li>
+                <svg class="mini m-iot" viewBox="0 0 48 48" aria-hidden="true"><rect x="16" y="14" width="16" height="26" rx="3" class="s-line"/><circle cx="24" cy="31" r="2.5" class="s-fillacc"/><path class="onda o1" d="M17 9a10 10 0 0 1 14 0"/><path class="onda o2" d="M13 5a16 16 0 0 1 22 0"/></svg>
+                <span><b data-i18n="b3t">IoT</b> <small data-i18n="b3d">control de acceso en aeropuertos</small></span>
+              </li>
+              <li>
+                <svg class="mini m-ia" viewBox="0 0 48 48" aria-hidden="true"><path class="chispa" d="M24 6c1.5 8 4 10.5 12 12-8 1.5-10.5 4-12 12-1.5-8-4-10.5-12-12 8-1.5 10.5-4 12-12Z"/><path class="chispa c2" d="M37 29c.7 3.2 1.8 4.3 5 5-3.2.7-4.3 1.8-5 5-.7-3.2-1.8-4.3-5-5 3.2-.7 4.3-1.8 5-5Z"/></svg>
+                <span><b data-i18n="b4t">IA aplicada</b> <small data-i18n="b4d">análisis de documentos y búsqueda</small></span>
+              </li>
+              <li>
+                <svg class="mini m-nube" viewBox="0 0 48 48" aria-hidden="true"><path d="M14 34h21a8 8 0 0 0 0-16 11 11 0 0 0-21 3 6.5 6.5 0 0 0 0 13Z" class="s-line"/><path class="sube" d="M24 30v-9m-4 4 4-4 4 4"/></svg>
+                <span><b data-i18n="b5t">Nube y operación</b> <small data-i18n="b5d">AWS, Cloudflare, Docker, Terraform, CI/CD</small></span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Stack en órbita -->
+          <article class="card c-stack tilt">
+            <p class="eyebrow">Stack</p>
+            <h3 data-i18n="stTit">Con qué trabajo</h3>
+            <div class="orbita" aria-label="Angular, React, Vue, Flutter, TypeScript, Node.js, NestJS, .NET, PostgreSQL, Supabase, MongoDB, AWS, Cloudflare, Docker, Terraform" role="img">
+              <svg class="orb-svg" viewBox="0 0 320 300" aria-hidden="true">
+                <ellipse cx="160" cy="150" rx="150" ry="116" class="orb-ring r3"/>
+                <ellipse cx="160" cy="150" rx="112" ry="80" class="orb-ring r2"/>
+                <ellipse cx="160" cy="150" rx="70" ry="46" class="orb-ring r1"/>
+              </svg>
+              <img class="orb-centro" src="/shared/marca/monograma.svg" width="56" height="56" alt="">
+              <span class="chip-o o1" style="--d:-0.00s">Angular</span>
+              <span class="chip-o o1" style="--d:-7.00s">Flutter</span>
+              <span class="chip-o o1" style="--d:-14.00s">React</span>
+              <span class="chip-o o2" style="--d:-3.50s">TypeScript</span>
+              <span class="chip-o o2" style="--d:-10.50s">Node.js</span>
+              <span class="chip-o o2" style="--d:-17.50s">NestJS</span>
+              <span class="chip-o o2" style="--d:-24.50s">.NET</span>
+              <span class="chip-o o3" style="--d:-0.00s">AWS</span>
+              <span class="chip-o o3" style="--d:-6.00s">Cloudflare</span>
+              <span class="chip-o o3" style="--d:-12.00s">Docker</span>
+              <span class="chip-o o3" style="--d:-18.00s">Terraform</span>
+              <span class="chip-o o3" style="--d:-24.00s">PostgreSQL</span>
+              <span class="chip-o o3" style="--d:-30.00s">Supabase</span>
+            </div>
+          </article>
+
+          <!-- Pipeline -->
+          <article class="card c-pipe tilt">
+            <p class="eyebrow" data-i18n="ppEyebrow">Cómo llega a producción</p>
+            <h3 data-i18n="ppTit">Del commit al usuario, sin sustos</h3>
+            <svg class="pipe" viewBox="0 0 560 150" role="img" aria-label="commit, build, pruebas, despliegue, en vivo" data-i18n-aria="ppAria">
+              <path id="pipe-camino" class="pipe-camino" d="M40 75 H520"/>
+              <path class="pipe-avance" d="M40 75 H520"/>
+              <g class="nodo n1"><circle cx="40" cy="75" r="20"/><path d="M33 75h5m4 0h5" class="nodo-ico"/><circle cx="40" cy="75" r="3.5" class="nodo-dot"/></g>
+              <g class="nodo n2"><circle cx="160" cy="75" r="20"/><path d="m153 70 7-5 7 5v10l-7 5-7-5Z" class="nodo-ico"/></g>
+              <g class="nodo n3"><circle cx="280" cy="75" r="20"/><path d="m272 75 5 5 10-10" class="nodo-ico"/></g>
+              <g class="nodo n4"><circle cx="400" cy="75" r="20"/><path d="M400 84V66m-6 6 6-6 6 6" class="nodo-ico"/></g>
+              <g class="nodo n5 vivo"><circle cx="520" cy="75" r="20"/><circle cx="520" cy="75" r="6" class="vivo-dot"/><circle cx="520" cy="75" r="6" class="vivo-halo"/></g>
+              <text x="40" y="122" class="pipe-lbl">commit</text>
+              <text x="160" y="122" class="pipe-lbl">build</text>
+              <text x="280" y="122" class="pipe-lbl" data-i18n="ppTest">pruebas</text>
+              <text x="400" y="122" class="pipe-lbl">deploy</text>
+              <text x="520" y="122" class="pipe-lbl vivo-lbl" data-i18n="ppVivo">en vivo</text>
+              <circle class="paquete" r="6"><animateMotion dur="4.2s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#pipe-camino"/></animateMotion></circle>
+            </svg>
+            <div class="log" aria-hidden="true">
+              <span><i class="ok">✓</i> lint · tests</span><span><i class="ok">✓</i> terraform plan</span><span><i class="ok">✓</i> docker build</span><span><i class="ok">✓</i> health check</span>
+            </div>
+          </article>
+
+          <!-- Ahora -->
+          <article class="card c-ahora tilt">
+            <p class="eyebrow" data-i18n="ahEyebrow">Ahora</p>
+            <h3>Full Stack · SRE <span class="h-sub">24/7</span></h3>
+            <ul class="ahora-l">
+              <li data-i18n="ah1"><b>Wait N' Rest</b>: plataforma de un hotel inteligente que no se apaga.</li>
+              <li data-i18n="ah2">Monitoreo, incidentes y pipelines de CI/CD.</li>
+              <li data-i18n="ah3">Socio en <b>Freeloz</b>: software a medida.</li>
+            </ul>
+            <div class="barras" id="barras" aria-hidden="true"></div>
+            <p class="nota" data-i18n="ahNota">operación continua · ilustrativo</p>
+          </article>
+
+          <!-- Del llano al mundo -->
+          <article class="card c-mapa tilt">
+            <p class="eyebrow" data-i18n="mpEyebrow">Desde Tame, Arauca</p>
+            <h3 data-i18n="mpTit">Remoto para el mundo</h3>
+            <svg class="mapa" viewBox="0 0 360 260" role="img" aria-label="Mapa: desde Tame, Arauca hacia Bogotá y Miami" data-i18n-aria="mpAria">
+              <defs>
+                <pattern id="pt" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1.25" class="pt"/></pattern>
+                <clipPath id="americas"><path d="M3.8 4.9 L3.8 24.5 L30.3 44.2 L56.8 66.2 L75.8 73.6 L106.1 83.4 L125.1 88.3 L144.0 90.8 L159.2 103.0 L174.3 103.0 L178.1 105.5 L181.9 112.8 L170.5 122.6 L166.7 134.9 L185.7 157.0 L204.6 166.8 L208.4 196.2 L197.1 220.8 L189.5 245.3 L216.0 257.5 L227.4 257.5 L216.0 245.3 L227.4 225.7 L257.7 215.8 L272.8 206.0 L291.8 191.3 L318.3 176.6 L325.9 157.0 L341.1 142.3 L341.1 134.9 L306.9 127.5 L284.2 122.6 L276.6 110.4 L246.3 103.0 L238.7 98.1 L216.0 95.7 L200.8 93.2 L189.5 95.7 L181.9 100.6 L174.3 99.3 L166.7 100.6 L159.2 98.1 L155.4 95.7 L144.0 84.6 L140.2 78.5 L144.0 69.9 L132.6 71.1 L128.8 76.0 L117.5 77.3 L106.1 71.1 L106.1 58.9 L117.5 50.3 L136.4 49.1 L155.4 49.1 L162.9 56.4 L170.5 60.1 L170.5 49.1 L166.7 44.2 L185.7 36.8 L185.7 29.4 L193.3 23.3 L208.4 19.6 L208.4 14.7 L223.6 12.3 L231.2 7.4 L246.3 7.4 L261.5 0.0 L170.5 -4.9 L113.7 -4.9 L3.8 -4.9 Z"/></clipPath>
+              </defs>
+              <rect width="360" height="260" fill="url(#pt)" clip-path="url(#americas)" class="continente"/>
+              <path class="arco a1" d="M201.9 106.8 Q 201.4 94.9 193.0 111.1"/>
+              <path class="arco a2" d="M201.9 106.8 Q 203.8 77.1 169.8 59.5"/>
+              <path class="arco a3" d="M201.9 106.8 Q 264.9 4.0 348.0 34.0"/>
+              <g class="punto casa"><circle cx="201.9" cy="106.8" r="5"/><circle cx="201.9" cy="106.8" r="5" class="halo"/></g>
+              <g class="punto"><circle cx="193.0" cy="111.1" r="3.5"/></g>
+              <g class="punto"><circle cx="169.8" cy="59.5" r="3.5"/></g>
+              <g class="punto mundo"><circle cx="348.0" cy="34.0" r="3.5"/></g>
+              <text x="212.9" y="124.8" class="m-lbl casa-lbl">Tame</text>
+              <text x="186.0" y="123.1" class="m-lbl" text-anchor="end">Bogotá</text>
+              <text x="161.8" y="63.5" class="m-lbl" text-anchor="end">Miami</text>
+              <text x="346.0" y="52.0" class="m-lbl" text-anchor="end" data-i18n="mpMundo">el mundo</text>
+            </svg>
+          </article>
+
+          <!-- Hablemos -->
+          <article class="card c-hablemos tilt">
+            <p class="eyebrow" data-i18n="hbEyebrow">Hablemos</p>
+            <h3 data-i18n="hbTit">¿Tienes un proyecto?</h3>
+            <p class="c-txt" data-i18n="hbTxt">Cuéntame qué necesitas. Te respondo yo, en horario de Colombia (UTC−5).</p>
+            <ul class="canales">
+              <li><span class="k">WA</span><a href="https://wa.me/573122760392" target="_blank" rel="noopener">+57 312 276 0392</a></li>
+              <li><span class="k">E</span><a href="mailto:ivanrene10@gmail.com">ivanrene10@gmail.com</a></li>
+              <li><span class="k">in</span><a href="https://www.linkedin.com/in/ivanramirez-in" target="_blank" rel="noopener">in/ivanramirez-in</a></li>
+            </ul>
+            <a class="btn btn-wa" href="https://wa.me/573122760392" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-i18n="ctaWa">Escríbeme por WhatsApp</span></a>
+          </article>
+        </div>
+      </div>
+
+      <!-- Fijados (vista previa) -->
+      <div class="bloque">
+        <div class="bloque-h">
+          <h2 class="h2" data-i18n="fijados">En producción</h2>
+          <button type="button" class="link-btn" data-ir="proyectos"><span data-i18n="verTodos">Ver todos los proyectos</span> <svg><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="pins pins-mini" id="pins-mini"></div>
+      </div>
+    </section>
+
+    <!-- ===== PROYECTOS ===== -->
+    <section class="panel" id="proyectos" role="tabpanel" aria-labelledby="tab-proyectos" hidden>
+      <div class="bloque">
+        <div class="bloque-h">
+          <h2 class="h2" data-i18n="fijadosTodos">Productos en producción</h2>
+          <p class="sub" data-i18n="fijadosSub">Productos que construí o en los que trabajé. Las capturas son de cada sitio.</p>
+        </div>
+        <div class="pins" id="pins"></div>
+      </div>
+
+      <div class="bloque">
+        <div class="bloque-h">
+          <h2 class="h2" data-i18n="repos">Repositorios públicos</h2>
+          <p class="sub" id="repos-fuente" data-i18n="reposSub">Leídos en vivo desde GitHub.</p>
+        </div>
+        <div class="repos-tool">
+          <label class="buscar"><span class="sr" data-i18n="buscarLbl">Buscar repositorio</span><input id="buscar" type="search" placeholder="Buscar un repositorio…" data-i18n-ph="buscarPh" autocomplete="off"></label>
+          <label class="sel"><span class="sr" data-i18n="lenguajeLbl">Lenguaje</span><select id="lenguaje"><option value="" data-i18n="todos">Todos los lenguajes</option></select></label>
+        </div>
+        <div class="actividad" id="actividad" hidden>
+          <p class="mini-h" data-i18n="actividadTit">Últimos pushes a repos públicos, por mes</p>
+          <svg id="act-svg" viewBox="0 0 600 70" preserveAspectRatio="none" aria-hidden="true"></svg>
+          <p class="nota" id="act-nota"></p>
+        </div>
+        <ul class="repos" id="repos"></ul>
+      </div>
+    </section>
+
+    <!-- ===== TRAYECTORIA ===== -->
+    <section class="panel" id="trayectoria" role="tabpanel" aria-labelledby="tab-trayectoria" hidden>
+      <div class="bloque">
+        <div class="bloque-h">
+          <h2 class="h2" data-i18n="trTit">Historial de commits de mi carrera</h2>
+          <p class="sub" data-i18n="trSub">De la hoja de vida. Más reciente arriba.</p>
+        </div>
+        <ol class="commits" id="commits"></ol>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="panel" id="contacto" role="tabpanel" aria-labelledby="tab-contacto" hidden>
+      <div class="bloque">
+        <div class="bloque-h">
+          <h2 class="h2" data-i18n="ctTit">Hablemos de tu proyecto</h2>
+          <p class="sub" data-i18n="ctSub">Respondo yo, sin intermediarios. Arma el mensaje y ábrelo en WhatsApp.</p>
+        </div>
+
+        <div class="contacto-grid">
+          <form class="redactor" id="redactor" novalidate>
+            <fieldset>
+              <legend data-i18n="rdQue">¿Qué necesitas?</legend>
+              <div class="opciones">
+                <label><input type="radio" name="tipo" value="proyecto" id="tipo-proyecto" checked><span data-i18n="rdProyecto">Un proyecto nuevo</span></label>
+                <label><input type="radio" name="tipo" value="equipo" id="tipo-equipo"><span data-i18n="rdEquipo">Reforzar mi equipo</span></label>
+                <label><input type="radio" name="tipo" value="operacion" id="tipo-operacion"><span data-i18n="rdOperacion">Operar o rescatar un sistema</span></label>
+                <label><input type="radio" name="tipo" value="vacante" id="tipo-vacante"><span data-i18n="rdVacante">Una vacante</span></label>
+              </div>
+            </fieldset>
+            <label class="campo"><span data-i18n="rdNombre">Tu nombre</span><input id="rd-nombre" type="text" autocomplete="name"></label>
+            <label class="campo"><span data-i18n="rdMsg">Cuéntame en dos líneas</span><textarea id="rd-msg" rows="3"></textarea></label>
+            <div class="vista" aria-live="polite"><span class="vista-k">WhatsApp ·</span> <span id="rd-vista"></span></div>
+            <button class="btn btn-wa" type="submit"><svg><use href="#i-wa"/></svg><span data-i18n="rdEnviar">Abrir en WhatsApp</span></button>
+          </form>
+
+          <div class="canales-grid">
+            <a class="canal" href="https://wa.me/573122760392" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span><b>WhatsApp</b><small>+57 312 276 0392</small></span></a>
+            <div class="canal">
+              <svg><use href="#i-mail"/></svg><span><b data-i18n="correo">Correo</b><small>ivanrene10@gmail.com</small></span>
+              <button type="button" class="copiar" id="copiar-correo" aria-label="Copiar correo" data-i18n-aria="copiarCorreo"><svg><use href="#i-copy"/></svg></button>
+            </div>
+            <a class="canal" href="https://www.linkedin.com/in/ivanramirez-in" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg><span><b>LinkedIn</b><small>in/ivanramirez-in</small></span></a>
+            <a class="canal" href="https://github.com/ivanramirez-git" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg><span><b>GitHub</b><small>ivanramirez-git</small></span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bloque">
+        <div class="bloque-h"><h2 class="h2" data-i18n="modTit">Formas de trabajar conmigo</h2></div>
+        <div class="modelos">
+          <article class="modelo">
+            <svg class="modelo-ico" viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="20" width="44" height="34" rx="6" class="s-line"/><path d="M24 20v-6a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v6" class="s-line"/><path d="M10 34h44" class="s-line"/><circle cx="32" cy="34" r="4" class="s-fillacc"/></svg>
+            <h3 data-i18n="m1t">Empresas en Colombia</h3>
+            <p data-i18n="m1d">Outsourcing gestionado por prestación de servicios con persona jurídica en Colombia, con alcance y entregas claras.</p>
+          </article>
+          <article class="modelo">
+            <svg class="modelo-ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="22" class="s-line"/><path d="M10 32h44M32 10c7 7 7 37 0 44M32 10c-7 7-7 37 0 44" class="s-line"/><circle cx="46" cy="18" r="4" class="s-fillacc"/></svg>
+            <h3 data-i18n="m2t">Empresas del exterior</h3>
+            <p data-i18n="m2d">Contratista internacional directo, en inglés o español, con horario solapado con EE. UU.</p>
+          </article>
+          <article class="modelo">
+            <svg class="modelo-ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="22" cy="26" r="7" class="s-line"/><circle cx="42" cy="26" r="7" class="s-line"/><path d="M10 50c0-7 5-12 12-12s12 5 12 12M30 50c0-7 5-12 12-12s12 5 12 12" class="s-line"/></svg>
+            <h3 data-i18n="m3t">Con equipo, vía Freeloz</h3>
+            <p data-i18n="m3d">Si el proyecto necesita más manos, lo armamos con <a href="https://freeloz.com" target="_blank" rel="noopener">Freeloz</a>: presupuesto cerrado por fase y demo cada 1–2 semanas.</p>
+          </article>
+        </div>
+        <ul class="compromisos">
+          <li data-i18n="cp1"><b>Hablas con quien programa.</b> Sin intermediarios.</li>
+          <li data-i18n="cp2"><b>Tu código, tu nube, tu documentación.</b> A tu nombre desde el primer día.</li>
+          <li data-i18n="cp3"><b>Demo funcional</b> cada 1–2 semanas.</li>
+          <li data-i18n="cp4"><b>No desaparezco al lanzar.</b> Monitoreo y operación después.</li>
+        </ul>
+        <p class="nota" data-i18n="cpNota">Compromisos de trabajo, no estadísticas.</p>
+      </div>
+    </section>
+
+    <footer class="pie">
+      <img src="/shared/marca/monograma.svg" width="28" height="28" alt="">
+      <span>© <span id="anio">2026</span> Iván René Ramírez Castro · Tame, Arauca, Colombia</span>
+      <span class="pie-der">COPNIA 091122-0797186 CNDC</span>
+    </footer>
+  </main>
+</div>
+
+<div class="cta-movil" role="complementary" aria-label="Contacto rápido">
+  <a class="btn btn-wa" href="https://wa.me/573122760392" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="btn btn-sec" href="mailto:ivanrene10@gmail.com"><svg><use href="#i-mail"/></svg><span data-i18n="correo">Correo</span></a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="glow" aria-hidden="true"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

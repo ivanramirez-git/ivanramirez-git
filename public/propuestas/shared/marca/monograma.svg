@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 76" width="76" height="76" role="img" aria-label="IR">
+  <rect width="76" height="76" rx="18" fill="#1D2939"/>
+  <text x="38" y="50" text-anchor="middle" font-family="Manrope, 'Helvetica Neue', Arial, sans-serif" font-size="31" font-weight="800" fill="#FFFFFF" letter-spacing="-1">IR</text>
+  <circle cx="66" cy="66" r="4" fill="#3E3BD6"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 76" width="76" height="76" role="img" aria-label="IR">
+  <style>
+    .t{animation:in .9s cubic-bezier(.2,.8,.2,1) both}
+    .d{transform-origin:66px 66px;animation:pop .5s .8s cubic-bezier(.3,1.6,.5,1) both, pulse 2.4s 1.4s ease-in-out infinite}
+    .h{transform-origin:66px 66px;animation:halo 2.4s 1.4s ease-out infinite;opacity:0}
+    @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    @keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+    @keyframes pulse{50%{transform:scale(1.15)}}
+    @keyframes halo{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(3)}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;opacity:1}}
+  </style>
+  <rect width="76" height="76" rx="18" fill="#1D2939"/>
+  <text class="t" x="38" y="50" text-anchor="middle" font-family="Manrope, 'Helvetica Neue', Arial, sans-serif" font-size="31" font-weight="800" fill="#FFFFFF" letter-spacing="-1">IR</text>
+  <circle class="h" cx="66" cy="66" r="4" fill="#A5A4FF"/>
+  <circle class="d" cx="66" cy="66" r="4" fill="#3E3BD6"/>
+</svg>
