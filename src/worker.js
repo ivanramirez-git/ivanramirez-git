@@ -107,7 +107,8 @@ export default {
     }
 
     // ivanrene.com: sitio estático generado por scripts/build-site.mjs (ES en /, EN en /en/)
-    if (url.hostname === 'www.ivanrene.com') {
+    // Una sola URL canónica: https://ivanrene.com (Google tenía indexada la versión http)
+    if (url.hostname === 'www.ivanrene.com' || (url.hostname === 'ivanrene.com' && url.protocol === 'http:')) {
       return Response.redirect('https://ivanrene.com' + path + url.search, 301);
     }
     // *.workers.dev sirve igual que ivanrene.com para revisar versiones antes de publicarlas
@@ -131,7 +132,16 @@ export default {
 };
 
 // Rutas de la web anterior que ya tienen equivalente
-const REDIRECCIONES = { '/services': '/servicios/', '/case-studies': '/proyectos/', '/hire-ivan': '/contacto/', '/resources': '/' };
+const REDIRECCIONES = {
+  '/services': '/servicios/', '/resources': '/', '/case-studies': '/proyectos/', '/case-study-multicloud': '/proyectos/',
+  '/case-study-micro': '/proyectos/micro/', '/hire-ivan': '/contacto/', '/hiring-playbook': '/contacto/',
+  '/ai-integrations': '/servicios/#ia', '/data-platforms': '/servicios/#ia',
+  '/cloud-architecture': '/servicios/#nube-sre', '/devops-automation': '/servicios/#nube-sre', '/platform-engineering': '/servicios/#nube-sre',
+  '/cost-optimization': '/servicios/#nube-sre', '/security-compliance': '/servicios/#nube-sre',
+  '/industry-fintech': '/servicios/#fintech', '/node-enterprise': '/servicios/#backend', '/product-delivery': '/servicios/#web-movil',
+  '/industry-ecommerce': '/servicios/', '/industry-health': '/servicios/', '/industry-saas': '/servicios/',
+  '/cto-advisory': '/servicios/', '/engineering-leadership': '/servicios/', '/customer-success': '/servicios/',
+};
 
 function cachePara(path, tipo) {
   if (path.startsWith('/assets/') || path.startsWith('/fonts/')) return 'public, max-age=31536000, immutable';
@@ -141,7 +151,7 @@ function cachePara(path, tipo) {
 }
 
 async function servirSitio(request, env, url, path) {
-  const destino = REDIRECCIONES[path.replace(/\/$/, '')];
+  const destino = REDIRECCIONES[path.replace(/\/$/, '').replace(/\.html$/, '')];
   if (destino) return Response.redirect('https://ivanrene.com' + destino, 301);
 
   let res = await env.ASSETS.fetch(request);
