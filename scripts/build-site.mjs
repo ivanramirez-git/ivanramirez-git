@@ -12,6 +12,8 @@ import { pagina, PANELES, panelProyecto, panel404, abs } from '../site/plantilla
 const RAIZ = fileURLToPath(new URL('..', import.meta.url));
 const SITE = join(RAIZ, 'site'), DIST = join(RAIZ, 'dist'), PUBLIC = join(RAIZ, 'public');
 const HOY = new Date().toISOString().slice(0, 10);
+// Fecha y hora completas (ISO 8601 con zona): Google rechaza dateModified sin hora en ProfilePage
+const AHORA = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
 const OTRO = { es: 'en', en: 'es' };
 const INDEXNOW_KEY = 'b6f0c1e8a4d24f7a9a3e2c5d7f8e9a10';
 
@@ -76,7 +78,7 @@ function migas(l, items) {
 }
 function webPage(tipo, l, ruta, titulo, desc, og, extra = {}) {
   return { '@type': tipo, '@id': abs(ruta) + '#pagina', url: abs(ruta), name: titulo, description: desc, inLanguage: l, isPartOf: { '@id': ID.web },
-    about: { '@id': ID.persona }, primaryImageOfPage: { '@type': 'ImageObject', url: abs(og), width: 1200, height: 630 }, dateModified: HOY, ...extra };
+    about: { '@id': ID.persona }, primaryImageOfPage: { '@type': 'ImageObject', url: abs(og), width: 1200, height: 630 }, dateModified: AHORA, ...extra };
 }
 const grafo = (...nodos) => [{ '@context': 'https://schema.org', '@graph': nodos }];
 
